@@ -1,0 +1,51 @@
+nav{
+    background-color: #0B53B2;
+}
+.nav-link {
+    color: white;
+}
+.navbar-nav{
+    margin-left: auto;
+}
+
+footer{
+    background-color: #0B53B2;
+    height: 10%;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+div.footer{
+    width: 100%;
+
+}
+h6.underdog{
+    padding-top: 10px;
+}
+p.copyright{
+    font-size: small;
+}
+
+
+#logo{
+    position: relative;
+
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    z-index: 100;
+
+}
+.navbar-toggler{
+    right: 0;
+    position: fixed;
+}
+
+
+
