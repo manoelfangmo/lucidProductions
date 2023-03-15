@@ -1,0 +1,38 @@
+form {
+    font-family: monospace;
+    text-align: center;
+    margin-left: 600px;
+    margin-top: -200px;
+    font-weight: bold;
+}
+
+
+p {
+    font-family: monospace;
+
+}
+
+h1 {
+    font-family: monospace;
+    color: yellow;
+    text-algin: left;
+}
+
+h2 {
+    font-family: monospace;
+    padding: 100px;
+}
+
+
+
+.logo {
+    margin-right: auto;
+}
+
+body {
+    background: linear-gradient(
+    to right,
+    #0B53B2 50%,
+    white 50%
+    );
+}
