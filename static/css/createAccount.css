@@ -13,6 +13,7 @@ p {
 }
 
 h1 {
+    margin-right: -400px;
     font-family: monospace;
     color: yellow;
     text-algin: left;
