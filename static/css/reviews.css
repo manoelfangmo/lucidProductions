@@ -6,49 +6,20 @@ p{
     font-weight: lighter;
     font-style: italic;
 }
-body {
+.boxin {
   position: absolute;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			width: 650px;
-			height: 750px;
+			width: 550px;
+			height: 550px;
             border-style: solid;
             border-width: 7px;
+            padding-top: 30px;
+            background-color:lightgrey;
 
 }
 
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-}
-
-.left {
-  left: 0;
-  background-color: #0B53B2;
-}
-
-.right {
-  right:0;
-  background-color: white;
-}
-
-.centered {
-    position: absolute;
-    top: 40%;
-    left: 30%;
-    transform: translate(-50%, -300%);
-    text-align: center;
-}
-
-.centered img {
-    width: 150px;
-    border-radius: 50%;
-}
 
 
 #form {
@@ -61,7 +32,7 @@ body {
 }
 
 body {
-    background-color: lightgray;
+    background-color: white;
 }
 
 #head {
@@ -86,10 +57,22 @@ body {
 input[type=submit]{
     background-color:#0B53B2;
     font-family:gill sans;
+    font-size: 15pt;
     cursor:pointer;
     color:white;
     padding: 14px 40px;
 }
 
 
+#textbox {
+    font-size:14pt;
+    padding-bottom: 300px;
+    padding-right: 240px;
+    border-style: solid;
+    border-width: .5px;
+}
 
+#share{
+    padding-bottom: 30px;
+    font-size:1.5em;
+}
