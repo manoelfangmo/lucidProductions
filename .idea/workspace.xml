@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="Navigation Bar on Collaborations page.">
-      <change beforePath="$PROJECT_DIR$/static/css/collaborations.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/collaborations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/collaborations.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations.html" afterDir="false" />
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="Changed font on collaborations page">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679015821727</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Edited navigation bar to fix events duplicate and change login to account">
+      <created>1679087208638</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679087208638</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changed font on collaborations page">
+      <created>1679087295195</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679087295195</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,9 +202,11 @@
     <MESSAGE value="Added HTML Templates, Added CSS Templates, and Added Bootstrap To HTML" />
     <MESSAGE value="Create Navbar and footer and added it to necessary html pages." />
     <MESSAGE value="Corrected merge issue with about page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected merge issue with about page." />
+    <MESSAGE value="Edited navigation bar to fix events duplicate and change login to account" />
+    <MESSAGE value="Changed font on collaborations page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed font on collaborations page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1679075913941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1678983778446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
