@@ -8,20 +8,48 @@
     <link rel="stylesheet" type="text/css" href="../static/css/createAccount.css">
   </head>
   <body>
+    <div class="split left">
+        <h1 id = 'head'> WELCOME TO <br> LUCID PRODUCTIONS</h1>
+            <h2 id = 'subhead'> Where dreams become reality</h2>
+    </div>
 
+     <div class="split right">
+            <form id="form">
+                <p class="create"> LETS CREATE YOUR ACCOUNT! </p>
+                <label for="fName"> FIRST NAME : </label> <br>
+                    <input type="text" id="fName" name = "fName">  <br>
+                <label for="lName"> LAST NAME : </label> <br>
+                    <input type="text" id="lName" name = "lName">  <br>
+                <label for="email"> EMAIL : </label> <br>
+                    <input type="email" id="email" name = "email"> <br>
+                <label for="pwd"> PASSWORD : </label> <br>
+                    <input type="password" id="pwd" name = "pwd"> <br>
+                <p> </p>
+                <p> PLEASE SELECT YOUR COUNTRY <br> OF RESIDENCE: </p>
+                <label for="coRes"> UNITED STATES OF AMERICA </label>
+                    <input type="radio" id="coRes" name = "coRes"> <br>
+                <label for="coRes2"> OTHER: </label>
+                    <input type="text" id="coRes2" name = "coRes2"> <br>
+                <p> </p>
+                <label for="tel"> PHONE : </label> <br>
+                    <input type="tel" id="tel" name = "tel">  <br>
+                <label for="zip"> ZIP/POSTAL CODE: </label> <br>
+                    <input type="text" id="zip" name = "zip">  <br>
+                <p> </p>
+                <p> WHAT ARE YOU? </p>
+                <label for="way"> A GUEST </label>
+                    <input type="radio" id="way" name = "way"> <br>
+                 <label for="way2"> A POTENTIAL CLIENT </label>
+                    <input type="radio" id="way2" name = "way2"> <br>
+                <label for="way3"> LUCID MANAGEMENT </label>
+                    <input type="radio" id="way3" name = "way3"> <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
+                <p> </p>
+                <input type="submit" value ="SUBMIT">
+                <img src = "../static/images/lucidlogo.png" alt= "Lucid Logo" width="50px;" height="50px;">
+            </form>
+        </div>
+    </div>
 
   </body>
 </html>
