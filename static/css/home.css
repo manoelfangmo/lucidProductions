@@ -1,5 +1,10 @@
 #homeImage {
-    padding-top: 150px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 150px;
+    padding-bottom: 130px;
+}
+
+body {
+    font-family: "Gill Sans";
 }
