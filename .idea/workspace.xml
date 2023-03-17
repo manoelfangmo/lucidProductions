@@ -4,7 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="Create Navbar and footer and added it to necessary html pages." />
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/Images/LucidFounders.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/Images/backToSchoolParty.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/Images/concert.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/Images/halloweenParty.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/Images/valentinesParty.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lucidlogo.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/lucidmgmt.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/team11spring2023bmgt407.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/team11spring2023bmgt407.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/createAccount.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/createAccount.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/events.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/events.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/collaborations.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createAccount.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,25 +56,32 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2MO86dxj1LZj8utNrSLbLeC4H6E" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/manoe/PycharmProjects/team11spring2023bmgt407/static/images&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/manoe/PycharmProjects/team11spring2023bmgt407",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\static\images" />
@@ -64,7 +93,10 @@
       <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\customerServicePages" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.navbar.html">
+  <component name="RunManager">
+    <configuration name="events.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/team11spring2023bmgt407/templates/events.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="navbar.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/team11spring2023bmgt407/templates/navbar.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -85,6 +117,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.events.html" />
         <item itemvalue="JavaScript Debug.navbar.html" />
       </list>
     </recent_temporary>
@@ -102,7 +135,12 @@
       <workItem from="1677793633695" duration="1393000" />
       <workItem from="1678143486758" duration="1553000" />
       <workItem from="1678749363604" duration="20383000" />
-      <workItem from="1678905386822" duration="8076000" />
+      <workItem from="1678905386822" duration="10680000" />
+      <workItem from="1678927079418" duration="14000" />
+      <workItem from="1678927157601" duration="4676000" />
+      <workItem from="1678975945106" duration="5000" />
+      <workItem from="1678989620637" duration="2041000" />
+      <workItem from="1678991722867" duration="18606000" />
     </task>
     <task id="LOCAL-00001" summary="Created Flask File">
       <created>1677627257607</created>
@@ -132,13 +170,32 @@
       <option name="project" value="LOCAL" />
       <updated>1678923744658</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Create Navbar and footer and added it to necessary html pages.">
+      <created>1678924670761</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678924670761</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Created Flask File" />
     <MESSAGE value="added HTML page templates" />
     <MESSAGE value="Added HTML Templates, Added CSS Templates, and Added Bootstrap To HTML" />

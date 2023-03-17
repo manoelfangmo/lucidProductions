@@ -1,34 +1,189 @@
-nav{
-    background-color: #0B53B2;
+.navDiv{
+    margin-top: 0;
+    border-top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
 }
-.nav-link {
-    color: white;
+body{
+    display: flex;
 }
-.navbar-nav{
-    margin-left: auto;
+* {
+
+ margin: 0;
+
+padding: 0;
+
+box-sizing: border-box;
+
 }
 
-footer{
-    background-color: #0B53B2;
-    height: 10%;
+
+
+a {
+
+text-decoration: none;
     color: white;
+
+}
+
+li {
+
+list-style: none;
+
+}
+.navbar {
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+padding: 20px;
+
+background-color: #0B53B2;
+
+color: white;
+
+}
+
+
+.menu {
+
+display: flex;
+justify-content: space-evenly;
+gap: 3em;
+
+font-size: 18px;
+
+}
+.menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+    gap: 2em;
+
+}
+
+.menu li:hover {
+
+    background-color: white;
+    color: black;
+
+    border-radius: 5px;
+
+    transition: 0.3s ease;
+
+}
+.services {
+
+position: relative;
+
+}
+
+
+
+
+input[type=checkbox]{
+
+display: none;
+
+}
+
+/*HAMBURGER MENU*/
+
+.hamburger {
+
+display: none;
+
+font-size: 24px;
+
+user-select: none;
+
+}
+
+/* APPLYING MEDIA QUERIES */
+
+@media (max-width: 768px) {
+
+.menu {
+
+display:none;
+
+position: absolute;
+
+background-color:#0B53B2;
+
+right: 0;
+
+left: 0;
+
+text-align: center;
+
+padding: 16px 0;
+
+}
+    input[type=checkbox]:checked ~ .menu{
+
+display: block;
+
+}
+
+.hamburger {
+
+display: block;
+
+}
+
+
+.dropdown li:hover {
+
+background-color: #0B53B2;
+
+}
+.menu ul {
+  display: flex;
+    flex-direction: column;
+  align-items: center;
+
+
+}
+
+
+}
+
+
+.footer{
     position: absolute;
-    bottom: 0;
+    z-index: 100;
     width: 100%;
-    text-align: center;
     display: flex;
     justify-content: center;
+
+}
+footer{
+    background-color: #0B53B2;
+    height: 13%;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     align-items: center;
 
 }
-div.footer{
-    width: 100%;
+div.footerContent{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.underdog{
+    padding-top: 2%;
+}
 
-}
-h6.underdog{
-    padding-top: 10px;
-}
 p.copyright{
+    align-items: center;
+    display: flex;
     font-size: small;
 }
 
@@ -39,13 +194,10 @@ p.copyright{
     width: 50px;
     height: 50px;
     padding: 0px;
-    z-index: 100;
+    z-index: 200;
 
 }
-.navbar-toggler{
-    right: 0;
-    position: fixed;
-}
+
 
 
 
