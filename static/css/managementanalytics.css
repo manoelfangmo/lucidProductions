@@ -1,0 +1,56 @@
+.split {
+  height: 100%;
+  width: 65%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+.left {
+  left: 0;
+  background-color: lightgray;
+    padding-top: 80px;
+    padding-left: 40px;
+    font-size: 2em;
+    font-family: gill sans;
+    font-weight: lighter;
+}
+
+.right {
+  right:0;
+  background-color: white;
+    display:grid;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 30px;
+    grid-template-columns: auto auto auto ;
+    grid-template-rows: 250px 250px 250px;
+    font-family: gill sans;
+    font-weight: lighter;
+}
+
+.grid-container{
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.button {
+    font-family:gill sans;
+    font-size: 20pt;
+    margin-bottom: auto;
+    background-color: #0B53B2;
+    cursor:pointer;
+    color:white;
+    padding: 14px 40px;
+}
+
+#header {
+    font-weight: lighter;
+    color: blue;
+}
+
+#reviewHead {
+    font-weight: lighter;
+    color: black;
+}
