@@ -68,7 +68,9 @@ def guestFlag():
 def contractWorker():
     return render_template('contractWorker.html');
 
-
+@app.route('/client/interestForm')
+def eventInquiry():
+    return render_template('eventInquiry.html');
 
 if __name__ == '__main__':
     app.run()
