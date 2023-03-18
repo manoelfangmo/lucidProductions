@@ -6,53 +6,6 @@ p{
     font-weight: lighter;
     font-style: italic;
 }
-.boxin {
-  position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 550px;
-			height: 550px;
-            border-style: solid;
-            border-width: 7px;
-            padding-top: 30px;
-            background-color:lightgrey;
-
-}
-
-
-
-#form {
-    font-family: gill sans;
-    text-align: left;
-    font-size: 1em;
-    padding-left: 20px;
-    height: 20px;
-
-}
-
-body {
-    background-color: white;
-}
-
-#head {
-    font-size: 1.5em;
-    font-family: gill sans;
-    color: #F7C679;
-    padding-left: 5px;
-    padding-right: 25px;
-    font-weight: bold;
-}
-
-#subhead {
-    font-size: 1.15em;
-    font-family: gill sans;
-    color: white;
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 25px;
-    font-weight: lighter;
-}
 
 input[type=submit]{
     background-color:#0B53B2;
@@ -63,14 +16,6 @@ input[type=submit]{
     padding: 14px 40px;
 }
 
-
-#textbox {
-    font-size:14pt;
-    padding-bottom: 300px;
-    padding-right: 240px;
-    border-style: solid;
-    border-width: .5px;
-}
 
 #share{
     padding-bottom: 30px;
