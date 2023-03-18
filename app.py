@@ -72,5 +72,6 @@ def contractWorker():
 def eventInquiry():
     return render_template('eventInquiry.html');
 
+
 if __name__ == '__main__':
     app.run()
