@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Client Interest Form</title>
-    <link rel="stylesheet" type="text/css" href="../static/css/contractWorker.css">
+    <title>Event Services Inquiry Form</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/eventInquiry.css">
     <link rel="stylesheet" href="../static/css/navbar.css">
 </head>
 <body>
@@ -35,6 +35,7 @@
                 <li><a href="/account/login">Account</a></li>
 
 
+
         </ul>
 
 
@@ -45,38 +46,27 @@
 </div>
 
 <div class = "interest">
-   <center><h1><strong> Media Contractor/Vendor Interest Form</strong></h1></center>
+    <center><h1><strong>Event Services Inquiry Form</strong></h1></center>
 
     <label style="color: blue">  <a href="createAccount.html"> Sign Up!</a> </label>
      <br>
           <br>
         <p> </p>
-        <strong><label for="coRes"> Full Name: * </label>
+        <strong><label for="coRes"> Event Type* </label>
     <input type="text" id="coRes2" name = "coRes2"> <br>
 
         <p> </p>
-        <label for="tel"> Phone: * </label>
+        <label for="tel"> Phone* </label>
     <input type="tel" id="tel" name = "tel">  <br>
   <p> </p>
-        <label for="tel"> Email: * </label>
+        <label for="tel"> Company </label>
     <input type="tel" id="tel" name = "tel">  <br>
   <p> </p>
-        <label for="tel"> Company/Organization: </label>
+        <label for="tel"> Email </label>
     <input type="tel" id="tel" name = "tel">  <br>
-          <p> What do you specialize in? </p>
-                <label for="way"> Music </label>
-                    <input type="radio" id="way" name = "way"> <br>
-                 <label for="way2"> Videography </label>
-                    <input type="radio" id="way2" name = "way2"> <br>
-                <label for="way3"> Food/Drink Catering </label>
-                    <input type="radio" id="way3" name = "way3"> <br>
-                   <label for="way3"> Other </label>
-                    <input type="text" id="way3" name = "way3"> <br>
-              <label for="way3"> Please attach your resume </label>
-                    <input type="file" id="myFile" name = "filename"> <br>
-            <label for="way3"> If applicable, attach a previous work  </label>
-                    <input type="file" id="myFile" name = "filename"> <br>
-<br>
+
+    <label for="coRes"> What are your event needs?* </label></strong>
+<textarea id="event-needs" name="event-needs" rows="5" cols="50"></textarea>
 
 
     <button> Submit </button>
@@ -86,12 +76,21 @@
 
   </div>
 
-<div class="media">
-    <br> </br>
-    <br> </br>
-     <center><img src = "../static/images/LucidDJ.jpg" alt="Lucid DJ" width="500cm;" height="400cm;"></center>
+<div class="TikiEvent">
+     <center><img src = "../static/images/Tiki.png" alt="TikiEvent" width="500cm;" height="400cm;"></center>
 </div>
 
+<div class = "footer">
+
+<footer>
+    <div class="footerContent">
+             <h6 class="underdog"> 407 Solutions</h6>
+        <p class="copyright">&copy; 2023 407 Solutions. All Rights Reserved.</p>
+
+
+    </div>
+
+</footer>
 </div>
 </body>
 </html>
