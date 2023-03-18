@@ -2,73 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reviews</title>
+    <title>Collaborations</title>
     <link rel="stylesheet" type="text/css" href="../static/css/collaborations.css">
     <link rel="stylesheet" href="../static/css/navbar.css">
 </head>
 <body>
 <div class="navDiv">
 
-<nav class="navbar">
+    <nav class="navbar">
 
 
-    <div class="logo"><img src="../static/images/lucidLogo.png" id="logo" alt="logo"></div>
+        <div class="logo"><img src="../static/images/lucidLogo.png" id="logo" alt="logo"></div>
 
 
-    <!-- USING CHECKBOX HACK -->
+        <!-- USING CHECKBOX HACK -->
 
-    <input type="checkbox" id="checkbox_toggle"/>
+        <input type="checkbox" id="checkbox_toggle"/>
 
-    <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
 
-    <!-- NAVIGATION MENUS -->
+        <!-- NAVIGATION MENUS -->
 
-    <div class="menu">
-        <ul>
-            <li><a href="home.html">Home</a></li>
+        <div class="menu">
+            <ul>
+                <li><a href="/">Home</a></li>
 
-            <li><a href="events.html">Events</a></li>
+                <li><a href="/events">Events</a></li>
 
-            <li><a href="collaborations.html">Collaborations</a></li>
+                <li><a href="/collaborations">Collaborations</a></li>
 
-            <li><a href="about.html">About</a></li>
-            <li><a href="login.html">Account</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/account/login">Account</a></li>
 
-
-        </ul>
-
-
-    </div>
+            </ul>
 
 
-</nav>
+        </div>
+
+
+    </nav>
     <div>
         <h1 id="which"> Which one of these applies to you? </center> </h1>
         <br>
         <br>
-        <center> <button onlick="eventInquiry.html"> Event Inquiry Form </button>
-        <button onlick="contractWorker.html"> Media Contract Vendor Interest Form </button>
+        <<a href="/client/form">
+            <button> Event Inquiry Form</button>
+        </a>
+            <a href="/collaborations/contractWorker">
+                <button> Media Contract Vendor Interest Form</button>
+            </a>
 
-        <p></p>
+            <p></p>
     </div>
-       <div>
+    <div>
         <p></p>
     </div>
 </div>
 
 
+<div class="footer">
 
-<div class = "footer">
-
-<footer>
-    <div class="footerContent">
-             <h6 class="underdog"> 407 Solutions</h6>
-        <p class="copyright">&copy; 2023 407 Solutions. All Rights Reserved.</p>
+    <footer>
+        <div class="footerContent">
+            <h6 class="underdog"> 407 Solutions</h6>
+            <p class="copyright">&copy; 2023 407 Solutions. All Rights Reserved.</p>
 
 
-    </div>
+        </div>
 
-</footer>
+    </footer>
 
 </body>
 </html>
