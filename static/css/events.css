@@ -2,20 +2,64 @@ body{
     justify-content: center;
 }
 div.events{
-    padding-top: 5%;
+    padding-top: 7%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+.event{
+    position: relative;
+}
+
+
+#saveIcon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+    width: 50px;
+}
+#saveIcon:hover {
+    background-color: #0B53B2;
 }
 
 
 .event img{
     margin: 20px;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
+    border-radius: 30px;
 }
-#event1{
-    margin-top: 20px;
+
+.eventPicker{
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1%;
+
+}
+
+.form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#toDateLabel{
+    padding-top: 8%;
+}
+
+#search{
+    padding-top: 8%;
+}
+#searchButton{
+    border-radius: 10px;
+    width: 120%;
+    background-color: #0B53B2;
+    color: white;
 }

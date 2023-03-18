@@ -45,6 +45,8 @@ padding: 20px;
 background-color: #0B53B2;
 
 color: white;
+    border-radius: 0px 0px 20px 20px;
+
 
 }
 
@@ -68,7 +70,7 @@ font-size: 18px;
 
 .menu li:hover {
 
-    background-color: white;
+    background-color: yellow;
     color: black;
 
     border-radius: 5px;
@@ -156,7 +158,6 @@ background-color: #0B53B2;
 
 .footer{
     position: absolute;
-    z-index: 100;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -170,6 +171,8 @@ footer{
     bottom: 0;
     width: 100%;
     align-items: center;
+    border-radius: 20px 20px 0px 0px;
+
 
 }
 div.footerContent{

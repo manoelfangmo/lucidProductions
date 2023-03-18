@@ -16,77 +16,132 @@
             crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../static/css/navbar.css">
     <link rel="stylesheet" href="../static/css/events.css">
-        <title>Bootstrap demo</title>
-
+    <title>Bootstrap demo</title>
 
 
 </head>
 <body>
 <div class="navDiv">
 
-<nav class="navbar">
+    <nav class="navbar">
 
 
-    <div class="logo"><img src="../static/images/lucidLogo.png" id="logo" alt="logo"></div>
+        <div class="logo"><img src="../static/images/lucidlogo.png" id="logo" alt="logo"></div>
 
 
-    <!-- USING CHECKBOX HACK -->
+        <!-- USING CHECKBOX HACK -->
 
-    <input type="checkbox" id="checkbox_toggle"/>
+        <input type="checkbox" id="checkbox_toggle"/>
 
-    <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
 
-    <!-- NAVIGATION MENUS -->
+        <!-- NAVIGATION MENUS -->
 
-    <div class="menu">
-        <ul>
-            <li><a href="home.html">Events</a></li>
+        <div class="menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
 
-            <li><a href="events.html">Events</a></li>
+                <li><a href="events.html">Events</a></li>
 
-            <li><a href="collaborations.html">Collaborations</a></li>
+                <li><a href="collaborations.html">Collaborations</a></li>
 
-            <li><a href="about.html">About</a></li>
-            <li><a href="login.html">Login</a></li>
-
-
-        </ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="login.html">Login</a></li>
 
 
-    </div>
+            </ul>
 
 
-</nav>
+        </div>
+
+
+    </nav>
 </div>
+<div class="eventPicker">
+    <form class="form">
+        <div>
+            <label class="formLabel">
+                From:<input type="date" name="fromDate"/>
+            </label>
+        </div>
 
+        <div id="toDateLabel">
+            <label class="formLabel">
+                To: <input type="date" name="toDate"/>
+            </label>
+        </div>
+
+        <div id="search">
+            <button id="searchButton">Search</button>
+
+        </div>
+
+    </form>
+
+</div>
 
 <div class="events">
-    <div class="event" id = "event1">
-      <img src="../static/images/valentinesParty.jpg" id = "valentines" alt="Image 1">
+    <div class="event" id="event1">
+        <img src="../static/images/valentinesParty.jpg" id="valentines" alt="Image 1">
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
     </div>
     <div class="event">
-      <img src="../static/images/halloweenParty.jpg" id = "halloween" alt="Image 2">
+        <img src="../static/images/halloweenParty.jpg" id="halloween" alt="Image 2">
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
     </div>
     <div class="event">
-      <img src="../static/images/backToSchoolParty.jpg" id = ""  alt="Image 3">
+        <img src="../static/images/backToSchoolParty.jpg" id="" alt="Image 3">
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+    </div>
+    <div class="event" id="event1">
+        <img src="../static/images/comingSoon.avif" id="valentines" alt="Image 1">
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+    </div>
+    <div class="event">
+        <img src="../static/images/comingSoon.avif" id="halloween" alt="Image 2">
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+    </div>
+    <div class="event">
+        <img src="../static/images/comingSoon.avif" id="" alt="Image 3">
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+    </div>
+    <div class="event" id="event1">
+        <img src="../static/images/comingSoon.avif" id="valentines" alt="Image 1">
+
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+    </div>
+    <div class="event">
+        <img src="../static/images/comingSoon.avif" id="halloween" alt="Image 2">
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+    </div>
+    <div class="event">
+        <img src="../static/images/comingSoon.avif" id="" alt="Image 3">
+        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
     </div>
 
 
 </div>
 
 
+<div class="footer">
 
-<div class = "footer">
-
-<footer>
-    <div class="footerContent">
-             <h6 class="underdog"> 407UnderDogs</h6>
-        <p class="copyright">&copy; 2023 407UnderDogs. All Rights Reserved.</p>
+    <footer>
+        <div class="footerContent">
+            <h6 class="underdog"> 407UnderDogs</h6>
+            <p class="copyright">&copy; 2023 407UnderDogs. All Rights Reserved.</p>
 
 
-    </div>
+        </div>
 
-</footer>
+    </footer>
 </div>
 </body>
 
