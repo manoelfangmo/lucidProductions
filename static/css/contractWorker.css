@@ -1,0 +1,38 @@
+h1 {
+  font-family: "Gill Sans";
+  font-style: italic;
+  color: #0B53B2;
+    text-align: center;
+    padding-left: 420px;
+}
+
+label {line-height: 2;
+      font-family: "Gill Sans";
+    padding-left: 100px;
+}
+
+p {line-height: 2;
+      font-family: "Gill Sans";
+    padding-left: 100px;
+}
+h1{padding-top: 100px
+}
+
+button {
+    font-family: "Gill Sans";
+    font-size: 15pt;
+    margin-bottom: auto;
+    background-color: #0B53B2;
+    cursor: pointer;
+    color:white;
+    padding: 14px 40px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 100px;
+}
+
+.media {margin-top: 160px;
+    margin-right: 90px
+;
+
+}

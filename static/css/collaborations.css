@@ -1,0 +1,82 @@
+p{
+    font-weight: bold;
+    padding: 40px;
+}
+
+.create{
+    font-weight: lighter;
+    font-style: italic;
+}
+
+#form {
+    font-family: gill sans;
+    text-align: left;
+    font-size: 1em;
+    padding-left: 20px;
+    height: 20px;
+
+}
+
+body {
+    background-color: white;
+}
+
+#head {
+    font-size: 1.5em;
+    font-family: gill sans;
+    color: #F7C679;
+    padding-left: 5px;
+    padding-right: 25px;
+    font-weight: bold;
+}
+
+#subhead {
+    font-size: 1.15em;
+    font-family: gill sans;
+    color: white;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 25px;
+    font-weight: lighter;
+}
+
+button{
+    background-color:#0B53B2;
+    font-family:gill sans;
+    font-size: 15pt;
+    cursor:pointer;
+    color:white;
+    padding: 14px 40px;
+    margin: 0;
+    transform: translate(50%,-50%);
+
+
+}
+
+#collab{
+	font-family:gill sans;
+	color:blue;
+	font-weight:lighter;
+}
+
+#which {
+    font-family: gill sans;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

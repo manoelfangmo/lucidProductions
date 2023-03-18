@@ -1,0 +1,23 @@
+p{
+    font-weight: bold;
+}
+
+.create{
+    font-weight: lighter;
+    font-style: italic;
+}
+
+input[type=submit]{
+    background-color:#0B53B2;
+    font-family:gill sans;
+    font-size: 15pt;
+    cursor:pointer;
+    color:white;
+    padding: 14px 40px;
+}
+
+
+#share{
+    padding-bottom: 30px;
+    font-size:1.5em;
+}
