@@ -48,11 +48,21 @@ button{
     color:white;
     padding: 14px 40px;
     margin: 0;
-    transform: translate(50%,-50%);
+    transform: translate(115%,-50%);
 
 
 }
 
+#cen {
+    background-color:#0B53B2;
+    font-family:gill sans;
+    font-size: 15pt;
+    cursor:pointer;
+    color:white;
+    padding: 14px 40px;
+    transform: translate(220%,-50%);
+
+}
 #collab{
 	font-family:gill sans;
 	color:blue;
@@ -61,7 +71,11 @@ button{
 
 #which {
     font-family: gill sans;
+    font-family:lighter;
+    text-align:center;
+    padding-top: 30px;
 }
+
 
 
 
