@@ -1,0 +1,19 @@
+.header{
+    background: #FDDA0D;
+    border:1px solid black;
+}
+
+.inside{
+    border:1px solid black;
+    background-color: red;
+  padding: 10px;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: blue;
+  padding: 10px;
+}
+
