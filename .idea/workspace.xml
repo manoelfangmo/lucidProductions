@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html&#10;&#10;Fixed Logo Not Appearing" />
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="&#10;&#10;Fixed Client Interest Form Route">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +128,7 @@
       <workItem from="1679104867828" duration="1701000" />
       <workItem from="1679176691425" duration="4427000" />
       <workItem from="1679182628136" duration="237000" />
+      <workItem from="1679224919240" duration="1136000" />
     </task>
     <task id="LOCAL-00001" summary="Created Flask File">
       <created>1677627257607</created>
@@ -203,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679182828576</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="&#10;&#10;Fixed Client Interest Form Route">
+      <created>1679225093910</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679225093910</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,9 +243,10 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html&#10;&#10;Changed some syntax to camel case" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html&#10;&#10;Fixed Images Not Appearing" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html&#10;&#10;Fixed Logo Not Appearing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html&#10;&#10;Fixed Logo Not Appearing" />
+    <MESSAGE value="&#10;&#10;Fixed Client Interest Form Route" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;&#10;Fixed Client Interest Form Route" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1679182846877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1679225512241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
