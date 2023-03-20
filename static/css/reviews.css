@@ -1,10 +1,21 @@
-p{
-    font-weight: bold;
+body{
+    background-image: url("/static/images/bonfireback.png");
+    background-size: cover;
 }
 
-.create{
+p, label{
     font-weight: lighter;
-    font-style: italic;
+    font-family: gill sans;
+    font-size: 1em;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-weight: bold;
+    font-family: gill sans;
+    font-size: 2em;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }
 
 input[type=submit]{
@@ -14,10 +25,9 @@ input[type=submit]{
     cursor:pointer;
     color:white;
     padding: 14px 40px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,.5);
 }
 
 
-#share{
-    padding-bottom: 30px;
-    font-size:1.5em;
-}
+
