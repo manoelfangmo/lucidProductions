@@ -4,18 +4,23 @@ body{
 }
 
 p, label{
-    font-weight: lighter;
     font-family: gill sans;
-    font-size: 1em;
-    padding-bottom: 10px;
+    font-weight:lighter;
+    font-size: 1.5em;
+    color: black;
+    padding-bottom: 20px;
+    margin: 10px;
 }
 
 h1 {
     font-weight: bold;
+    font-style: revert;
     font-family: gill sans;
     font-size: 2em;
+    color:black;
     padding-top: 30px;
     padding-bottom: 20px;
+    margin: 10px;
 }
 
 input[type=submit]{
@@ -26,7 +31,14 @@ input[type=submit]{
     color:white;
     padding: 14px 40px;
     border-radius: 15px;
+    margin: 20px;
     border: 1px solid rgba(255,255,255,.5);
+}
+
+.container {
+    padding-top: 20px;
+    width: 50%;
+    height: 20%;
 }
 
 
