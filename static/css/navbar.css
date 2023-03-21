@@ -4,11 +4,11 @@
     position: fixed;
     width: 100%;
     z-index: 100;
+    top: 0;
 }
-body{
-    display: flex;
-    font-family: "Gill Sans";
-}
+
+
+
 * {
 
  margin: 0;
@@ -157,44 +157,40 @@ background-color: #0B53B2;
 }
 
 
-.footer{
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: center;
 
-}
 footer{
-    background-color: #0B53B2;
-    height: 13%;
     color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    align-items: center;
     border-radius: 20px 20px 0px 0px;
-
-
-}
-div.footerContent{
+    background-color: #0B53B2;
+    width: 100%;
+    bottom: 0;
+   position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+
+
+
 }
 .underdog{
-    padding-top: 2%;
+    margin:  .8rem 0;
+    font-size: 1.2rem;
+}
+.copyright{
+    margin: .6rem 0;
+    font-size: .6rem;
 }
 
-p.copyright{
-    align-items: center;
-    display: flex;
-    font-size: small;
-}
+
+
+
+
 
 
 #logo{
     position: relative;
-
+    width: 100%;
     width: 50px;
     height: 50px;
     padding: 0px;

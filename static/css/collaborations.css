@@ -1,6 +1,5 @@
 p{
     font-weight: bold;
-    padding: 40px;
 }
 
 .create{
@@ -17,9 +16,7 @@ p{
 
 }
 
-body {
-    background-color: white;
-}
+
 
 #head {
     font-size: 1.5em;
@@ -74,6 +71,9 @@ button{
     font-family:lighter;
     text-align:center;
     padding-top: 30px;
+}
+.mainContainer{
+    min-height: 100vh;
 }
 
 

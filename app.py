@@ -52,9 +52,7 @@ def managementUsers():
 def client():
     return render_template('client.html');
 
-@app.route('/client/interestform')
-def clientForm():
-    return render_template('clientform.html');
+
 
 @app.route('/guest')
 def guest():
