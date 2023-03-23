@@ -45,7 +45,7 @@ button{
     color:white;
     padding: 14px 40px;
     margin: 0;
-    transform: translate(115%,-50%);
+
 
 
 }
@@ -57,7 +57,7 @@ button{
     cursor:pointer;
     color:white;
     padding: 14px 40px;
-    transform: translate(220%,-50%);
+    margin-right: 70px;
 
 }
 #collab{
@@ -74,6 +74,13 @@ button{
 }
 .mainContainer{
     min-height: 100vh;
+    padding-top: 15%;
+}
+
+.buttonContainer{
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
 }
 
 
