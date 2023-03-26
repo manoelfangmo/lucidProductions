@@ -70,11 +70,11 @@ button{
     font-family: gill sans;
     font-family:lighter;
     text-align:center;
-    padding-top: 30px;
+    padding-top: 26%;
 }
 .mainContainer{
     min-height: 100vh;
-    padding-top: 15%;
+    padding-top: 6%;
 }
 
 .buttonContainer{
@@ -83,6 +83,28 @@ button{
     justify-content: center;
 }
 
+#collabDescription{
+    float: left;
+    line-height: 2;
+    width: 50%;
+    margin-left: 30px;
+    padding-top: 5%;
+    text-align:center;
+}
+
+#collabImage{
+    display:flex;
+    float: right;
+    width: 47%;
+
+}
+
+#title{
+    padding-bottom: 6%;
+    font-family: gill sans;
+    font-family:lighter;
+    text-align:center;
+}
 
 
 
