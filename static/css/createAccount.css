@@ -11,10 +11,10 @@ body {
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			width: 650px;
-			height: 650px;
+			width: 30em;
+			height: 40em;
             border-style: solid;
-            border-width: 7px;
+            border-width: .5em;
 
 }
 
@@ -46,7 +46,7 @@ body {
 }
 
 .centered img {
-    width: 150px;
+    width: 150em;
     border-radius: 50%;
 }
 
@@ -55,8 +55,8 @@ body {
     font-family: gill sans;
     text-align: left;
     font-size: 1em;
-    padding-left: 20px;
-    height: 20px;
+    padding-left: 1em;
+    height: 2em;
 
 }
 
@@ -68,8 +68,8 @@ body {
     font-size: 1.5em;
     font-family: gill sans;
     color: #F7C679;
-    padding-left: 5px;
-    padding-right: 25px;
+    padding-left: .25em;
+    padding-right: .25em;
     font-weight: bold;
 }
 
@@ -77,9 +77,9 @@ body {
     font-size: 1.15em;
     font-family: gill sans;
     color: white;
-    padding-top: 5px;
-    padding-left: 5px;
-    padding-right: 25px;
+    padding-top: .5em;
+    padding-left: .5em;
+    padding-right: 25em;
     font-weight: lighter;
 }
 
@@ -88,7 +88,7 @@ input[type=submit]{
     font-family:gill sans;
     cursor:pointer;
     color:white;
-    padding: 14px 40px;
+    padding: 1.4em 2.0em;
 }
 
 
