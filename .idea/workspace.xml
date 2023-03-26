@@ -4,21 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="&#10;&#10;Fixed Client Interest Form Route">
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="&#10;Fixed Navbar on all pages.">
+      <change afterPath="$PROJECT_DIR$/static/css/futureEventDetails.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/pastEventDetails.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/comingSoon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/googlePhotos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/partyPic1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/partyPic2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/partyPic3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/partyPic4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/scripts/slider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/futureEventDetails.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pastEventDetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/about.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/collaborations.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/collaborations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/contractWorker.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/contractWorker.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/eventInquiry.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/eventInquiry.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/events.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/events.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/guestflag.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/guestflag.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/comingSoon.avif" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clientform.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/collaborations.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contractWorker.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contractWorker.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eventInquiry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eventInquiry.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +38,7 @@
         <option value="Flask Main" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -143,7 +151,14 @@
       <workItem from="1679224919240" duration="1774000" />
       <workItem from="1679264133994" duration="11464000" />
       <workItem from="1679364745284" duration="1735000" />
-      <workItem from="1679380670431" duration="6132000" />
+      <workItem from="1679380670431" duration="6773000" />
+      <workItem from="1679444571986" duration="3473000" />
+      <workItem from="1679503122688" duration="15590000" />
+      <workItem from="1679583016732" duration="11255000" />
+      <workItem from="1679609129015" duration="1355000" />
+      <workItem from="1679687755078" duration="9507000" />
+      <workItem from="1679775029015" duration="3494000" />
+      <workItem from="1679865518479" duration="2008000" />
     </task>
     <task id="LOCAL-00001" summary="Created Flask File">
       <created>1677627257607</created>
@@ -236,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679226099799</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="&#10;Fixed Navbar on all pages.">
+      <created>1679405148471</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679405148471</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,9 +288,10 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html&#10;&#10;Fixed Images Not Appearing" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html&#10;&#10;Fixed Logo Not Appearing" />
     <MESSAGE value="&#10;&#10;Fixed Client Interest Form Route" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;&#10;Fixed Client Interest Form Route" />
+    <MESSAGE value="&#10;Fixed Navbar on all pages." />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;Fixed Navbar on all pages." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1679405064258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1679867450627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

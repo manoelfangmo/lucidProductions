@@ -9,6 +9,12 @@ def home():
 @app.route('/events')
 def events():
     return render_template('events.html');
+@app.route('/events/futureEvents/futureEventDetails')
+def futureEvents():
+    return render_template('futureEventDetails.html');
+@app.route('/events/pastEventDetails')
+def pastEvents():
+    return render_template('pastEventDetails.html');
 
 @app.route('/account/createAccount')
 def createAccount():

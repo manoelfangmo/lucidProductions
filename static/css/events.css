@@ -1,8 +1,6 @@
-body{
-    justify-content: center;
-}
+
+
 div.events{
-    padding-top: 7%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,59 +15,78 @@ div.events{
     justify-content: center;
     position: relative;
 }
+.event:hover{
+    scale: 1.2;
+}
 
 
 #saveIcon{
     position: absolute;
-    top: 0;
-    right: 0;
-    height: 50px;
-    width: 50px;
-}
-#saveIcon:hover {
+    top: .25rem;
+    right: .25rem;
+    height: 3rem;
+    width: 3rem;
     background-color: #0B53B2;
 }
+#saveIcon:hover {
+    background-color: white;
+}
+.time{
+    position: absolute;
+    background-color: White;
+    left: 2rem;
+    top: 1rem;
+    display: flex;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
 
 
 .event img{
     margin: 20px;
-    width: 300px;
-    height: 300px;
+    width: 16rem;
+    height: 16rem;
     border-radius: 30px;
 }
 
-.eventPicker{
-    padding-top: 10%;
-    display: flex;
-    flex-direction: column;
-    padding-left: 1%;
-
-}
-
-.form
-{
+.dropDownMenu{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-}
-#toDateLabel{
-    padding-top: 8%;
-}
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
 
-#search{
-    padding-top: 8%;
 }
-#searchButton{
-    border-radius: 10px;
-    width: 120%;
+select#occurance{
+
+    height: 3rem;
+    width: 15rem;
     background-color: #0B53B2;
     color: white;
+    border-radius: 1rem;
+}
+#browse{
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 1rem;
 }
 
-h3{
-    background-color: red;
-    z-index: 100;
-    margin: 5%;
-    margin-bottom: 5%;
+#eventOccurrences{
+    font-size: 1rem;
+
 }
+
+
+
+
+
+
+

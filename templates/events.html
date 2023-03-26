@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/css/navbar.css">
     <link rel="stylesheet" href="../static/css/events.css">
-    <title>Bootstrap demo</title>
+    <title>Events</title>
 
 
 </head>
@@ -46,98 +46,115 @@
 
     </nav>
 </div>
-<div class="eventPicker">
-    <form class="form">
-        <div>
-            <label class="formLabel">
-                From:<input type="date" name="fromDate"/>
-            </label>
+<div class="mainContainer">
+    <div class="dropDownMenu">
+        <label for="events" id="browse">Browse: </label>
+        <select name="event" id="occurance">
+            <option value="pastEvent" id="eventOccurrences">All Events</option>
+            <option value="upcomingEvents" id="eventOccurrences">Upcoming Events</option>
+            <option value="futureEvents" id="eventOccurrences">Past Events</option>
+        </select>
+    </div>
+
+
+    <div class="events">
+        <div class="event" id="event1">
+            <a href="/events/pastEventDetails"> <img src="../static/images/valentinesParty.jpg"
+                                                                id="valentines" alt="Image 1">
+            </a>
+            <div class="time"> WED <br> 24 <br> JUN</div>
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+
+        </div>
+        <div class="event">
+            <a href="/events/pastEvents/pastEventDetails"> <img src="../static/images/halloweenParty.jpg" id="halloween"
+                                                                alt="Image 2">
+            </a>
+            <div class="time"> WED <br> 24 <br> JUL</div>
+
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+
+        </div>
+        <div class="event">
+            <a href="/events/pastEvents/pastEventDetails"> <img src="../static/images/backToSchoolParty.jpg" id=""
+                                                                alt="Image 3">
+            </a>
+            <div class="time"> WED <br> 24 <br> JAN</div>
+
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+        </div>
+        <div class="event">
+            <a href="/events/futureEvents/futureEventDetails"><img src="../static/images/comingSoon.jpg" id=""
+                                                                   alt="Image 3">
+            </a>
+            <div class="time"> WED <br> 24 <br> MAY</div>
+
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+        </div>
+        <div class="event">
+            <a href="/events/futureEvents/futureEventDetails"><img src="../static/images/comingSoon.jpg" id=""
+                                                                   alt="Image 3">
+            </a>
+            <div class="time"> WED <br> 24 <br> MAY</div>
+
+
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+        </div>
+        <div class="event">
+            <a href="/events/futureEvents/futureEventDetails"><img src="../static/images/comingSoon.jpg" id=""
+                                                                   alt="Image 3">
+            </a>
+            <div class="time"> WED <br> 24 <br> MAY</div>
+
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+        </div>
+        <div class="event" id="event1">
+            <a href="/events/futureEvents/futureEventDetails"><img src="../static/images/comingSoon.jpg" id=""
+                                                                   alt="Image 3">
+            </a>
+            <div class="time"> WED <br> 24 <br> MAY</div>
+
+
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+        </div>
+        <div class="event">
+            <a href="/events/futureEvents/futureEventDetails"><img src="../static/images/comingSoon.jpg" id=""
+                                                                   alt="Image 3">
+            </a>
+            <div class="time"> WED <br> 24 <br> MAY</div>
+
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+        </div>
+        <div class="event">
+            <a href="/events/futureEvents/futureEventDetails"><img src="../static/images/comingSoon.jpg" id=""
+                                                                   alt="Image 3">
+            </a>
+            <div class="time"> WED <br> 24 <br> MAY</div>
+
+            <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
         </div>
 
-        <div id="toDateLabel">
-            <label class="formLabel">
-                To: <input type="date" name="toDate"/>
-            </label>
-        </div>
 
-        <div id="search">
-            <button id="searchButton">Search</button>
-
-        </div>
-
-    </form>
+    </div>
 
 </div>
 
-<div class="events">
-    <div class="event" id="event1">
-        <a href="/events/reviews"> <img src="../static/images/valentinesParty.jpg" id="valentines" alt="Image 1">
-        </a>
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-        <div class="time">
-            <h3> 2/25/2021 @6pm</h3>
-        </div>
 
-    </div>
-    <div class="event">
-        <a href="/events/reviews"> <img src="../static/images/halloweenParty.jpg" id="halloween" alt="Image 2">
-        </a>
-
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+<footer>
+    <h6 class="underdog"> 407UnderDogs</h6>
+    <p class="copyright">&copy; 2023 407UnderDogs. All Rights Reserved.</p>
 
 
-    </div>
-    <div class="event">
-        <a href="/events/reviews"> <img src="../static/images/backToSchoolParty.jpg" id="" alt="Image 3">
-        </a>
-
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-    </div>
-    <div class="event" id="event1">
-        <img src="../static/images/comingSoon.avif" id="valentines" alt="Image 1">
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-    </div>
-    <div class="event">
-        <img src="../static/images/comingSoon.avif" id="halloween" alt="Image 2">
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-    </div>
-    <div class="event">
-        <img src="../static/images/comingSoon.avif" id="" alt="Image 3">
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-    </div>
-    <div class="event" id="event1">
-        <img src="../static/images/comingSoon.avif" id="valentines" alt="Image 1">
-
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-    </div>
-    <div class="event">
-        <img src="../static/images/comingSoon.avif" id="halloween" alt="Image 2">
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-    </div>
-    <div class="event">
-        <img src="../static/images/comingSoon.avif" id="" alt="Image 3">
-        <img src="../static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-    </div>
-
-
-</div>
-
-
-
-    <footer>
-            <h6 class="underdog"> 407UnderDogs</h6>
-            <p class="copyright">&copy; 2023 407UnderDogs. All Rights Reserved.</p>
-
-
-
-    </footer>
+</footer>
 </body>
 
 
