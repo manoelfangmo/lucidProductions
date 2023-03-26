@@ -1,23 +1,44 @@
-p{
-    font-weight: bold;
+body{
+    background-image: url("/static/images/bonfireback.png");
+    background-size: cover;
 }
 
-.create{
-    font-weight: lighter;
-    font-style: italic;
+p, label{
+    font-family: gill sans;
+    font-weight:lighter;
+    font-size: 1em;
+    color: black;
+    padding-bottom: 2em;
+    margin: 1em;
+}
+
+h1 {
+    font-weight: bold;
+    font-style: revert;
+    font-family: gill sans;
+    font-size: 1.25em;
+    color:black;
+    padding-top: 5em;
+    margin: 1em;
 }
 
 input[type=submit]{
     background-color:#0B53B2;
     font-family:gill sans;
-    font-size: 15pt;
+    font-size: 1.5em;
     cursor:pointer;
     color:white;
-    padding: 14px 40px;
+    padding: 1em 2em;
+    border-radius: 1.5em;
+    margin: 1.25em;
+    border: .15em solid rgba(255,255,255,.5);
+}
+
+.container {
+    padding-top: 2em;
+    width: 50%;
+    height: 20%;
 }
 
 
-#share{
-    padding-bottom: 30px;
-    font-size:1.5em;
-}
+

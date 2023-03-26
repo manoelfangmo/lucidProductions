@@ -1,0 +1,23 @@
+.header{
+    background: #FDDA0D;
+    border:1px solid black;
+    font-family: gill sans;
+    font-weight: lighter;
+    padding: 10px;
+}
+
+.inside{
+    border:1px solid black;
+    background-color: white;
+    font-family: gill sans;
+    padding: 10px;
+    font-weight: lighter;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+

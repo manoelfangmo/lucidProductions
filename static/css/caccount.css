@@ -1,0 +1,93 @@
+.split {
+  height: 100%;
+  width: 65%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+.left {
+  left: 0;
+  background-color: lightgray;
+    padding-top: 2em;
+    padding-left: 1em;
+    font-size: 1.25em;
+    font-family: gill sans;
+    font-weight: lighter;
+}
+
+.right {
+  right:0;
+  background-color: white;
+    font-weight: lighter;
+    padding-left: 2em;
+    padding-right: 3em;
+    font-family: gill sans;
+    font-weight: lighter;
+
+}
+
+.button {
+    font-family:gill sans;
+    font-size: .5em;
+    background-color: #0B53B2;
+    cursor:pointer;
+    color:white;
+    padding: .5em 2em;
+    border-radius: 15px;
+    border: .25em solid rgba(255,255,255,.5);
+}
+
+#header {
+    font-weight: lighter;
+    color: blue;
+}
+
+#reviewHead {
+    font-weight: lighter;
+    color: black;
+}
+
+.header{
+    background: #FDDA0D;
+    border:1px solid black;
+    font-family: gill sans;
+    font-weight: lighter;
+    padding: 10em;
+}
+
+.headermain{
+    background: #FDDA0D;
+    border:.15em solid black;
+    font-family: gill sans;
+    font-weight: lighter;
+    padding: 1em;
+}
+
+.inside{
+    border:.15em solid black;
+    background-color: white;
+    font-family: gill sans;
+    padding: 1em;
+    font-weight: lighter;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1em;
+}
+
+.grid-container2 {
+  display: grid;
+    margin: 1em;
+    padding: 1em;
+}
+
+.grid-container3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: .5em;
+}

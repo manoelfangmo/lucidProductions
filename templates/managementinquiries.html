@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Management Inquiries</title>
-     <link rel="stylesheet" type="text/css" href="../static/css/managementinquiries.css">
+     <link rel="stylesheet" type="text/css" href="../static/css/maccount.css">
 </head>
 <body>
-    <div class="split left">
+      <div class="split left">
         <img src="../static/images/lucidlogo.png" width="80px" height="80px" id="lucidHomeLogo"> <br>
         <br>
         <img src="../static/images/user.png" width="40px" height="40px" id="lucidHomeLogo">
@@ -18,9 +18,11 @@
         <img src="../static/images/data.png" width="40px" height="40px" id="lucidHomeLogo">
         <label style="color: blue">  <a href="/management/users"> Add Management Accounts </a> </label> <br> <br>
         <img src="../static/images/hello.webp" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/management/inquiries"> Inquiries </a> </label> <br> <br>
+          <label style="color: blue">  <a href="/management/inquiries"> Inquiries </a> </label> <br> <br>
         <img src="../static/images/event.png" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/events"> Events </a> </label> <br> <br>
+          <label style="color: blue">  <a href="/management/events"> Create New Events </a> </label> <br> <br>
+        <img src="../static/images/event.png" width="40px" height="40px" id="lucidHomeLogo">
+        <label style="color: blue">  <a href="/events"> Listed Events </a> </label> <br> <br>
         <button class="button" type="buttom"> Sign Out </button>
     </div>
          <div class="split right">
@@ -31,10 +33,13 @@
             </h1>
          <br>
             <br>
-            <div id="box">
-                <div> <strong> Inquiry Category </strong> </div>
-                <div> <strong> Inquirer </strong> </div>
-                <div> <strong> Inquiry Date </strong> </div>
+            <div class="grid-container">
+                <div class="header"> Inquiry Category  </div>
+                <div class="header">  Inquirer  </div>
+                <div class="header"> Inquiry Date  </div>
+                <div class="inside"> Media Contracting </div>
+                <div class="inside"> Client Name </div>
+                <div class="inside"> Date </div>
             </div>
              <br>
 
