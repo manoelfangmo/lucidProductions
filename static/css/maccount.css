@@ -54,7 +54,7 @@
     border:1px solid black;
     font-family: gill sans;
     font-weight: lighter;
-    padding: 10em;
+    padding: 1em;
 }
 
 .headermain{
@@ -82,9 +82,10 @@
 
 .grid-container2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1em;
+    margin: 1em;
+    padding: 1em;
 }
+
 
 .grid-container3 {
   display: grid;
