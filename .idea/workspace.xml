@@ -4,28 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="&#10;Fixed Navbar on all pages.">
-      <change afterPath="$PROJECT_DIR$/static/css/futureEventDetails.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/pastEventDetails.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/comingSoon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/googlePhotos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/partyPic1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/partyPic2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/partyPic3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/partyPic4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/scripts/slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/futureEventDetails.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pastEventDetails.html" afterDir="false" />
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="&#10;Added Instagram Logo to about. Fixed Navbar on Collaborations. Added Futture Event Details Page.&#10;Added Fast Even Details Page.&#10;Improved Events Page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/about.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/collaborations.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/collaborations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/events.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/events.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/guestflag.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/guestflag.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/comingSoon.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/oldcss/guest.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/oldcss/guestflag.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/oldcss/management.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/oldcss/managementanalytics.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/oldcss/managementinquiries.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/oldcss/managementreviews.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/oldcss/managementusers.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/client/client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/collaborations.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations/collaborations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contractWorker.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations/contractWorker.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createAccount.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createMAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/createMAccount.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/eventInquiry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations/eventInquiry.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/futureEventDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/futureEventDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/guest.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/guest/guest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/guestflag.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/guest/guestflag.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/management.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/management.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/managementanalytics.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementanalytics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/managementevent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementevent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/managementinquiries.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementinquiries.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/managementreviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementreviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/managementusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementusers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pastEventDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/pastEventDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/reviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +50,17 @@
         <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Merge.Settings">
@@ -91,14 +112,15 @@
       <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\static\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates" />
-      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\clientPages" />
-      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\fieldTechnicianPages" />
-      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\customerServicePages" />
+      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\collaborations" />
+      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\guest" />
+      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\events" />
+      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\client" />
+      <recent name="C:\Users\manoe\PycharmProjects\team11spring2023bmgt407\templates\managment" />
     </key>
   </component>
   <component name="RunManager" selected="Flask server.team11spring2023bmgt407">
-    <configuration name="events.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/team11spring2023bmgt407/templates/events.html" useBuiltInWebServerPort="true">
+    <configuration name="events.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/team11spring2023bmgt407/templates/events/events.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="navbar.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/team11spring2023bmgt407/templates/navbar.html" useBuiltInWebServerPort="true">
@@ -158,7 +180,8 @@
       <workItem from="1679609129015" duration="1355000" />
       <workItem from="1679687755078" duration="9507000" />
       <workItem from="1679775029015" duration="3494000" />
-      <workItem from="1679865518479" duration="2008000" />
+      <workItem from="1679865518479" duration="6025000" />
+      <workItem from="1679947769927" duration="3323000" />
     </task>
     <task id="LOCAL-00001" summary="Created Flask File">
       <created>1677627257607</created>
@@ -258,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679405148471</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="&#10;Added Instagram Logo to about. Fixed Navbar on Collaborations. Added Futture Event Details Page.&#10;Added Fast Even Details Page.&#10;Improved Events Page">
+      <created>1679867631822</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1679867631822</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,9 +319,10 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/team11spring2023bmgt407.iml&#10;#&#9;app.py&#10;#&#9;templates/about.html&#10;#&#9;templates/collaborations.html&#10;&#10;Fixed Logo Not Appearing" />
     <MESSAGE value="&#10;&#10;Fixed Client Interest Form Route" />
     <MESSAGE value="&#10;Fixed Navbar on all pages." />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;Fixed Navbar on all pages." />
+    <MESSAGE value="&#10;Added Instagram Logo to about. Fixed Navbar on Collaborations. Added Futture Event Details Page.&#10;Added Fast Even Details Page.&#10;Improved Events Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="&#10;Added Instagram Logo to about. Fixed Navbar on Collaborations. Added Futture Event Details Page.&#10;Added Fast Even Details Page.&#10;Improved Events Page" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1679867450627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1679949490318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

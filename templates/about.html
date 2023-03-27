@@ -1,49 +1,39 @@
 <!doctype html>
 <html lang="en">
- <head>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>About Page</title>
-     <link rel="stylesheet" type="text/css" href="../static/css/about.css">
-       <link rel="stylesheet" href="../static/css/navbar.css">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Page</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/about.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
 
 
+<body>
 
 
+<div class="navDiv">
 
 
- <body>
+    <nav class="navbar">
 
 
+        <div class="logo"><img src="/static/images/lucidLogo.png" id="logo" alt="logo"></div>
 
 
- <div class="navDiv">
+        <!-- USING CHECKBOX HACK -->
 
 
-<nav class="navbar">
+        <input type="checkbox" id="checkbox_toggle"/>
 
 
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
 
 
-   <div class="logo"><img src="../static/images/lucidLogo.png" id="logo" alt="logo"></div>
+        <!-- NAVIGATION MENUS -->
 
 
-
-
-   <!-- USING CHECKBOX HACK -->
-
-
-   <input type="checkbox" id="checkbox_toggle"/>
-
-
-   <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-
-
-   <!-- NAVIGATION MENUS -->
-
-
-   <div class="menu">
-       <ul>
+        <div class="menu">
+            <ul>
                 <li><a href="/">Home</a></li>
 
                 <li><a href="/events">Events</a></li>
@@ -54,48 +44,51 @@
                 <li><a href="/account/login">Account</a></li>
 
 
+            </ul>
 
 
-       </ul>
+        </div>
 
 
-
-
-   </div>
-
-
-
-
-</nav>
+    </nav>
 </div>
- <div>
-     <h1><center><strong>About Lucid Productions</strong></center></h1>
+<div>
+    <h1>
+        <center><strong>About Lucid Productions</strong></center>
+    </h1>
 
 
-     <center><img src = "../static/images/LucidFounders.jpg" alt="Lucid Founders" width="310cm;" height="310cm;"></center>
-     <center><p1>Lucid Productions is a growing event planning and hosting business founded by University Of Maryland students Mervyn Akumbu, Jason Goldman, and Griffin Shirodkar. At our core, we pride ourselves in our convenience in making all arrangements and accommodations for our clients, catered specifically to their individual needs. We handle all aspects of the planning phase, including offering preliminary ideas for scheduling, catering, activity offerings, and location scouting. Following the planning phase, we also work closely with our partners on the designing of invitations, decorations, and specialized menu items for all events.
+    <center><img src="/static/images/LucidFounders.jpg" alt="Lucid Founders" width="310cm;" height="310cm;"></center>
+    <center>
+        <p1>Lucid Productions is a growing event planning and hosting business founded by University Of Maryland
+            students Mervyn Akumbu, Jason Goldman, and Griffin Shirodkar. At our core, we pride ourselves in our
+            convenience in making all arrangements and accommodations for our clients, catered specifically to their
+            individual needs. We handle all aspects of the planning phase, including offering preliminary ideas for
+            scheduling, catering, activity offerings, and location scouting. Following the planning phase, we also work
+            closely with our partners on the designing of invitations, decorations, and specialized menu items for all
+            events.
 
 
-Having planned and carried out dozens of social events with hundreds of attendees including app launch parties, fraternity social events, and music performances, Lucid Productions is the premier organization for planning events in the University of Maryland community.
-</p1></center>
-    <div class = "connectWith">
-             <a id="Instagram" href="https://instagram.com/lucideventprod" target="_blank"> <p><strong>Connect With Us! </strong></p> </a>
-        <img src="../static/images/instagram.png" id="instagram" alt="Instagram Logo">
+            Having planned and carried out dozens of social events with hundreds of attendees including app launch
+            parties, fraternity social events, and music performances, Lucid Productions is the premier organization for
+            planning events in the University of Maryland community.
+        </p1>
+    </center>
+    <div class="connectWith">
+        <a id="Instagram" href="https://instagram.com/lucideventprod" target="_blank"><p><strong>Connect With
+            Us! </strong></p></a>
+        <img src="/static/images/instagram.png" id="instagram" alt="Instagram Logo">
 
     </div>
 
 
+</div>
 
 
-
- </div>
-
-
-   <footer>
-           <h6 class="underdog"> 407 Solutions </h6>
-           <p class="copyright">&copy; 2023 407 Solutions. All Rights Reserved.</p>
+<footer>
+    <h6 class="underdog"> 407 Solutions </h6>
+    <p class="copyright">&copy; 2023 407 Solutions. All Rights Reserved.</p>
 
 
-
-   </footer>
+</footer>
 </body>
