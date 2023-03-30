@@ -1,6 +1,3 @@
-
-
-
 .content{
     display: flex;
     padding: 0% 10%;
@@ -38,7 +35,7 @@ img#comingSoon{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 30rem;
+    max-width: 13rem;
     margin-bottom: 5rem;
 
 }
