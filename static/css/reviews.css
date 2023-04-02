@@ -18,8 +18,7 @@ h1 {
     font-family: gill sans;
     font-size: 1.25em;
     color:black;
-    padding-top: 5em;
-    margin: 1em;
+    margin: 5em;
 }
 
 input[type=submit]{

@@ -10,9 +10,9 @@
 .left {
   left: 0;
   background-color: lightgray;
-    padding-top: 2em;
-    padding-left: 1em;
-    font-size: 1.25em;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    font-size: 1.25rem;
     font-family: gill sans;
     font-weight: lighter;
 }
@@ -21,8 +21,8 @@
   right:0;
   background-color: white;
     font-weight: lighter;
-    padding-left: 2em;
-    padding-right: 3em;
+    padding-left: 2rem;
+    padding-right: 3rem;
     font-family: gill sans;
     font-weight: lighter;
 
@@ -30,13 +30,13 @@
 
 .button {
     font-family:gill sans;
-    font-size: .5em;
+    font-size: .5rem;
     background-color: #0B53B2;
     cursor:pointer;
     color:white;
-    padding: .5em 2em;
-    border-radius: 15px;
-    border: .25em solid rgba(255,255,255,.5);
+    padding: .5rem 2rem;
+    border-radius: 15rem;
+    border: .25rem solid rgba(255,255,255,.5);
 }
 
 #header {
@@ -51,25 +51,25 @@
 
 .header{
     background: #FDDA0D;
-    border:1px solid black;
+    border:1rem solid black;
     font-family: gill sans;
     font-weight: lighter;
-    padding: 10em;
+    padding: 10rem;
 }
 
 .headermain{
     background: #FDDA0D;
-    border:.15em solid black;
+    border:.15rem solid black;
     font-family: gill sans;
     font-weight: lighter;
-    padding: 1em;
+    padding: 1rem;
 }
 
 .inside{
-    border:.15em solid black;
+    border:.15rem solid black;
     background-color: white;
     font-family: gill sans;
-    padding: 1em;
+    padding: 1rem;
     font-weight: lighter;
 }
 
@@ -77,17 +77,17 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 1em;
+  padding: 1rem;
 }
 
 .grid-container2 {
   display: grid;
-    margin: 1em;
-    padding: 1em;
+    margin: 1rem;
+    padding: 1rem;
 }
 
 .grid-container3 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: .5em;
+  grid-template-columns: 1rem 1rem;
+  padding: .5rem;
 }

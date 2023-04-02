@@ -1,54 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Lucid Account</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/createAccount.css">
-  </head>
-  <body>
-    <div class="split left">
-        <h1 id = 'head'> WELCOME TO <br> LUCID PRODUCTIONS</h1>
-            <h2 id = 'subhead'> Where dreams become reality</h2>
-    </div>
+    <title> Create Account </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/enterAccount.css">
+</head>
 
-     <div class="split right">
-            <form id="form">
-                <p class="create"> Let's create an account! </p>
+{% if form_submitted==True %}
+        <div class="container-fluid px-0 bg-danger">
+            <div class="row g-0">
+                <div class="col-lg-6 vh-100 bg-primary" >
+                    <h1 id = 'head'> WELCOME TO <br> LUCID PRODUCTIONS</h1>
+                    <h2 id = 'subhead'> Where dreams become reality</h2>
+                </div>
+                <div class="col-lg-6 vh-100 bg-light">
+                    <p id="ty"> Thank you <strong> {{request.form.get('fName')}} </strong> for joining the Lucid Family!</p>
+                    <p id="ty"> We cannot wait to connect and grow with you! </p>
+                    <label id="ty" style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
+                </div>
+            </div>
+        </div>
+
+{% else %}
+       <div class="container-fluid px-0">
+            <div class="row g-0">
+                <div class="col-lg-6 vh-100 bg-primary" >
+                    <h1 id = 'head'> WELCOME TO <br> LUCID PRODUCTIONS</h1>
+                    <h2 id = 'subhead'> Where dreams become reality</h2>
+                </div>
+                <div class="col-lg-6 vh-100 bg-light">
+                    <form action="{{ url_for('create_account')}}" method="post">
+                        <div class="create">
+                            <p> Let's create an account! </p>
                 <label for="fName"> First Name : </label> <br>
-                    <input type="text" id="fName" name = "fName">  <br>
+                    <input type="text" id="fName" name = "fName" required>  <br>
                 <label for="lName"> Last Name : </label> <br>
-                    <input type="text" id="lName" name = "lName">  <br>
+                    <input type="text" id="lName" name = "lName" required>  <br>
                 <label for="email"> Email : </label> <br>
-                    <input type="email" id="email" name = "email"> <br>
+                    <input type="email" id="email" name = "email" required> <br>
                 <label for="pwd"> Password : </label> <br>
-                    <input type="password" id="pwd" name = "pwd"> <br>
-                <p> </p>
-                <p> Please select your country <br> of residence: </p>
-                <label for="coRes"> United States of America </label>
-                    <input type="radio" id="coRes" name = "coRes"> <br>
-                <label for="coRes2"> Other: </label>
-                    <input type="text" id="coRes2" name = "coRes2"> <br>
+                    <input type="password" id="pwd" name = "password" required> <br>
                 <p> </p>
                 <label for="tel"> Phone : </label> <br>
-                    <input type="tel" id="tel" name = "tel">  <br>
-                <label for="zip"> Zip/Postal Code: </label> <br>
-                    <input type="text" id="zip" name = "zip">  <br>
+                    <input type="tel" id="tel" name = "tel" required>  <br>
+                    <label for="zip"> Zip/Postal Code: </label> <br>
+                        <input type="text" id="zip" name = "zip" required>  <br>
                 <p> </p>
                 <p> What are you? </p>
                 <label for="way"> A guest </label>
                     <input type="radio" id="way" name = "way"> <br>
                  <label for="way2"> A potential client </label>
-                    <input type="radio" id="way2" name = "way2"> <br>
-                <label for="way3"> Lucid Management </label>
-                    <input type="radio" id="way3" name = "way3"> <br>
-
-                <p> </p>
-                <input type="submit" value ="Submit">
-                <label style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
-            </form>
+                        <input type="radio" id="way2" name = "way2"> <br>
+                    <p> </p>
+                            <button id="button" type="buttom"> Submit </button>
+                            <br>
+                        <label style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
+                            </div>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+{% endif %}
 
-  </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
 </html>

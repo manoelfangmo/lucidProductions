@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -13,14 +13,17 @@ def events():
 def futureEvents():
     return render_template('events/futureEventDetails.html');
 @app.route('/events/pastEventDetails')
-def pastEvents():
+def past_events():
     return render_template('events/pastEventDetails.html');
 
-@app.route('/account/createAccount')
-def createAccount():
-    return render_template('createAccount.html');
+@app.route('/account/createAccount', methods=['GET','POST'])
+def create_account():
+    if request.method == 'POST':
+        return render_template('createAccount.html', form_submitted=True)
+    else:
+        return render_template('createAccount.html')
 
-@app.route('/account/login')
+@app.route('/account/login', methods=['GET','POST'])
 def login():
     return render_template('login.html');
 
@@ -53,11 +56,9 @@ def managementEvent():
 def managementUsers():
     return render_template('management/managementusers.html');
 
-
 @app.route('/client')
 def client():
     return render_template('client/client.html');
-
 
 
 @app.route('/guest')
