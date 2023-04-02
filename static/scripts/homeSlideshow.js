@@ -1,14 +1,18 @@
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}
-  x[myIndex-1].style.display = "block";
-  setTimeout(carousel, 2000);
+typingAnimation();
+function typingAnimation () {
+	console.log("Running");
+	let elements = document.getElementsByClassName("typingAnimation");
+	for(let e of elements) {
+		let text = e.innerHTML;
+		e.innerHTML = ""; // make the text empty
+		let arr = text.split("");
+		let speed = Number(e.getAttribute('typingSpeed') ?? 60)
+		let loop = ()=> {
+			if (arr.length > 0) {
+				e.innerHTML = e.innerHTML + arr.shift();
+				setTimeout(loop, speed);
+			}
+		}
+		loop();
+	}
 }

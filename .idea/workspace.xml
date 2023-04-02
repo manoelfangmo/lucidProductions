@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="added management/event route&#10;added subfolders to templates to better organize html files">
-      <change afterPath="$PROJECT_DIR$/static/scripts/homeSlideshow.js" afterDir="false" />
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="Made Future Events Page Responsive">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/about.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/collaborations.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/collaborations.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/pastEventDetails.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/pastEventDetails.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/collaborations/collaborations.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations/collaborations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/events/pastEventDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/pastEventDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/scripts/homeSlideshow.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/homeSlideshow.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,11 +49,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -180,7 +170,8 @@
       <workItem from="1679958994856" duration="745000" />
       <workItem from="1680209032740" duration="5268000" />
       <workItem from="1680228589835" duration="3760000" />
-      <workItem from="1680287602838" duration="9344000" />
+      <workItem from="1680287602838" duration="19588000" />
+      <workItem from="1680475783446" duration="2780000" />
     </task>
     <task id="LOCAL-00001" summary="Created Flask File">
       <created>1677627257607</created>
@@ -294,7 +285,56 @@
       <option name="project" value="LOCAL" />
       <updated>1679951419331</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix stles on about page, home page, collaborations page, and pastevent details page">
+      <created>1680450012705</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680450012705</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fixed collaborations Event Inquiries link">
+      <created>1680450406066</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680450406066</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Made event Inquiry page responsive">
+      <created>1680454120406</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680454120406</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Made Contractor Interest Form responsive">
+      <created>1680459127949</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680459127949</updated>
+    </task>
+    <task id="LOCAL-00021" summary="CHanged heading color of about page and made font style italic">
+      <created>1680459359833</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680459359833</updated>
+    </task>
+    <task id="LOCAL-00022" summary="CHanged heading color of collaborations page and made font style italic">
+      <created>1680459499407</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680459499407</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Made Future Events Page Responsive">
+      <created>1680459659811</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680459659811</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,9 +367,16 @@
     <MESSAGE value="&#10;Fixed Navbar on all pages." />
     <MESSAGE value="&#10;Added Instagram Logo to about. Fixed Navbar on Collaborations. Added Futture Event Details Page.&#10;Added Fast Even Details Page.&#10;Improved Events Page" />
     <MESSAGE value="added management/event route&#10;added subfolders to templates to better organize html files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added management/event route&#10;added subfolders to templates to better organize html files" />
+    <MESSAGE value="fix stles on about page, home page, collaborations page, and pastevent details page" />
+    <MESSAGE value="fixed collaborations Event Inquiries link" />
+    <MESSAGE value="Made event Inquiry page responsive" />
+    <MESSAGE value="Made Contractor Interest Form responsive" />
+    <MESSAGE value="CHanged heading color of about page and made font style italic" />
+    <MESSAGE value="CHanged heading color of collaborations page and made font style italic" />
+    <MESSAGE value="Made Future Events Page Responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made Future Events Page Responsive" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1680301586140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1680478336901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
