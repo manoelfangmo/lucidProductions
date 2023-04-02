@@ -1,14 +1,8 @@
+
 #homeText {
-    font-weight: lighter;
-    font-size: 2em;
-    color: white;
-    opacity: .75;
-    padding-top: 3em;
-    font-family:gill sans;
+    color: yellow;
+    text-align: center;
 }
-
-
-
 @keyframes pictures {
     0% {opacity: 1; background-image: url("/static/images/line.JPG");}
     50% {opacity: 1; background-image: url("/static/images/bonfire.jpg");}
@@ -17,17 +11,10 @@
 
 
 /* The element to apply the animation to */
-.slideshow {
+body {
     background-size: cover;
     background-repeat: repeat;
     animation-name: pictures;
     animation-duration: 15s;
     animation-iteration-count: infinite;
 }
-
-h1{
-    background-size: cover;
-    padding-bottom: 25em;
-
-}
-

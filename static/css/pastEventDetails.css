@@ -38,12 +38,12 @@ button#buyTickets{
 }
 
 .mySlides{
-    width: 25rem;
+            width: 25rem;
     height: 25rem;
     margin-right: 3rem;
     margin-left: 3rem;
-
     border-radius: 2rem;
+    object-fit: cover;
 }
 .textContent{
     position: relative;

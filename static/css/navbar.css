@@ -1,4 +1,6 @@
-
+body{
+    font-family: Arial;
+}
 .mainContainer{
     min-height: calc(100vh - 5.75rem - 9rem);
     margin-top: 10rem;
@@ -54,7 +56,7 @@ padding: 20px;
 
 background-color: #0B53B2;
 
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px .5rem .5rem;
 
 
 }
