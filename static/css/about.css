@@ -12,6 +12,10 @@
     align-items: center;
     margin-top: 8rem !important;
 }
+.mainContainer h1{
+    color: #0B53B2;
+    font-style: italic;
+}
 
 img#lucidFounders{
     margin-top: 2rem;
