@@ -4,9 +4,9 @@
     text-align: center;
 }
 @keyframes pictures {
-    0% {opacity: 1; background-image: url("/static/images/line.JPG");}
-    50% {opacity: 1; background-image: url("/static/images/bonfire.jpg");}
-    100% {opacity: 1; background-image: url("/static/images/abo.png");}
+    0% {opacity: 1; background-image: url("../images/line.JPG");}
+    50% {opacity: 1; background-image: url("../images/bonfire.JPG");}
+    100% {opacity: 1; background-image: url("../images/abo.PNG");}
 }
 
 

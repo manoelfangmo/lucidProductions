@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="Added moving text to home page">
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="Added Instagram Logo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/home.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,7 @@
       <workItem from="1680209032740" duration="5268000" />
       <workItem from="1680228589835" duration="3760000" />
       <workItem from="1680287602838" duration="19588000" />
-      <workItem from="1680475783446" duration="4118000" />
+      <workItem from="1680475783446" duration="5503000" />
     </task>
     <task id="LOCAL-00001" summary="Created Flask File">
       <created>1677627257607</created>
@@ -339,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680479289043</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added Instagram Logo">
+      <created>1680481080387</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1680481080387</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,9 +388,10 @@
     <MESSAGE value="CHanged heading color of collaborations page and made font style italic" />
     <MESSAGE value="Made Future Events Page Responsive" />
     <MESSAGE value="Added moving text to home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added moving text to home page" />
+    <MESSAGE value="Added Instagram Logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Instagram Logo" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1680478336901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1680481793634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
