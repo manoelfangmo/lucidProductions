@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/pastEventDetails.css">
     <script src="/static/scripts/slider.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 </head>
 <body>
@@ -50,7 +53,7 @@
 <div class="mainContainer">
     <div class="content">
         <div class="pastEventImages">
-                <img class="mySlides" src="/static/images/partyPic1.jpg">
+            <img class="mySlides" src="/static/images/partyPic1.jpg">
             <img class="mySlides" src="/static/images/partyPic2.jpg">
             <img class="mySlides" src="/static/images/partyPic3.jpg">
             <img class="mySlides" src="/static/images/partyPic4.jpg">
@@ -74,10 +77,33 @@
                 $5, and get your tickets in our bios before the price goes up!</p>
             <br>
             <br>
-            <a href="/events/reviews">
-                <button id="buyTickets">Leave Review</button>
-            </a>
+            <button id="myBtn">Leave Review</button>
         </div>
+                <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+
+                <div class="innerModalContent">
+                    <div class="reviewStars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+
+                    <label> Describe Your Experience</label>
+                    <textarea id="modalTextArea"></textarea>
+                    <button id="modalButton">Submit</button>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
 

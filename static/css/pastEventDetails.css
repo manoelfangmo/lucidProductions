@@ -27,7 +27,7 @@ a#photosLink{
 
 }
 
-button#buyTickets{
+button#myBtn{
     width: 15rem;
     height: 3rem;
     border-radius: 10px;
@@ -40,8 +40,6 @@ button#buyTickets{
 .mySlides{
             width: 25rem;
     height: 25rem;
-    margin-right: 3rem;
-    margin-left: 3rem;
     border-radius: 2rem;
     object-fit: cover;
 }
@@ -57,4 +55,84 @@ button#buyTickets{
 }
 .eventText{
     font-size:1.5rem;
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+    top: 0;
+  z-index: 1; /* Sit on top */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    position: inherit;
+      top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+  background-color: gray;
+  padding: 2rem;
+  border: 1px solid #888;
+    border-radius: 1rem;
+  width: 95%; /* Could be more or less, depending on screen size */
+
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 4rem;
+  font-weight: bold;
+    position: fixed;
+    top: 0;
+    right: 1rem;
+
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.innerModalContent{
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.reviewStars{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+.fa-star{
+    font-size: 2.5rem !important;
+}
+.checked {
+  color: orange;
+}
+#modalTextArea{
+    height: 10rem;
+    width: 22rem;
+    border-radius: .5rem;
+}
+
+#modalButton{
+    margin-top: 1rem;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 10px;
+    background-color: #0B53B2;
+    color: white;
+    ont-weight: bold;
+
 }
