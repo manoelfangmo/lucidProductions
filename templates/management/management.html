@@ -1,61 +1,73 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create Lucid Account</title>
     <link rel="stylesheet" type="text/css" href="/static/css/maccount.css">
-  </head>
-  <body>
-      <div class="split left">
-        <img src="/static/images/lucidlogo.png" width="80px" height="80px" id="lucidHomeLogo"> <br>
-        <br>
-        <img src="/static/images/user.png" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/management"> Personal Information </a> </label> <br> <br>
-         <img src="/static/images/review.png" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/management/reviews"> Reviews </a> </label> <br> <br>
-        <img src="/static/images/add.png" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/management/analytics"> Analytics </a> </label> <br> <br>
-        <img src="/static/images/data.png" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/management/users"> Add Management Accounts </a> </label> <br> <br>
-        <img src="/static/images/hello.webp" width="40px" height="40px" id="lucidHomeLogo">
-          <label style="color: blue">  <a href="/management/inquiries"> Inquiries </a> </label> <br> <br>
-        <img src="/static/images/event.png" width="40px" height="40px" id="lucidHomeLogo">
-          <label style="color: blue">  <a href="/management/events"> Create New Events </a> </label> <br> <br>
-        <img src="/static/images/event.png" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/events"> Listed Events </a> </label> <br> <br>
-        <button class="button" type="buttom"> Sign Out </button>
+    <link rel="stylesheet" type="text/css" href="/static/css/accountHamburger.css">
+
+</head>
+<body>
+
+
+<div class="mainContainer">
+    <input type="checkbox" id="checkbox_toggle"/>
+    <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+    <div class="left">
+
+
+        <img src="/static/images/lucidlogo.png" id="menuLogo">
+
+        <div class="leftContent">
+            <img src="/static/images/user.png" >
+            <label style="color: blue"> <a href="/management"> Personal Information </a> </label> <br> <br>
+            <img src="/static/images/review.png"  >
+            <label style="color: blue"> <a href="/management/reviews"> Reviews </a> </label> <br> <br>
+            <img src="/static/images/data.png" >
+            <label style="color: blue"> <a href="/management/analytics"> Analytics </a> </label> <br> <br>
+            <img src="/static/images/add.png" >
+            <label style="color: blue"> <a href="/management/users"> Add Account </a> </label> <br> <br>
+            <img src="/static/images/hello.webp" >
+            <label style="color: blue"> <a href="/management/inquiries"> Inquiries </a> </label> <br> <br>
+            <img src="/static/images/event.png">
+            <label style="color: blue"> <a href="/management/events"> Create New Events </a> </label> <br> <br>
+        </div>
+
+        <button class="button" type="buttom"> Sign Out</button>
     </div>
 
-     <div class="split right">
-            <h1 id="header"> Account
-                <br>
-                <br> <p1 id="reviewHead"> Personal Information </p1> </br>
-                <br>
-                <button class="button" type="buttom"> Edit Information </button>
-                <button class="button" type="buttom"> Save </button>
-            </h1>
-
+    <div class="right">
+        <h1 id="header"> Account
             <br>
             <br>
-            <div class="grid-container3">
-                <div class="headermain"> First Name </div>
-                <div class="inside"> Endalk </div>
-                <div class="headermain"> Last Name </div>
-                <div class="inside"> Makonnen </div>
-                <div class="headermain"> Country of Residence </div>
-                <div class="inside"> United States of America </div>
-                <div class="headermain"> Zip/Postal Code </div>
-                <div class="inside"> 20874 </div>
-                <div class="headermain"> Phone </div>
-                <div class="inside"> 240-441-5465 </div>
-                <div class="headermain"> Email </div>
-                <div class="inside"> endalkmakonnen@gmail.com </div>
-            </div>
-     </div>
+            <p1 id="reviewHead"> Personal Information</p1>
+            </br>
+            <br>
+            <button class="button" type="buttom"> Edit Information</button>
+            <button class="button" type="buttom"> Save</button>
+        </h1>
+
+        <br>
+        <br>
+        <div class="grid-container3">
+            <div class="headermain"> First Name</div>
+            <div class="inside"> Endalk</div>
+            <div class="headermain"> Last Name</div>
+            <div class="inside"> Makonnen</div>
+            <div class="headermain"> Country of Residence</div>
+            <div class="inside"> United States of America</div>
+            <div class="headermain"> Zip/Postal Code</div>
+            <div class="inside"> 20874</div>
+            <div class="headermain"> Phone</div>
+            <div class="inside"> 240-441-5465</div>
+            <div class="headermain"> Email</div>
+            <div class="inside"> endalkmakonnen@gmail.com</div>
+        </div>
+    </div>
+</div>
 
 
-  </body>
+</body>
 </html>
 
- <img src="/static/images/review.png" width="80px" height="80px" id="lucidHomeLogo">
