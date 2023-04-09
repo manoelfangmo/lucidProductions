@@ -9,46 +9,14 @@
     <script src="/static/scripts/slider.js" type="application/javascript" defer></script>
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
 
 
 </head>
+
 <body>
-<div class="navDiv">
 
-    <nav class="navbar">
-
-
-        <div class="logo"><img src="/static/images/lucidLogo.png" id="logo" alt="logo"></div>
-
-
-        <!-- USING CHECKBOX HACK -->
-
-        <input type="checkbox" id="checkbox_toggle"/>
-
-        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-
-        <!-- NAVIGATION MENUS -->
-
-        <div class="menu">
-            <ul>
-                <li><a href="/static">Home</a></li>
-
-                <li><a href="/events">Events</a></li>
-
-                <li><a href="/collaborations">Collaborations</a></li>
-
-                <li><a href="/about">About</a></li>
-                <li><a href="/account/login">Account</a></li>
-
-
-            </ul>
-
-
-        </div>
-
-
-    </nav>
-</div>
+<navbar-component></navBar-component>
 
 <div class="mainContainer">
     <div class="content">
@@ -110,12 +78,7 @@
 </div>
 
 
-<footer>
-    <h6 class="underdog"> 407 Solutions</h6>
-    <p class="copyright">&copy; 2023 407 Solutions. All Rights Reserved.</p>
-
-
-</footer>
+<footer-component></footer-component>
 
 </body>
 </html>

@@ -2,22 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Client Account</title>
     <link rel="stylesheet" type="text/css" href="/static/css/caccount.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
+    <script src="/static/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
 </head>
 <body>
-<div class="split left">
-        <img src="/static/images/lucidlogo.png" width="80px" height="80px" id="lucidHomeLogo"> <br>
-        <br>
-        <img src="/static/images/user.png" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/client"> Personal Information </a> </label> <br> <br>
-        <img src="/static/images/event.png" width="40px" height="40px" id="lucidHomeLogo">
-        <label style="color: blue">  <a href="/events"> Events </a> </label> <br> <br>
-        <label style="color: blue">  <a href="/client/form"> Fill Out Client Interest Form </a> </label> <br> <br>
-        <button class="button" type="buttom"> Sign Out </button>
-    </div>
 
-     <div class="split right">
+<navigation-component></navigation-component>
+
+
+     <div class="right">
             <h1 id="header"> Account
                 <br>
                 <br> <p1 id="reviewHead"> Personal Information </p1> </br>

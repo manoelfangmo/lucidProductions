@@ -5,44 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create Lucid Account</title>
     <link rel="stylesheet" type="text/css" href="/static/css/maccount.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/accountHamburger.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
+    <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
 
 </head>
 <body>
 
 
-<div class="mainContainer">
-    <input type="checkbox" id="checkbox_toggle"/>
-    <label for="checkbox_toggle" class="hamburger">&#9776;</label>
-    <div class="left">
 
+    <navigation-component>
 
-        <img src="/static/images/lucidlogo.png" id="menuLogo">
+    </navigation-component>
 
-        <div class="leftContent">
-            <img src="/static/images/user.png" >
-            <label style="color: blue"> <a href="/management"> Personal Information </a> </label> <br> <br>
-            <img src="/static/images/review.png"  >
-            <label style="color: blue"> <a href="/management/reviews"> Reviews </a> </label> <br> <br>
-            <img src="/static/images/data.png" >
-            <label style="color: blue"> <a href="/management/analytics"> Analytics </a> </label> <br> <br>
-            <img src="/static/images/add.png" >
-            <label style="color: blue"> <a href="/management/users"> Add Account </a> </label> <br> <br>
-            <img src="/static/images/hello.webp" >
-            <label style="color: blue"> <a href="/management/inquiries"> Inquiries </a> </label> <br> <br>
-            <img src="/static/images/event.png">
-            <label style="color: blue"> <a href="/management/events"> Create New Events </a> </label> <br> <br>
-        </div>
-
-        <button class="button" type="buttom"> Sign Out</button>
-    </div>
 
     <div class="right">
         <h1 id="header"> Account
             <br>
-            <br>
-            <p1 id="reviewHead"> Personal Information</p1>
-            </br>
             <br>
             <button class="button" type="buttom"> Edit Information</button>
             <button class="button" type="buttom"> Save</button>
@@ -50,22 +28,41 @@
 
         <br>
         <br>
-        <div class="grid-container3">
-            <div class="headermain"> First Name</div>
-            <div class="inside"> Endalk</div>
-            <div class="headermain"> Last Name</div>
-            <div class="inside"> Makonnen</div>
-            <div class="headermain"> Country of Residence</div>
-            <div class="inside"> United States of America</div>
-            <div class="headermain"> Zip/Postal Code</div>
-            <div class="inside"> 20874</div>
-            <div class="headermain"> Phone</div>
-            <div class="inside"> 240-441-5465</div>
-            <div class="headermain"> Email</div>
-            <div class="inside"> endalkmakonnen@gmail.com</div>
-        </div>
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" placeholder="First name">
+                    </div>
+                    <div class="col">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="phoneNumber">Phone:</label>
+                        <input type="text" class="form-control" placeholder="222-333-4444">
+                    </div>
+                    <div class="col">
+                        <label for="email">Email:</label>
+                        <input type="text" class="form-control" placeholder="Email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="text" class="form-control" placeholder="00/00/0000">
+                    </div>
+                    <div class="col">
+                        <label for="zip">Zip Cod:e</label>
+                        <input type="text" class="form-control" >
+                    </div>
+                </div>
+
+            </form>
+
     </div>
-</div>
 
 
 </body>

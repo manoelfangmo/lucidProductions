@@ -1,48 +1,7 @@
-.mainContainer{
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
 
 
-.left {
-    position: fixed;
-  background-color: lightgray;
-    font-size: 1.25em;
-    font-family: gill sans;
-    font-weight: lighter;
-    width: 20vw;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#menuLogo{
-    height: 4rem;
-    widthL: 4rem;
-}
-
-.leftContent img{
-    height: 2rem;
-    width: 2rem;
-    margin-top: 1rem;
-}
 
 
-.right {
-    position: absolute;
-    right:0;
-    background-color: white;
-    font-weight: lighter;
-    font-weight: lighter;
-    width: 75vw;
-    height: 100%;
-
-
-}
 
 .button {
     background-color: #0B53B2;
@@ -53,71 +12,23 @@
     width: 10rem;
     height: 2rem;
 }
+form{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+form .row {
+    display: flex;
 
-#header {
-    font-weight: lighter;
-    color: blue;
+}
+form .col{
+    margin: 1rem;
+
+}
+form input{
+    border-radius: .5rem;
+    height: 1.7rem;
+    width: 10rem;
 }
 
-#reviewHead {
-    font-weight: lighter;
-    color: black;
-}
-
-.header{
-    background: #FDDA0D;
-    border:1px solid black;
-    font-family: gill sans;
-    font-weight: lighter;
-    padding: 1em;
-}
-
-.headermain{
-    background: #FDDA0D;
-    border:.25em solid black;
-    font-family: gill sans;
-    font-weight: lighter;
-    padding: 1em;
-}
-
-.inside{
-    border:1px solid black;
-    background-color: white;
-    font-family: gill sans;
-    padding: 1em;
-    font-weight: lighter;
-}
-
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 1em;
-}
-
-.grid-container2 {
-  display: grid;
-    margin: 1em;
-    padding: 1em;
-}
-
-
-.grid-container3 {
-  display: grid;
-    margin: 1em;
-    padding: 1em;
-}
-
-.grid-container4 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  padding: 1em;
-}
-
-#event{
-    border:1px solid black;
-    padding: 5em;
-    background-color: white;
-    font-family: gill sans;
-    padding: 5em;
-}

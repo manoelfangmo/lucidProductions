@@ -4,18 +4,12 @@
     <meta charset="UTF-8">
     <title>Flagged Events</title>
     <link rel="stylesheet" type="text/css" href="/static/css/gaccount.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
+    <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
 </head>
 <body>
-<div class="split left">
-    <img src="/static/images/lucidlogo.png" width="80px" height="80px" id="lucidHomeLogo"> <br>
-    <br>
-    <img src="/static/images/user.png" width="40px" height="40px" id="lucidHomeLogo">
-    <label style="color: blue"> <a href=""> Personal Information </a> </label> <br> <br>
-    <img src="/static/images/folder.png" width="40px" height="40px" id="lucidHomeLogo">
-    <label style="color: blue"> <a href="guest/flag"> Flagged Events </a> </label> <br> <br>
-    <button class="button" type="buttom"> Sign Out</button>
-</div>
-<div class="split right">
+<navigation-component></navigation-component>
+<div class="right">
     <h1 id="header"> Account
         <br>
         <br>
