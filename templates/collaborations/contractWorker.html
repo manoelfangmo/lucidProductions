@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contract Worker Inquiries</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/contractWorker.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
+
+
+</head>
+
+<body>
+
+<navbar-component></navBar-component>
+
+
+<div class="mainContainer">
+    <h1><strong>Contractor/Vendor Interest Form</strong></h1>
+
+    <form>
+        <div class="formContent">
+            <div class="left">
+                <label for="coRes2"> First Name*</label>
+                <input
+                        input type="text" id="coRes2" name="coRes2"> <br>
+                <label for="coRes"> Last Name* </label>
+                <input type="text" id="coRes2" name="coRes2"> <br>
+                <label for="tel"> Phone* </label>
+                <input type="tel" id="tel" name="tel"> <br>
+                <label for="tel"> Email* </label>
+                <input type="tel" id="tel" name="tel"> <br>
+                <label for="tel"> Company </label>
+                <input type="tel" id="tel" name="tel"> <br>
+                <label for="cars">Service</label>
+                <select name="service - types" id="services-types">
+                    <option value="contractor">Contractor</option>
+                    <option value="vendor">Vendor</option>
+                </select> <br>
+            </div>
+            <div class="right">
+
+
+                <label for="coRes"> Describe your services:* </label>
+                <textArea type="text" id="service_description" name="service_description"> </textArea> <br>
+                <label for="way3"> Please attach your resume* </label>
+                <input type="file" id="myFile" name="filename"> <br>
+                <label for="way3"> If applicable, attach a previous work </label>
+                <input type="file" id="myFile" name="filename"> <br>
+
+
+            </div>
+        </div>
+        <button> Submit</button>
+
+    </form>
+
+
+</div>
+
+
+<footer-component></footer-component>
+</body>
+</html>

@@ -1,0 +1,99 @@
+
+.left {
+    position: fixed;
+  background-color: lightgray;
+    font-size: 1.25em;
+    font-family: gill sans;
+    font-weight: lighter;
+    width: 20vw;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.right {
+    position: absolute;
+    right:0;
+    height: 100%;
+    width: 75vw;
+
+
+}
+
+#menuLogo{
+    height: 4rem;
+    widthL: 4rem;
+}
+
+.leftContent img{
+    height: 2rem;
+    width: 2rem;
+    margin-top: 1rem;
+}
+input[type=checkbox] {
+
+    display: none;
+
+}
+
+.hamburger {
+
+    display: none;
+
+    font-size: 3rem;
+
+    user-select: none;
+    right: 1rem;
+
+
+}
+
+@Media (max-width: 768px ) {
+
+    .left {
+
+        display: none;
+
+        position: absolute;
+
+        left: 25%;
+        z-index: 1;
+
+
+
+
+    }
+    .right{
+        width: 100%;
+    }
+
+
+    input[type=checkbox]:checked ~ .left {
+
+        display: block;
+        width: 85vw;
+        transition: transform 0.9s ease-out;
+
+    }
+    input[type=checkbox]:checked ~ .leftContent {
+
+        margin-top: 2rem;
+
+    }
+
+    .hamburger {
+
+        display: block;
+        color: black;
+        z-index: 3;
+        position: absolute;
+
+    }
+    #menuLogo{
+        bottom: 5rem;
+        position: absolute;
+        right: 6rem;
+    }
+}

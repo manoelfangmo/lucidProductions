@@ -1,14 +1,21 @@
+body{
+    font-family: Arial;
+}
+.mainContainer{
+    min-height: calc(100vh - 5.75rem - 9rem);
+    margin-top: 10rem;
+}
 .navDiv{
     margin-top: 0;
     border-top: 0;
     position: fixed;
-    width: 100%;
     z-index: 100;
+    top: 0;
+    width: 100%;
 }
-body{
-    display: flex;
-    font-family: "Gill Sans";
-}
+
+
+
 * {
 
  margin: 0;
@@ -24,9 +31,13 @@ box-sizing: border-box;
 a {
 
 text-decoration: none;
-    color: white;
+    color: white
 
 }
+a:hover{
+    color: black
+}
+
 
 li {
 
@@ -45,7 +56,8 @@ padding: 20px;
 
 background-color: #0B53B2;
 
-color: white;
+    border-radius: 0px 0px .5rem .5rem;
+
 
 }
 
@@ -67,10 +79,10 @@ font-size: 18px;
 
 }
 
+
 .menu li:hover {
 
-    background-color: white;
-    color: black;
+    background-color: yellow;
 
     border-radius: 5px;
 
@@ -106,7 +118,7 @@ user-select: none;
 
 /* APPLYING MEDIA QUERIES */
 
-@media (max-width: 768px) {
+@media  (max-width: 768px ) {
 
 .menu {
 
@@ -124,6 +136,7 @@ text-align: center;
 
 padding: 16px 0;
 
+margin-top: 20rem;
 }
     input[type=checkbox]:checked ~ .menu{
 
@@ -134,6 +147,7 @@ display: block;
 .hamburger {
 
 display: block;
+    color: white;
 
 }
 
@@ -155,45 +169,40 @@ background-color: #0B53B2;
 }
 
 
-.footer{
-    position: absolute;
-    z-index: 100;
-    width: 100%;
-    display: flex;
-    justify-content: center;
 
-}
 footer{
     background-color: #0B53B2;
-    height: 13%;
-    color: white;
-    position: fixed;
-    bottom: 0;
+    color:white;
     width: 100%;
-    align-items: center;
-
-}
-div.footerContent{
+    bottom: 0;
+   position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
+    justify-content: center;
+
+
+
 }
 .underdog{
-    padding-top: 2%;
+    margin:  .8rem 0;
+    font-size: 1.2rem;
+}
+.copyright{
+    margin: .6rem 0;
+    font-size: .6rem;
 }
 
-p.copyright{
-    align-items: center;
-    display: flex;
-    font-size: small;
-}
+
+
+
+
 
 
 #logo{
     position: relative;
-
-    width: 50px;
-    height: 50px;
+    width: 3rem;
+    height: 3rem;
     padding: 0px;
     z-index: 200;
 

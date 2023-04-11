@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event Details</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/pastEventDetails.css">
+    <script src="/static/scripts/slider.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
+
+
+</head>
+
+<body>
+
+<navbar-component></navBar-component>
+
+<div class="mainContainer">
+    <div class="content">
+        <div class="pastEventImages">
+            <img class="mySlides" src="/static/images/partyPic1.jpg">
+            <img class="mySlides" src="/static/images/partyPic2.jpg">
+            <img class="mySlides" src="/static/images/partyPic3.jpg">
+            <img class="mySlides" src="/static/images/partyPic4.jpg">
+
+
+            <a id="photosLink" href="https://www.google.com/photos/about/" target="_blank"><h3>View Event Photos <img
+                    src="/static/images/googlePhotos.png" id="googlePhotos" alt="Google Photos Icon"></h3></a>
+        </div>
+        <div class="textContent">
+            <h1 id="which"> When?</h1>
+            <p class="eventText">6/28/2023 6:00pm</p>
+            <br>
+            <br>
+            <h1 id="which"> Description</h1>
+            <p class="eventText">On Saturday, January 28, get ready for a collab event between Lucid and Room
+                242(@room242records)! We're
+                excited to welcome
+                everyone back to school, and there's no better way to do that than with live music, food, and drinks.
+                Dance
+                the night away for only
+                $5, and get your tickets in our bios before the price goes up!</p>
+            <br>
+            <br>
+            <button id="myBtn">Leave Review</button>
+        </div>
+                <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+
+                <div class="innerModalContent">
+                    <div class="reviewStars">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+
+                    <label> Describe Your Experience</label>
+                    <textarea id="modalTextArea"></textarea>
+                    <button id="modalButton">Submit</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<footer-component></footer-component>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contract Worker Inquiries</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/eventInquiry.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
+
+
+</head>
+
+<body>
+
+<navbar-component></navBar-component>
+
+<div class="mainContainer">
+  <h1><strong>Event Services Inquiry Form</strong></h1>
+    <form>
+         <div class="formContent">
+
+        <div class="left">
+
+          <label for="eventType"> Event Type: </label>
+            <input type="text" id="event-type" name="coRes2"> <br>
+
+            <label for="phone"> Phone: </label>
+            <input type="text" id="phone" name="phone"> <br>
+            <label for="company"> Company: </label>
+            <input type="text" id="company" name="company"> <br>
+            <label for="email"> Email: </label>
+            <input type="text" id="email" name="email"> <br>
+        </div>
+        <div class="right">
+
+            <label for="event-needs"> What are your event needs? </label></strong>
+            <textarea id="event-needs" name="event-needs" ></textarea>
+        </div>
+    </div>
+
+
+    <button> Submit</button>
+    </form>
+
+
+
+</div>
+
+
+<footer-component></footer-component>
+</body>
+</html>

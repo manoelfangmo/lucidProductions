@@ -1,0 +1,67 @@
+
+
+
+
+.button {
+    font-family:gill sans;
+    font-size: .5rem;
+    background-color: #0B53B2;
+    cursor:pointer;
+    color:white;
+    padding: .5rem 2rem;
+    border-radius: 15rem;
+    border: .25rem solid rgba(255,255,255,.5);
+}
+
+#header {
+    font-weight: lighter;
+    color: blue;
+}
+
+#reviewHead {
+    font-weight: lighter;
+    color: black;
+}
+
+.header{
+    background: #FDDA0D;
+    border:1rem solid black;
+    font-family: gill sans;
+    font-weight: lighter;
+    padding: 10rem;
+}
+
+.headermain{
+    background: #FDDA0D;
+    border:.15rem solid black;
+    font-family: gill sans;
+    font-weight: lighter;
+    padding: 1rem;
+}
+
+.inside{
+    border:.15rem solid black;
+    background-color: white;
+    font-family: gill sans;
+    padding: 1rem;
+    font-weight: lighter;
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem;
+}
+
+.grid-container2 {
+  display: grid;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.grid-container3 {
+  display: grid;
+  grid-template-columns: 1rem 1rem;
+  padding: .5rem;
+}

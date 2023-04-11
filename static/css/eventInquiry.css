@@ -1,30 +1,26 @@
-h1 {
-  font-family: "Gill Sans";
-  font-style: italic;
-  color: #0B53B2;
-    text-align: center;
-    margin-bottom: 2rem;
-
-}
-
 form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 1.2rem;
+    justify-content: center;
+    font-size: 1.3rem;
     font-weight:  bold;
 }
+
 .formContent{
     display: flex;
-    font-weight: bold;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 100vw;
-
-
+}
+.mainContainer h1 {
+  font-style: italic;
+  color: #0B53B2;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 .left{
+    font-weight: bold;
     margin-left: 3rem;
     margin-right: 3rem;
 }
@@ -37,50 +33,33 @@ form{
     width: 10rem;
     border-radius: .5rem;
 }
-.left select{
-    height: 2rem;
-    width: 10rem;
-    border-radius: .5rem;
-    margin: 1rem;
-
-}
-.right{
-    margin-left: 3rem;
-    margin-right: 3rem;
+.right {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
-
-.right input{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-
-    border-radius: .5rem;
-}
-
-.right textarea{
+textarea#event-needs{
     height: 10rem;
     width: 22rem;
-    border-radius: .5rem;
+    border-radius: 1rem;
 }
-
 
 
 
 form button {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     background-color: #0B53B2;
     cursor: pointer;
     color:white;
+    border-radius: 1rem;
+    margin-top: 2rem;
     width: 10rem;
     height: 2rem;
-    margin-top: 1rem;
     margin-bottom: 2rem;
-    border-radius: .5rem;
+
 }
-
-
 
 
 
