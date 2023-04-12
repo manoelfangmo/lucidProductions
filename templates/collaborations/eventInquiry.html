@@ -16,53 +16,6 @@
 <navbar-component></navBar-component>
 
 </head>
-
-{% if form_submitted==True %}
-        <div class="container-fluid px-0 bg-danger">
-            <div class="row g-0">
-                <div class="col-lg-6 vh-100 bg-primary" >
-                    <h1 id = 'head'> WELCOME TO <br> LUCID PRODUCTIONS</h1>
-                    <h2 id = 'subhead'> Where dreams become reality</h2>
-                </div>
-                <div class="col-lg-6 vh-100 bg-light">
-                    <p id="ty"> Thank you <strong> {{request.form.get('fName')}} </strong> for submitting the Inquiry Form!</p>
-                    <p id="ty"> We cannot wait to review your inquiry! </p>
-                                    <div class="col-lg-6 vh-100 bg-light">
-                     <p>Event Type</p>
-                 </div>
-                 <div class="col-lg-6 vh-100 bg-light">
-                     <p>{{ request.form.get('event_type') }}</p>
-                 </div>
-                <div class="col-lg-6 vh-100 bg-light">
-                     <p>Name</p>
-                 </div>
-                 <div class="col-lg-6 vh-100 bg-light">
-                     <p>{{ request.form.get('name') }}</p>
-                 </div>
-                <div class="col-lg-6 vh-100 bg-light">
-                     <p>Phone</p>
-                 </div>
-                 <div class="col-lg-6 vh-100 bg-light">
-                     <p>{{ request.form.get('phone') }}</p>
-                 </div>
-                <div class="col-lg-6 vh-100 bg-light">
-                     <p>Company</p>
-                 </div>
-                 <div class="col-lg-6 vh-100 bg-light">
-                     <p>{{ request.form.get('company') }}</p>
-                 </div>
-                <div class="col-lg-6 vh-100 bg-light">
-                     <p>Email</p>
-                 </div>
-                 <div class="col-lg-6 vh-100 bg-light">
-                     <p>{{ request.form.get('email') }}</p>
-                 </div>
-                <div class="col-lg-6 vh-100 bg-light">
-                     <p>Service</p>
-                 </div>
-                 <div class="col-lg-6 vh-100 bg-light">
-                     <p>{{ request.form.get('service') }}</p>
-                 </div>
                     <label id="ty" style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
                 </div>
             </div>
