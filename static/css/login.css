@@ -1,38 +1,5 @@
-body {
-    background-color: lightgray;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: scroll;
-
-}
-
-.left {
-    height: 70vh;
-    width: 35vw;
-    background-color: #0B53B2;
-    border-radius: 1rem 0rem 0rem 1rem;
-    position: relative;
-
-}
-
-.left #heading{
-    margin: 1rem;
-    color: yellow;
-}
-.left #subheading{
-    margin: 1rem;
-}
-
 .right {
-    height: 70vh;
     width: 35vw;
-    background-color: white;
-    border-radius: 0rem 1rem 1rem 0rem;
-    position: relative;
 
 
 }
@@ -53,17 +20,7 @@ form #submit{
     margin-top: 1rem;
 }
 
-@Media (max-width: 768px ) {
-    .left{
-        display: none;
-    }
-    .right{
-        width: 90vw;
-        border-radius: 1rem;
-        right: 0.5rem;
-    }
 
-}
 
 
 
