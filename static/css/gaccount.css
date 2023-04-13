@@ -1,15 +1,34 @@
 
 
 .button {
-    font-family:gill sans;
-    font-size: .5em;
     background-color: #0B53B2;
     cursor:pointer;
     color:white;
-    padding: .5em 2em;
     border-radius: 15px;
-    border: .25em solid rgba(255,255,255,.5);
+    align-items: center;
+    width: 10rem;
+    height: 2rem;
 }
+form{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+form .row {
+    display: flex;
+
+}
+form .col{
+    margin: 1rem;
+
+}
+form input{
+    border-radius: .5rem;
+    height: 1.7rem;
+    width: 10rem;
+}
+
 
 #header {
     font-weight: lighter;
@@ -19,6 +38,7 @@
 #reviewHead {
     font-weight: lighter;
     color: black;
+    font-size: 0.75em;
 }
 
 .header{
@@ -26,7 +46,7 @@
     border:1px solid black;
     font-family: gill sans;
     font-weight: lighter;
-    padding: 10em;
+    padding: 1.5em;
 }
 
 .headermain{
@@ -64,3 +84,5 @@
   grid-template-columns: 1fr 1fr;
   padding: .5em;
 }
+
+

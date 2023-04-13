@@ -32,11 +32,16 @@ form input{
     width: 10rem;
 }
 
+#reviewHead {
+    font-weight: lighter;
+    font-size: 0.75em;
+    color: blue;
+}
 
 #mgmtUsers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 92%;
 }
 
 
