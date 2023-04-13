@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="/static/css/navbar.css">
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
 
-
+<body>
+<style>
+		body {
+			background-color: #FEEEB1;
+		}
+	</style>
 </head>
 
 <head>
@@ -26,7 +31,6 @@
             </div>
         </div>
 
-{% else %}
 
 <form class="row g-3" action="{{ url_for('eventInquiry') }}" method="post">
 <div class="mainContainer">

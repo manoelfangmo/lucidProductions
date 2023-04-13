@@ -10,18 +10,18 @@ const managementAccountNavigation = '     <div class = "accountMenu">\n' +
     '            <img src="/static/images/user.png">\n' +
     '            <label style="color: blue"> <a href="/management"> Personal Information </a> </label> <br> <br>\n' +
     '            <img src="/static/images/review.png">\n' +
-    '            <label style="color: blue"> <a href="/management/reviews"> Reviews </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/management/reviews">Reviews</a> </label> <br> <br>\n' +
     '            <img src="/static/images/data.png">\n' +
-    '            <label style="color: blue"> <a href="/management/analytics"> Analytics </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/management/analytics">Analytics</a> </label> <br> <br>\n' +
     '            <img src="/static/images/add.png">\n' +
-    '            <label style="color: blue"> <a href="/management/users"> Add Account </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/management/users"> Management Accounts </a> </label> <br> <br>\n' +
     '            <img src="/static/images/hello.webp">\n' +
-    '            <label style="color: blue"> <a href="/management/inquiries"> Inquiries </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/management/inquiries">Inquiries</a> </label> <br> <br>\n' +
     '            <img src="/static/images/event.png">\n' +
-    '            <label style="color: blue"> <a href="/management/events"> Create New Events </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/management/events">Events</a> </label> <br> <br>\n' +
     '        </div>\n' +
-    '\n' +
-    '        <button class="button" type="buttom"> Sign Out</button>\n' +
+
+    '        <button class="button" type="button"> Sign Out</button>\n' +
     '    </div>\n' +
     '    </div>';
 class navigation extends HTMLElement {

@@ -2,14 +2,14 @@
     min-height: 80vh!important;
 }
 #companyName{
-    color: yellow;
+    color: #F7DC82;
     text-align: center;
     margin-top: 5rem;
     font-size: 2.5rem;
     font-family: "Arial Rounded MT Bold";
 }
 #homeText {
-    color: yellow;
+    color: #F7DC82;
     text-align: center;
 }
 @keyframes pictures {
