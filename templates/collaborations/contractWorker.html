@@ -12,12 +12,18 @@
 </head>
 
 <body>
-
+<style>
+		body {
+			background-color: #FEEEB1;
+		}
+	</style>
 <navbar-component></navBar-component>
 
 {% if form_submitted==True %}
         <div class="container-fluid px-0 bg-danger">
             <div class="row g-0">
+                <form class="row g-3" action="{{ url_for('contractWorker') }}" method="get">
+                <div class="mainContainer">
                 <div class="col-lg-6 vh-100 bg-primary" >
                     <h1 id = 'head'> WELCOME TO <br> LUCID PRODUCTIONS</h1>
                     <h2 id = 'subhead'> Where dreams become reality</h2>
@@ -26,6 +32,26 @@
                     <p id="ty"> Thank you <strong> {{request.form.get('fName')}} </strong> for submitting the interest form!</p>
                     <p id="ty"> We cannot wait to review your work! </p>
                 </div>
+                     <div class="col-lg-6 vh-100 bg-light">
+                         <p>First Name</p>
+                         </div>
+                     <div class="col-lg-6 vh-100 bg-light">
+                         <p>{{ request.form.get('fName') }}</p>
+                         <div class="col-lg-6 vh-100 bg-light">
+                         <p>Last Name</p>
+                         </div>
+                     <div class="col-lg-6 vh-100 bg-light">
+                         <p>{{ request.form.get('lName') }}</p>
+                         <div class="col-lg-6 vh-100 bg-light">
+                         <p>Phone</p>
+                         </div>
+                     <div class="col-lg-6 vh-100 bg-light">
+                         <p>{{ request.form.get('phone') }}</p>
+                         <div class="col-lg-6 vh-100 bg-light">
+                         <p>Email</p>
+                         </div>
+                     <div class="col-lg-6 vh-100 bg-light">
+                         <p>{{ request.form.get('email') }}</p>
                     <label id="ty" style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
                 </div>
             </div>
@@ -79,5 +105,6 @@
 {% endif %}
 
 <footer-component></footer-component>
+</div>
 </body>
 </html>
