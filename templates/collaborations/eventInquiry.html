@@ -8,31 +8,17 @@
     <link rel="stylesheet" href="/static/css/navbar.css">
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
 
+
+</head>
+
 <body>
 <style>
 		body {
 			background-color: #FEEEB1;
 		}
 	</style>
-</head>
-
-<head>
-
 <navbar-component></navBar-component>
 
-</head>
-                    <label id="ty" style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
-                </div>
-            </div>
-        </div>
-
-                    <label id="ty" style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
-                </div>
-            </div>
-        </div>
-
-
-<form class="row g-3" action="{{ url_for('eventInquiry') }}" method="post">
 <div class="mainContainer">
   <h1><strong>Event Services Inquiry Form</strong></h1>
     <form>
@@ -43,10 +29,8 @@
           <label for="eventType"> Event Type: </label>
             <input type="text" id="event-type" name="coRes2"> <br>
 
-            <label for="name"> Name: </label>
-            <input type="text" id="name" name="name">  <br>
             <label for="phone"> Phone: </label>
-            <input type="text" id="phone" name="phone">  <br>
+            <input type="text" id="phone" name="phone"> <br>
             <label for="company"> Company: </label>
             <input type="text" id="company" name="company"> <br>
             <label for="email"> Email: </label>
@@ -66,8 +50,7 @@
 
 
 </div>
-    </form>
- { % endif %}
+
 
 <footer-component></footer-component>
 </body>
