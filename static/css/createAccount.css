@@ -41,3 +41,9 @@ form #submit{
     border-radius: 0.5rem;
 }
 
+#backToHome {
+    padding-top: 75%;
+    padding-left: 5%;
+    color: yellow;
+}
+

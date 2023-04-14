@@ -21,7 +21,11 @@ form #submit{
 }
 
 
-
+#backToHome {
+    padding-top: 75%;
+    padding-left: 5%;
+    color: yellow;
+}
 
 
 
