@@ -44,7 +44,7 @@ class navigationBar extends HTMLElement {
 customElements.define("navbar-component", navigationBar);
 
 const footer = '        <footer>\n' +
-    '        <h6 class="underdog"> 407UnderDogs</h6>\n' +
+    '        <h6 class="underdog">Website by 407 Underdogs</h6>\n' +
     '        <p class="copyright">&copy; 2023 407UnderDogs. All Rights Reserved.</p>\n' +
     '        </footer>';
 class footerBar extends HTMLElement {
