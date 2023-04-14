@@ -3,15 +3,38 @@
 
 
 .button {
-    font-family:gill sans;
-    font-size: .5rem;
     background-color: #0B53B2;
-    cursor:pointer;
-    color:white;
-    padding: .5rem 2rem;
-    border-radius: 15rem;
-    border: .25rem solid rgba(255,255,255,.5);
+    cursor: pointer;
+    color: white;
+    border-radius: 15px;
+    align-items: center;
+    width: 10rem;
+    height: 2rem;
 }
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+form .row {
+    display: flex;
+
+}
+
+form .col {
+    margin: 1rem;
+
+}
+
+form input {
+    border-radius: .5rem;
+    height: 1.7rem;
+    width: 10rem;
+}
+
 
 #header {
     font-weight: lighter;
@@ -21,47 +44,47 @@
 #reviewHead {
     font-weight: lighter;
     color: black;
+    font-size: 0.75em;
 }
 
-.header{
+.header {
     background: #FDDA0D;
-    border:1rem solid black;
+    border: 1px solid black;
     font-family: gill sans;
     font-weight: lighter;
-    padding: 10rem;
+    padding: 1.5em;
 }
 
-.headermain{
+.headermain {
     background: #FDDA0D;
-    border:.15rem solid black;
+    border: .15em solid black;
     font-family: gill sans;
     font-weight: lighter;
-    padding: 1rem;
+    padding: 1em;
 }
 
-.inside{
-    border:.15rem solid black;
+.inside {
+    border: .15em solid black;
     background-color: white;
     font-family: gill sans;
-    padding: 1rem;
+    padding: 1em;
     font-weight: lighter;
 }
 
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1em;
 }
 
 .grid-container2 {
-  display: grid;
-    margin: 1rem;
-    padding: 1rem;
+    display: grid;
+    margin: 1em;
+    padding: 1em;
 }
 
 .grid-container3 {
-  display: grid;
-  grid-template-columns: 1rem 1rem;
-  padding: .5rem;
-}
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: .5em;}
