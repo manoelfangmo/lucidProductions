@@ -18,6 +18,7 @@ body {
     position: relative;
 
 }
+
 .right {
     height: 70vh;
     background-color: white;
@@ -25,24 +26,30 @@ body {
     position: relative;
 
 }
-.left #heading{
+
+.left #heading {
     margin: 1rem;
     color: #FEEEB1;
 }
-.left #subheading{
+
+.left #subheading {
     margin: 1rem;
 }
 
 
-
 @Media (max-width: 768px ) {
-    .left{
+    .left {
         display: none;
     }
-    .right{
+
+    .right {
         width: 90vw;
         border-radius: 1rem;
         right: 0.5rem;
     }
 
+}
+
+body {
+    background-color: #FEEEB1;
 }

@@ -9,16 +9,11 @@
 
 </head>
 <body>
-<style>
-		body {
-			background-color: #FEEEB1;
-		}
-	</style>
 
 <div class="left">
     <h1 id="heading"> WELCOME TO <br>LUCID PRODUCTIONS</h1>
     <h2 id="subheading"> Where dreams become reality </h2>
-    <a href="/account/login"> <p id="backToLogin">Back to Login</p></a>
+    <a href="/account/login"><p id="backToLogin">Back to Login</p></a>
 </div>
 <div class="right">
     <div class="rightContent">
@@ -28,55 +23,54 @@
         <form action="{{ url_for('create_account') }}" method="post">
             <div class="row">
                 <div class="col">
-                    <label for="firstName">First Name:</label>
+                    <label>First Name:</label>
                     <input type="text" class="form-control" placeholder="First name">
                 </div>
                 <div class="col">
-                    <label for="lastName">Last Name:</label>
+                    <label>Last Name:</label>
                     <input type="text" class="form-control" placeholder="Last name">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="phoneNumber">Phone:</label>
+                    <label>Phone:</label>
                     <input type="text" class="form-control" placeholder="222-333-4444">
                 </div>
                 <div class="col">
-                    <label for="email">Email:</label>
+                    <label>Email:</label>
                     <input type="text" class="form-control" placeholder="Email">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="dob">Date of Birth:</label>
+                    <label>Date of Birth:</label>
                     <input type="text" class="form-control" placeholder="00/00/0000">
                 </div>
                 <div class="col">
-                    <label for="zip">Zip Code</label>
+                    <label>Zip Code</label>
                     <input type="text" class="form-control">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="pwd">Password:</label>
-                    <input type="password" id="pwd" name="password" required>
+                    <label>Password:</label>
+                    <input type="password" name="password" required>
                 </div>
                 <div class="col">
                     <div class="col">
-                        <label for="pwd">Re-Enter Password:</label>
-                        <input type="password" id="pwd" name="password" required>
+                        <label>Re-Enter Password:</label>
+                        <input type="password" name="password" required>
                     </div>
 
                 </div>
             </div>
-            <div class = "selectContainer">
-                            <label for="cars">Who are you :</label>
-            <select name="userType" id="userType">
-                <option value="client">Client</option>
-                <option value="guest">Guest</option>
-            </select>
+            <div class="selectContainer">
+                <label>Who are you :</label>
+                <select name="userType" id="userType">
+                    <option value="client">Client</option>
+                    <option value="guest">Guest</option>
+                </select>
             </div>
-
 
 
             <button id="submit" type="button"> Submit</button>
