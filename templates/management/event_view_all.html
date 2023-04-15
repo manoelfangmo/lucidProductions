@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+
+    View All Events
+{% endblock %}
+
+{% block page_head %}
+    View All Events
+{% endblock %}
+
+{% block page_content %}
+
+    <navigation-component>
+
+</navigation-component>
+
+
+
+
+    <div class="row">
+    <div class="col">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert {{ 'alert-success' if category == 'success' else 'alert-danger' }}" role="alert">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    <table class="table table-striped">
+        <tr>
+            <th>Event No. </th>
+            <th>Event </th>
+			<th>Event Date </th>
+            <th>Event Description </th>
+            <th>Event Theme </th>
+        </tr>
+
+        {% for each_event in events %}
+        <tr>
+            <td><a href="{{ url_for('event_view', event_id=each_event['event_id']) }}">{{ each_event['event_id'] }}</a></td>
+            <td>{{ each_event['event_name'] }} </td>
+            <td>{{ each_event['event_date'] }} </td>
+            <td>{{ each_event['event_description'] }} </td>
+            <td>{{ each_event['event_theme'] }} </td>
+            <td>
+                <a href="{{ url_for('event_edit', event_id=each_event['event_id']) }}" class="btn btn-secondary" role="button">Edit</a>
+                &nbsp;
+                <a href="{{ url_for('event_delete', event_id=each_event['event_id']) }}" class="btn btn-secondary" role="button">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            Total Number of Events: {{ events|length }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <a href="{{ url_for('event_create') }}" class="btn btn-primary" role="button">Add New Event</a>
+        </div>
+    </div>
+ </div>
+{% endblock page_content %}

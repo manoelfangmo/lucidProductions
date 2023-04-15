@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{%  block page_title %}
+    {% if action and action == 'create' %}
+        Add New Event
+    {% elif action and action == 'update'  %}
+        Update Event
+    {% else %}
+        View Event
+    {% endif %}
+
+{% endblock %}
+
+{% block page_head %}
+    {% if action and action == 'create' %}
+        Add New Event
+    {% elif action and action == 'update'  %}
+        Update Event
+    {% else %}
+        View Event
+    {% endif %}
+{% endblock %}
+
+{% block page_content %}
+
+<navigation-component>
+
+</navigation-component>
+
+
+
+<form class="row g-3"
+      action="{{ url_for('event_edit', event_id=event_id) if event_id else url_for('event_create') }}" method="post">
+  <br> <p1 id="reviewHead"> Create New Event </p1> </br>
+  <div class="col-md-5">
+    <label for="event_name" class="form-label"><strong>Event Name</strong></label>
+    {% if action and action in ['create', 'update'] %}
+    <input type="text" class="form-control" id="event_name" name="event_name" value="{{ event['event_name'] if event else '' }}" required>
+    {% else %}
+        <br>{{ event['event_name'] }}
+    {% endif %}
+  </div>
+  <div class="col-md-4">
+    <label for="event_date" class="form-label"><strong>Event Date</strong></label>
+    {% if action and action in ['create', 'update'] %}
+    <input type="date" class="form-control" id="event_date" name="event_date" value="{{ event['event_date'] if event else '' }}" required>
+    {% else %}
+        <br>{{ event['event_date'] }}
+    {% endif %}
+  </div>
+  <div class="col-md-4">
+    <label for="event_description" class="form-label"><strong>Event Description</strong></label>
+    {% if action and action in ['create', 'update'] %}
+    <input type="text" class="form-control" id="event_description" name="event_description" value="{{ event['event_description'] if event else '' }}" required>
+    {% else %}
+        <br>{{ event['event_description'] }}
+    {% endif %}
+  </div>
+  <div class="col-md-4">
+    <label for="event_theme" class="form-label"><strong>Event Theme</strong></label>
+    {% if action and action in ['create', 'update'] %}
+    <input type="text" class="form-control" id="event_theme" name="event_theme" value="{{ event['event_theme'] if event else '' }}" required>
+    {% else %}
+        <br>{{ event['event_theme'] }}
+    {% endif %}
+  </div>
+  <div class="col-12 text-center">
+    {% if action and action in ['create', 'update'] %}
+    <button class="btn btn-primary" type="submit">{{ 'Add' if action=='create' else 'Update' }} Event</button>
+    {% endif %}
+
+    <a href="{{ url_for('event_view_all') }}" class="btn btn-secondary" role="button">
+        {% if action and action in ['create', 'update'] %}
+        Cancel
+        {% else %}
+        Return
+        {% endif %}
+    </a>
+  </div>
+</form>
+ </div>
+{% endblock %}
