@@ -6,112 +6,110 @@
     <link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/events.css">
     <title>Events</title>
-    <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/generalNavigation.js" defer></script>
 
 
 </head>
 
 <body>
 <style>
-		body {
-			background-color: #FEEEB1;
-		}
-	</style>
+
+</style>
 <navbar-component></navBar-component>
 <div class="mainContainer">
     <div class="dropDownMenu">
-        <label for="events" id="browse">Browse: </label>
-        <select name="event" id="occurance">
-            <option value="pastEvent" id="eventOccurrences">All Events</option>
-            <option value="upcomingEvents" id="eventOccurrences">Upcoming Events</option>
-            <option value="futureEvents" id="eventOccurrences">Past Events</option>
+        <label id="browse">Browse: </label>
+        <select name="event">
+            <option>All Events</option>
+            <option>Upcoming Events</option>
+            <option>Past Events</option>
         </select>
     </div>
 
 
     <div class="events">
-        <div class="event" id="event1">
+        <div class="event">
             <a href="/events/pastEventDetails"> <img src="/static/images/valentinesParty.jpg"
-                                                                id="valentines" alt="Image 1">
+                                                      class = "eventImg" alt="valentines">
             </a>
             <div class="time"> WED <br> 24 <br> JUN</div>
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+            <img src="/static/images/saveIcon.png" class="saveIcon">
 
 
         </div>
         <div class="event">
-            <a href="/events/pastEventDetails"> <img src="/static/images/halloweenParty.jpg" id="halloween"
-                                                                alt="Image 2">
+            <a href="/events/pastEventDetails"> <img src="/static/images/halloweenParty.jpg"
+                                                     class = "eventImg" alt="Image 2">
             </a>
             <div class="time"> WED <br> 24 <br> JUL</div>
 
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+            <img src="/static/images/saveIcon.png"  class="saveIcon">
 
 
         </div>
         <div class="event">
-            <a href="/events/pastEventDetails"> <img src="/static/images/backToSchoolParty.jpg" id=""
-                                                                alt="Image 3">
+            <a href="/events/pastEventDetails"> <img src="/static/images/backToSchoolParty.jpg"
+                                                     class = "eventImg" alt="Image 3">
             </a>
             <div class="time"> WED <br> 24 <br> JAN</div>
 
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+            <img src="/static/images/saveIcon.png" class="saveIcon">
 
         </div>
         <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                                   alt="Image 3">
+            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg"
+                                                      class = "eventImg" alt="Image 3">
             </a>
             <div class="time"> WED <br> 24 <br> MAY</div>
 
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+            <img src="/static/images/saveIcon.png" class="saveIcon">
 
         </div>
         <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                                   alt="Image 3">
+            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg"
+                                                      class = "eventImg" alt="Image 3">
             </a>
             <div class="time"> WED <br> 24 <br> MAY</div>
 
 
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+            <img src="/static/images/saveIcon.png" class="saveIcon">
 
         </div>
         <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                                   alt="Image 3">
+            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg"
+                                                      class = "eventImg" alt="Image 3">
             </a>
             <div class="time"> WED <br> 24 <br> MAY</div>
 
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-        </div>
-        <div class="event" id="event1">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                                   alt="Image 3">
-            </a>
-            <div class="time"> WED <br> 24 <br> MAY</div>
-
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+            <img src="/static/images/saveIcon.png" class="saveIcon">
 
         </div>
         <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                                   alt="Image 3">
+            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg"
+                                                      class = "eventImg" alt="Image 3">
             </a>
             <div class="time"> WED <br> 24 <br> MAY</div>
 
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+
+            <img src="/static/images/saveIcon.png" class="saveIcon">
 
         </div>
         <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                                   alt="Image 3">
+            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg"
+                                                      class = "eventImg" alt="Image 3">
             </a>
             <div class="time"> WED <br> 24 <br> MAY</div>
 
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+            <img src="/static/images/saveIcon.png" class="saveIcon">
+
+        </div>
+        <div class="event">
+            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg"
+                                                      class = "eventImg" alt="Image 3">
+            </a>
+            <div class="time"> WED <br> 24 <br> MAY</div>
+
+            <img src="/static/images/saveIcon.png" class="saveIcon">
 
         </div>
 

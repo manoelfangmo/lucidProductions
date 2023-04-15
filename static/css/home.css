@@ -1,21 +1,33 @@
-.mainContainer{
-    min-height: 80vh!important;
+.mainContainer {
+    min-height: 80vh !important;
 }
-#companyName{
+
+#companyName {
     color: #F7DC82;
     text-align: center;
     margin-top: 5rem;
     font-size: 2.5rem;
     font-family: "Arial Rounded MT Bold";
 }
+
 #homeText {
     color: #F7DC82;
     text-align: center;
 }
+
 @keyframes pictures {
-    0% {opacity: 1; background-image: url("../images/line.JPG");}
-    50% {opacity: 1; background-image: url("../images/bonfire.JPG");}
-    100% {opacity: 1; background-image: url("../images/abo.PNG");}
+    0% {
+        opacity: 1;
+        background-image: url("../images/line.JPG");
+    }
+    50% {
+        opacity: 1;
+        background-image: url("../images/bonfire.JPG");
+    }
+    100% {
+        opacity: 1;
+        background-image: url("../images/abo.PNG");
+    }
 }
 
 
