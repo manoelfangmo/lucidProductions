@@ -7,17 +7,14 @@
     <title>Collaborations</title>
     <link rel="stylesheet" type="text/css" href="/static/css/collaborations.css">
     <link rel="stylesheet" href="/static/css/navbar.css">
-    <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/generalNavigation.js" defer></script>
 
 
 </head>
 
 <body>
 <style>
-		body {
-			background-color: #FEEEB1;
-		}
-	</style>
+</style>
 <navbar-component></navBar-component>
 
 
@@ -25,7 +22,7 @@
     <div class="content">
         <h1 id="title">Collaborate With Us</h1>
         <div class="communityCollab">
-            <img src="/static/images/collabImage.png" id="collabImage">
+            <img src="/static/images/collabImage.png" id="collabImage" alt="collabImage">
 
 
             <p id="collabDescription"> Community is paramount here at Lucid Productions, and we're always looking to
@@ -43,12 +40,12 @@
     </div>
 
     <div class="buttonContainer">
-        <a href="/client/interestForm">
+        <form style="display: inline" action="/client/interestForm" method="get">
             <button>Event Inquiries</button>
-        </a>
-        <a href="/collaborations/contractWorker">
+        </form>
+        <form style="display: inline" action="/collaborations/contractWorker" method="get">
             <button>Contractor/Vendor Opportunities</button>
-        </a>
+        </form>
     </div>
 </div>
 
