@@ -1,10 +1,10 @@
 #Instagram {
-    color:blue;
+    color: blue;
 }
 
 .mainContainer {
-  font-family: "Gill Sans";
-  color: black;
+    font-family: "Gill Sans";
+    color: black;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
@@ -12,36 +12,44 @@
     align-items: center;
     margin-top: 8rem !important;
 }
-.mainContainer h1{
+
+.mainContainer h1 {
     color: #0B53B2;
     font-style: italic;
 }
 
-img#lucidFounders{
+img#lucidFounders {
     margin-top: 2rem;
     margin-bottom: 2rem;
     border-radius: 1rem;
+    width: 30%;
+    height: 30%;
 }
 
-.mainContainer p{
+.mainContainer p {
     max-width: 80vw;
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
 
 
-.connectWith{
+.connectWith {
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: center;
 }
-img#instagram{
+
+img#instagram {
     width: 1.5rem;
     height: 1.5rem;
     margin-bottom: 1rem;
 }
 
+
+body {
+    background-color: #FEEEB1;
+}
 
 
 
