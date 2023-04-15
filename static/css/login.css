@@ -3,16 +3,18 @@
 
 
 }
-.rightContent{
+
+.rightContent {
     margin-left: 1rem;
 }
-form input{
+
+form input {
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     height: 1.5rem;
 }
 
-form #submit{
+form #submit {
     background-color: #0B53B2;
     width: 10rem;
     height: 2rem;
@@ -26,6 +28,10 @@ form #submit{
     padding-left: 5%;
     color: yellow;
 }
+
+body{
+			background-color: #FEEEB1;
+		}
 
 
 
