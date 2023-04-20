@@ -18,17 +18,18 @@ const managementAccountNavigation = '     <div class = "accountMenu">\n' +
     '            <img src="/static/images/hello.webp">\n' +
     '            <label style="color: blue"> <a href="/management/inquiries">Inquiries</a> </label> <br> <br>\n' +
     '            <img src="/static/images/event.png">\n' +
-    '            <label style="color: blue"> <a href="/management/eventCreate">Events</a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/management/events">Events</a> </label> <br> <br>\n' +
     '        </div>\n' +
 
     '        <button class="button" type="button"> Sign Out</button>\n' +
     '    </div>\n' +
     '    </div>';
-class navigation extends HTMLElement {
+class managementNavigation extends HTMLElement {
   constructor() {
     super();
     this.innerHTML = managementAccountNavigation;
   }
 }
 
-customElements.define("navigation-component", navigation);
+customElements.define("navigation-component", managementNavigation);
+

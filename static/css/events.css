@@ -1,5 +1,6 @@
 
-div.events {
+
+div.events{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -7,34 +8,30 @@ div.events {
     position: relative;
     flex-wrap: wrap;
 }
-
-.event {
+.event{
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
 }
-
-.event:hover {
+.event:hover{
     scale: 1.2;
 }
 
 
-.saveIcon {
+#saveIcon{
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: .25rem;
+    right: .25rem;
     height: 3rem;
     width: 3rem;
     background-color: #0B53B2;
 }
-
-.saveIcon:hover {
+#saveIcon:hover {
     background-color: white;
 }
-
-.time {
+.time{
     position: absolute;
     background-color: White;
     left: 2rem;
@@ -51,14 +48,15 @@ div.events {
 }
 
 
-.eventImg {
+
+.event img{
     margin: 20px;
     width: 16rem;
     height: 16rem;
     border-radius: 30px;
 }
 
-.dropDownMenu {
+.dropDownMenu{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -67,8 +65,7 @@ div.events {
     margin-bottom: 2rem;
 
 }
-
-select#occurence {
+select#occurance{
 
     height: 3rem;
     width: 15rem;
@@ -76,22 +73,19 @@ select#occurence {
     color: white;
     border-radius: 1rem;
 }
-
-#browse {
+#browse{
     font-size: 1.5rem;
     font-weight: bold;
     margin-right: 1rem;
 }
 
-.eventOccurrences {
+#eventOccurrences{
     font-size: 1rem;
 
 }
 
 
-body {
-    background-color: #FEEEB1;
-}
+
 
 
 

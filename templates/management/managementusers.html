@@ -3,86 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Add Lucid Management</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/maccount.css">
+    <title>Create New Event</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
+    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/editEventModal.js" type="application/javascript" defer></script>
     <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
 
 </head>
 <body>
 <style>
-		body {
-			background-color: #FEEEB1;
-		}
-	</style>
+    body {
+        background-color: #FEEEB1;
+    }
+</style>
 
 
 <navigation-component>
 
 </navigation-component>
 
+
 <div class="right">
-    <h1 id="header">Account
-        <br>
-        <br>
-        <p1 id="reviewHead"> Management Accounts</p1>
-        </br>
-        <br>
-    </h1>
-    <br>
-    <br>
-    <div class="grid-container2">
-        <table id="mgmtUsers">
-            <tr>
-                <th>User</th>
-                <th>Account Email</th>
-            </tr>
-            <tr>
-                <td></td>
+    <h1 id="header"> Events</h1>
+    <div class="addEvent">
+        <button class="button" type="button" id="myBtn"> Add Event</button>
 
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-
-                <td></td>
-            </tr>
-
-        </table>
     </div>
-    <br>
-    <label style="color: blue"> <a href="management/users/add">+ Add New Management Account</a> </label>
+    <div class="mainContent">
 
+            <div class="event">
+                <img src="/static/images/person.png" class="eventEditor">
+                <img src="/static/images/person.png" class="eventEditor">
+                <img src="/static/images/person.png" class="eventEditor">
+                <img src="/static/images/person.png" class="eventEditor">
+                <img src="/static/images/person.png" class="eventEditor">
+                <img src="/static/images/person.png" class="eventEditor">
+                <img src="/static/images/person.png" class="eventEditor">
+                <img src="/static/images/person.png" class="eventEditor">
+
+
+            </div>
+
+
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+
+            <div class="innerModalContent">
+                <form action="{{ url_for('management_event') }}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="event_id">
+                    <label for="event_name"> Event Name: </label>
+                    <input type="text" id="fName" name="event_name" required> <br>
+                    <label for="fName"> Event Date: </label>
+                    <input type="date" id="fName" name="event_date" required> <br>
+                    <label for="fName"> Event Time: </label>
+                    <input type="time" id="fName" name="event_time" required> <br>
+                    <label for="fName"> Event Description: </label>
+                    <textarea type="text" id="fName" name="event_description" required> </textarea> <br>
+                    <label for="chooseFile" id="chooseImageLabel"> <span id="fileLblPrompt">Change Image:</span>
+                        <input type="file" id="chooseFile" name="event_image" required> <br>
+                    </label>
+                    <br>
+                    <div class=buttonDiv>
+                        <button class="button" type="submit" value="upload" name="save"> Save</button>
+                        <button class="button" id="deleteButton" type="submit" name="delete" >Delete</button>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
 </div>
+
+
 </body>
 </html>

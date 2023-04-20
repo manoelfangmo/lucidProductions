@@ -6,9 +6,16 @@
     <title>Create Account</title>
     <link rel="stylesheet" type="text/css" href="/static/css/createAccount.css">
     <link rel="stylesheet" type="text/css" href="/static/css/loginConstant.css">
+    <script src="/static/scripts/createAccount.js" type="application/javascript" defer></script>
+
 
 </head>
 <body>
+<style>
+    body {
+        background-color: #FEEEB1;
+    }
+</style>
 
 <div class="left">
     <h1 id="heading"> WELCOME TO <br>LUCID PRODUCTIONS</h1>
@@ -20,60 +27,71 @@
         <h1> Create Account</h1>
 
 
-        <form action="{{ url_for('create_account') }}" method="post">
+        <form action="{{ url_for('user_authentication.create_account') }}" method="post">
             <div class="row">
                 <div class="col">
-                    <label>First Name:</label>
-                    <input type="text" class="form-control" placeholder="First name">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" placeholder="First name" name="first_name" required>
                 </div>
                 <div class="col">
-                    <label>Last Name:</label>
-                    <input type="text" class="form-control" placeholder="Last name">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" placeholder="Last name" name="last_name" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label>Phone:</label>
-                    <input type="text" class="form-control" placeholder="222-333-4444">
+                    <label for="phoneNumber">Phone:</label>
+                    <input type="text" class="form-control" placeholder="222-333-4444" name="phone" required>
                 </div>
                 <div class="col">
-                    <label>Email:</label>
-                    <input type="text" class="form-control" placeholder="Email">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label>Date of Birth:</label>
-                    <input type="text" class="form-control" placeholder="00/00/0000">
-                </div>
-                <div class="col">
-                    <label>Zip Code</label>
-                    <input type="text" class="form-control">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" placeholder="Email" name="email" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label>Password:</label>
-                    <input type="password" name="password" required>
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" class="form-control" placeholder="00/00/0000" name="dob" required>
+                </div>
+                <div class="col">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" class="form-control" name="zipcode" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 <div class="col">
                     <div class="col">
-                        <label>Re-Enter Password:</label>
-                        <input type="password" name="password" required>
+                        <label for="cars">Who are you :</label>
+                        <select name="userType" id="userType" required>
+                            <option value="client" name="client">CLIENT</option>
+                            <option value="guest" name="guest">GUEST</option>
+
+                        </select>
                     </div>
 
                 </div>
             </div>
-            <div class="selectContainer">
-                <label>Who are you :</label>
-                <select name="userType" id="userType">
-                    <option value="client">Client</option>
-                    <option value="guest">Guest</option>
-                </select>
+            <div class="row">
+                <div class="col">
+                    <label for="pwd">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="col">
+                    <div class="col">
+                        <label for="pwd">Re-Enter Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+
+                </div>
             </div>
 
 
-            <button id="submit" type="button"> Submit</button>
+            <button id="submit" type="submit"> Submit</button>
             <br>
         </form>
     </div>
