@@ -11,7 +11,7 @@ management_bp = Blueprint('management', __name__)
 def management_event():
     userTest = "management"; #testing user type
     if request.method == 'POST':
-        if"event_id" in request.form and request.form["event_id"]: ## if updatinng or deleting event
+        if"event_id" in request.form and request.form["event_id"]: ## if updating or deleting event
             curr_event = Event.query.filter_by(event_id=request.form['event_id']).one()
             if 'save' in request.form:
                 print(request.files)
