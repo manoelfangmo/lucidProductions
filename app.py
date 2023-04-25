@@ -4,7 +4,7 @@ from flask_login import LoginManager
 from werkzeug.security import generate_password_hash
 
 from models import db, Event, User
-from datetime import date, time
+from datetime import date, time, datetime
 from base64 import b64encode
 from management_routes import management_bp
 from user_authentication_routes import user_authentication_bp
@@ -98,9 +98,12 @@ def managementUsers():
     return render_template('management/managementusers.html');
 
 
-@app.route('/client')
+@app.route('/client',methods={'GET','POST'})
 def client():
-    return render_template('client/client.html');
+    user = User.query.filter_by(user_id=1).first()
+    return render_template('client/client.html', user_id=user.user_id, first_name=user.first_name,
+                                   last_name=user.last_name, phone=user.phone, email=user.email, dob=user.dob,
+                                   zipcode=user.zipcode);
 
 
 @app.route('/guest')
