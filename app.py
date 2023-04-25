@@ -164,7 +164,7 @@ if __name__ == '__main__':
             event = Event(**event)
             db.session.add(event)
 
-        users = users = [
+        users = [
             {'username': 'client', 'email': 'client@umd.edu', 'first_name': 'Lucid', 'last_name': 'Client',
              'password': generate_password_hash('clientpw', method='sha256'), 'role': 'CLIENT', 'phone': 1234567890,
              'dob': date(2000, 5, 15), 'zipcode': 20783},

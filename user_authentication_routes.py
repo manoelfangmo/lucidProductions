@@ -55,7 +55,7 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user is not None and check_password_hash(user.password, password):
             # Set session variable to indicate user is logged in
-            session['user_id'] = user.id
+            session['user_id'] = user.user_id
             return redirect('/client')
         else:
             error = 'Invalid username or password'
