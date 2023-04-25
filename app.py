@@ -25,6 +25,7 @@ db.init_app(app)
 def home():
     return render_template('home.html');
 
+
 @app.route('/events')
 def events():
     events = Event.query.options(defer(Event.event_image)).order_by(Event.event_date).all()
@@ -94,68 +95,16 @@ def managementUsers():
 def client():
     return render_template('client/client.html');
 
+
 @app.route('/guest')
-def guest_view_all():
-    guests = User.query.order_by(User.user_id) \
-        .all()
-    return render_template('guest/guest.html', guests=guests);
-
-@app.route('/guest/<int:user_id>')
-def guest_view(user_id):
-    guests = User.query.order_by(User.user_id) \
-        .all()
-
-    if guests:
-        return render_template('guest/guest.html', guests=guests, action=read);
-    else:
-        flash(f'Guest attempting to be viewed could not be found!', 'error')
-        return redirect(url_for(guest_view_all))
-
-@app.route('/guest/update/<int:user_id>', methods=['GET', 'POST'])
-def guest_edit(user_id):
-    if request.method == 'GET':
-        guest = User.query.filter_by(user_id=user_id)\
-        .all()
-
-        if guest:
-            return render_template('guest/guest.html', guest=guest, action='update')
-
-        else: flash(f'Guest attempting to be edited could not be found!')
-
-    elif request.method == 'POST':
-        guest = User.query.filter_by(user_id=user_id)\
-
-        if guest:
-            guest.first_name = request.form['first_name']
-            guest.last_name = request.form['last_name']
-            guest.email = request.form['email']
-            guest.dob = request.form['dob']
-            guest.zipcode = request.form['zipcode']
-
-            db.session.commit()
-            flash(f'{guest.first_name}{guest.last_name} was successfully updated!' 'success')
-        else:
-            flash(f'Guest attempting to be edited could not be found!', 'error')
-            return redirect(url_for('guest_view'))
-
-    return redirect(url_for('guest_view'))
-
-@app.route('/guest/delete/<int:user_id>')
-def guest_delete(user_id):
-    guest = User.query.filter_by(user_id=user_id).first()
-
-    if guest:
-        db.session.delete(guest)
-        db.session.commit()
-        return redirect(url_for('/'))
-    else:
-        flash(f'Delete failed! Guest could not be found.', 'error')
-        return redirect(url_for('guest_view'))
+def guest():
+    return render_template('guest/guest.html');
 
 
-@app.route('/guest/flag/<user_id>')
+@app.route('/guest/flag')
 def guestFlag():
     return render_template('guest/guestflag.html');
+
 
 @app.route('/collaborations/contractWorker')
 def contractWorker():
