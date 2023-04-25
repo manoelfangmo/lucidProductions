@@ -16,55 +16,37 @@
 		}
 	</style>
 
+
+
 <div class="right">
     <h1 id="header"> Account
-        <br>
-        <br>
         <p1 id="reviewHead">Personal Information</p1>
-        <br>
-        <br>
-        <button class="button" type="button"> Edit Information</button>
-        <button class="button" type="button"> Save</button>
     </h1>
-
-    <br>
-    <br>
-    <form>
-        <div class="row">
-            <div class="col">
-                <label for="firstName">First Name:</label>
-                <input type="text" class="form-control" placeholder="First name">
-            </div>
-            <div class="col">
-                <label for="lastName">Last Name:</label>
-                <input type="text" class="form-control" placeholder="Last name">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="phoneNumber">Phone:</label>
-                <input type="text" class="form-control" placeholder="222-333-4444">
-            </div>
-            <div class="col">
-                <label for="email">Email:</label>
-                <input type="text" class="form-control" placeholder="Email">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <label for="dob">Date of Birth:</label>
-                <input type="text" class="form-control" placeholder="MM/DD/YYYY">
-            </div>
-            <div class="col">
-                <label for="zip">Zip Code</label>
-                <input type="text" class="form-control">
-            </div>
-        </div>
-
-    </form>
-
-</div>
-
-
+    <table class="table table-striped">
+        <tr>
+            <th>User Name</th>
+             <th>First Name</th>
+             <th>Last Name</th>
+             <th>Email</th>
+             <th>DOB</th>
+             <th>Actions</th>
+         </tr>
+        {% for each_guest in guests %}
+         <tr>
+             <td><a href="{{ url_for('guest_view', user_id=each_guest['user_id']) }}">{{ each_guest['username'] }}</a></td>
+             <td>{{ each_guest['first_name'] }}</td>
+             <td>{{ each_guest['last_name'] }}</td>
+             <td>{{ each_guest['email'] }}</td>
+             <td>{{ each_guest['dob'] }}</td>
+             <td>
+                 <a href="{{ url_for('guest_edit', user_id=each_guest['user_id']) }}" class="btn btn-secondary" role="button">Edit</a>
+                 &nbsp;
+                 <a href="{{ url_for('guest_delete', user_id=each_guest['user_id']) }}" class="btn btn-secondary" role="button">Delete</a>
+                  </td>
+         </tr>
+         {% endfor %}
+     </table>
+     </div>
+     </div>
 </body>
 </html>

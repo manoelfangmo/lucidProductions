@@ -18,51 +18,52 @@
 	</style>
 
 <div class="right">
-    <h1 id="header"> Account
+    <body id="header"> Account
         <br>
         <br>
         <p1 id="reviewHead">Personal Information</p1>
         <br>
         <br>
-    </h1>
-    <button class="button" type="button"> Edit Information</button>
-    <button class="button" type="button"> Save</button>
-    </h1>
 
     <br>
     <br>
-    <form>
+    <form action="{{ url_for('client') }}" method="post">
         <div class="row">
             <div class="col">
+                <input type="hidden" name="user_id">
                 <label for="firstName">First Name:</label>
-                <input type="text" class="form-control" placeholder="First name">
+                <input type="text" class="form-control" value={{ first_name }}>
             </div>
             <div class="col">
                 <label for="lastName">Last Name:</label>
-                <input type="text" class="form-control" placeholder="Last name">
+                <input type="text" class="form-control" value={{ last_name }}>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="phoneNumber">Phone:</label>
-                <input type="text" class="form-control" placeholder="222-333-4444">
+                <input type="text" class="form-control" value={{ phone }}>
             </div>
             <div class="col">
                 <label for="email">Email:</label>
-                <input type="text" class="form-control" placeholder="Email">
+                <input type="text" class="form-control" value={{ email }}>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="dob">Date of Birth:</label>
-                <input type="text" class="form-control" placeholder="MM/DD/YYYY">
+                <input type="text" class="form-control" value={{ dob }}>
             </div>
             <div class="col">
                 <label for="zip">Zip Code</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" value={{ zipcode }}>
             </div>
         </div>
+                    <div class=buttonDiv>
+                        <button class="button" type="submit"  name="save"> Save</button>
+                        <button class="button" id="deleteButton" type="submit" name="delete" >Delete</button>
 
+                    </div>
     </form>
 
 </div>

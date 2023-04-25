@@ -100,6 +100,11 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Flask server.team11spring2023bmgt407" />
+      <item itemvalue="JavaScript Debug.events.html" />
+      <item itemvalue="JavaScript Debug.navbar.html" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JavaScript Debug.events.html" />

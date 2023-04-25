@@ -12,6 +12,7 @@ user_authentication_bp = Blueprint('user_authentication', __name__)
 
 @user_authentication_bp.route('/account/createAccount', methods=['GET','POST'])
 def create_account():
+    default_guest_route_function = 'guest_view'
     if request.method == 'POST':
         username = request.form.get('username')
         existing_user = User.query.filter_by(username=username).first()
@@ -40,13 +41,14 @@ def create_account():
             db.session.add(user)
             db.session.commit()
 
-        return render_template('login.html')
+        return redirect(url_for(default_guest_route_function, user_id=session['user_id']))
 
     else:
         return render_template('createAccount.html')
 
 @user_authentication_bp.route('/account/login', methods=['GET', 'POST'])
 def login():
+    default_guest_route_function = 'guest_view'
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -56,9 +58,10 @@ def login():
         if user is not None and check_password_hash(user.password, password):
             # Set session variable to indicate user is logged in
             session['user_id'] = user.user_id
-            return redirect('/client')
+
+            return redirect(url_for(default_guest_route_function,  user_id=session['user_id']))
         else:
             error = 'Invalid username or password'
-            return render_template('login.html', error= error)
+            return redirect(url_for('user_authentication.login', error=error))
     else:
         return render_template('login.html');
