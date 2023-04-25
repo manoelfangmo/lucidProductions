@@ -1,4 +1,6 @@
-
+body {
+    background-color: whitesmoke;
+}
 .button {
     background-color: #0B53B2;
     cursor: pointer;
@@ -34,8 +36,21 @@ form input {
 
 #reviewHead {
     font-weight: lighter;
-    font-size: 0.75em;
-    color: blue;
+    font-size: 2rem;
+    font-family: gill sans;
+
+}
+
+p{
+    font-weight: lighter;
+    font-size: 2rem;
+    font-family: gill sans;
+}
+
+#header {
+    font-weight: lighter;
+    font-size: 3rem;
+    font-family: gill sans;
 }
 
 #mgmtUsers {
@@ -44,24 +59,34 @@ form input {
     width: 92%;
 }
 
-
 #mgmtUsers td, #mgmtUsers th {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: .2rem solid black;
+    padding: 2rem;
 }
+
+
 
 #mgmtUsers tr:nth-child(even) {
-    background-color: #f2f2f2;
+    font-size:2rem;
+    font-family: gill sans;
+    font-weight: lighter;
 }
 
-#mgmtUsers tr:hover {
-    background-color: #ddd;
+#mgmtUsers tr:nth-child(odd) {
+    font-size:2rem;
+    font-family: gill sans;
+    font-weight: lighter;
 }
 
 #mgmtUsers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
     text-align: left;
-    background-color: #FDDA0D;
     color: black;
+    font-size:2rem;
+    font-family: gill sans;
+}
+
+.grid-container2 {
+    display: grid;
+    margin: 1em;
+    padding: 1em;
 }

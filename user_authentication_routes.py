@@ -56,7 +56,7 @@ def login():
         if user is not None and check_password_hash(user.password, password):
             # Set session variable to indicate user is logged in
             session['user_id'] = user.user_id
-            return redirect('/client')
+            return redirect(url_for('guest_view', user_id=each_user['user_id']))
         else:
             error = 'Invalid username or password'
             return  redirect(url_for('user_authentication.login', error=error))
