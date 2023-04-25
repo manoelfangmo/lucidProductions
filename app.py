@@ -1,6 +1,6 @@
 import os
-from flask import Flask, render_template, redirect, url_for, flash
-from sqlalchemy.orm import defer
+from flask import Flask, render_template, redirect, url_for, flash, request
+from flask_login import LoginManager
 from werkzeug.security import generate_password_hash
 
 from models import db, Event, User
@@ -20,6 +20,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'beyond_course_scope'
 db.init_app(app)
 
+login_manager = LoginManager()
+login_manager.login_view = 'login' # default login route
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @app.route('/')
 def home():
@@ -97,11 +104,64 @@ def client():
 
 
 @app.route('/guest')
-def guest():
-    return render_template('guest/guest.html');
+def guest_view_all():
+    guests = User.query.order_by(User.user_id) \
+        .all()
+    return render_template('guest/guest.html', guests=guests);
+
+@app.route('/guest/<int:user_id>')
+def guest_view(user_id):
+    guests = User.query.filter_by(user_id=user_id)
+
+    if guests:
+        return render_template('guest/guest.html', guests=guests, action=os.read);
+    else:
+        flash(f'Guest attempting to be viewed could not be found!', 'error')
+        return redirect(url_for(guest_view_all))
+
+@app.route('/guest/update/<int:user_id>', methods=['GET', 'POST'])
+def guest_edit(user_id):
+    if request.method == 'GET':
+        guest = User.query.filter_by(user_id=user_id)
+
+        if guest:
+            return render_template('guest/guest_update.html', guest=guest, action='update')
+
+        else: flash(f'Guest attempting to be edited could not be found!')
+
+    elif request.method == 'POST':
+        guest = User.query.filter_by(user_id=user_id)\
+
+        if guest:
+            guest.first_name = request.form['first_name']
+            guest.last_name = request.form['last_name']
+            guest.email = request.form['email']
+            guest.dob = request.form['dob']
+            guest.zipcode = request.form['zipcode']
+
+            db.session.commit()
+            flash(f'{guest.first_name}{guest.last_name} was successfully updated!' 'success')
+        else:
+            flash(f'Guest attempting to be edited could not be found!', 'error')
+            return redirect(url_for('guest_view'))
 
 
-@app.route('/guest/flag')
+    return redirect(url_for('guest_view'))
+
+@app.route('/guest/delete/<int:user_id>')
+def guest_delete(user_id):
+    guest = User.query.filter_by(user_id=user_id).first()
+
+    if guest:
+        db.session.delete(guest)
+        db.session.commit()
+        return redirect(url_for('home'))
+    else:
+        flash(f'Delete failed! Guest could not be found.', 'error')
+        return redirect(url_for('guest_view'))
+
+
+@app.route('/guest/flag/<user_id>')
 def guestFlag():
     return render_template('guest/guestflag.html');
 

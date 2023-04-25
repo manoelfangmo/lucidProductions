@@ -31,18 +31,17 @@
              <th>DOB</th>
              <th>Actions</th>
          </tr>
-        {% for each_user in users %}
+        {% for each_guest in guests %}
          <tr>
-                <td> hi </td>
-             <td><a href="{{ url_for('guest_view', user_id=each_user['user_id']) }}">{{ each_user['user_name'] }}</a></td>
-             <td>{{ each_user['first_name'] }}</td>
-             <td>{{ each_user['last_name'] }}</td>
-             <td>{{ each_user['email'] }}</td>
-             <td>{{ each_user['dob'] }}</td>
+             <td><a href="{{ url_for('guest_view', user_id=each_guest['user_id']) }}">{{ each_guest['username'] }}</a></td>
+             <td>{{ each_guest['first_name'] }}</td>
+             <td>{{ each_guest['last_name'] }}</td>
+             <td>{{ each_guest['email'] }}</td>
+             <td>{{ each_guest['dob'] }}</td>
              <td>
-                 <a href="{{ url_for('guest_edit', user_id=each_user['user_id']) }}" class="btn btn-secondary" role="button">Edit</a>
+                 <a href="{{ url_for('guest_edit', user_id=each_guest['user_id']) }}" class="btn btn-secondary" role="button">Edit</a>
                  &nbsp;
-                 <a href="{{ url_for('guest_delete', user_id=each_user['user_id']) }}" class="btn btn-secondary" role="button">Delete</a>
+                 <a href="{{ url_for('guest_delete', user_id=each_guest['user_id']) }}" class="btn btn-secondary" role="button">Delete</a>
                   </td>
          </tr>
          {% endfor %}
