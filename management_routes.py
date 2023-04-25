@@ -14,7 +14,6 @@ def management_event():
         if"event_id" in request.form and request.form["event_id"]: ## if updating or deleting event
             curr_event = Event.query.filter_by(event_id=request.form['event_id']).one()
             if 'save' in request.form:
-                print(request.files)
                 curr_event.event_date = datetime.strptime(request.form['event_date'], '%Y-%m-%d').date()
                 time_parts = request.form['event_time'].split(':')
                 if len(time_parts) == 3:
@@ -26,7 +25,6 @@ def management_event():
                 curr_event.event_description = request.form['event_description']
                 curr_event.event_name = request.form['event_name']
                 if request.files and request.files["event_image"]:
-                    print("doing this")
                     curr_event.event_image = request.files.get('event_image').read()
             else:
                 db.session.delete(curr_event)

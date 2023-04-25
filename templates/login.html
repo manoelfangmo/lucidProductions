@@ -6,6 +6,7 @@
     <title>Login </title>
     <link rel="stylesheet" type="text/css" href="/static/css/login.css">
     <link rel="stylesheet" type="text/css" href="/static/css/loginConstant.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/errorMessage.css">
 
 </head>
 <body>
@@ -22,6 +23,9 @@
     </div>
     <div class="right">
         <div class = "rightContent">
+            {%if error is defined %}
+            <div class="error">{{ error }}</div>
+            {% endif %}
                     <h3 for="fName"> Want To Join The Lucid Family?</h3>
 
             <h4 > <a href="/account/createAccount"> Sign Up!</a> </h4>

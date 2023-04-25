@@ -59,6 +59,6 @@ def login():
             return redirect('/client')
         else:
             error = 'Invalid username or password'
-            return  redirect(url_for('user_authentication.login', error=error))
+            return render_template('login.html', error= error)
     else:
         return render_template('login.html');
