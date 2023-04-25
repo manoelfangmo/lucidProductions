@@ -7,6 +7,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import *
 
 user_authentication_bp = Blueprint('user_authentication', __name__)
+from flask_login import current_user, login_user
+
 
 
 
@@ -20,10 +22,10 @@ def create_account():
         existing_email = User.query.filter_by(email=user_email).first()
         if existing_user:
             error = 'Username already taken'
-            return redirect(url_for('user_authentication.create_account', error=error))
+            return render_template( 'createAccount.html', error=error)
         if existing_email:
             error = 'Account Already Exists Please Login'
-            return redirect(url_for('user_authentication.login', error=error))
+            return render_template( 'login.html', error=error)
         else:
             # Get the form data
             first_name = request.form['first_name']
@@ -47,8 +49,7 @@ def create_account():
         return render_template('createAccount.html')
 
 @user_authentication_bp.route('/account/login', methods=['GET', 'POST'])
-def login():
-    default_guest_route_function = 'guest_view'
+def auth_login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -57,11 +58,20 @@ def login():
         user = User.query.filter_by(username=username).first()
         if user is not None and check_password_hash(user.password, password):
             # Set session variable to indicate user is logged in
+            login_user(user)
             session['user_id'] = user.user_id
+            print(current_user.role)
 
-            return redirect(url_for(default_guest_route_function,  user_id=session['user_id']))
+            if(current_user.role == "CLIENT"):
+                return redirect(url_for('client',  user_id=session['user_id']))
+
+            if(current_user.role == "GUEST"):
+                return redirect(url_for('guest_view',  user_id=session['user_id']))
+
+            else:
+                return redirect(url_for('management',  user_id=session['user_id']))
         else:
             error = 'Invalid username or password'
-            return redirect(url_for('user_authentication.login', error=error))
+            return render_template( 'login.html', error=error)
     else:
         return render_template('login.html');

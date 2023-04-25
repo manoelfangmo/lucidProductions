@@ -1,6 +1,8 @@
 from flask import render_template, request, flash, Blueprint
+from flask_login import login_required
 from sqlalchemy.orm import defer
 
+from authorize import role_required
 from models import db, Event
 from datetime import date, time, datetime
 from base64 import b64encode, b64decode
@@ -8,6 +10,8 @@ from base64 import b64encode, b64decode
 management_bp = Blueprint('management', __name__)
 
 @management_bp.route('/management/event', methods=['GET', 'POST'])
+@login_required
+@role_required(['ADMIN'])
 def management_event():
     userTest = "management"; #testing user type
     if request.method == 'POST':

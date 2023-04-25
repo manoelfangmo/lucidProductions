@@ -1,13 +1,16 @@
 import os
 from flask import Flask, render_template, redirect, url_for, flash, request
-from flask_login import LoginManager
+from flask_login import LoginManager, login_required
+from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
+from authorize import role_required
 from models import db, Event, User
 from datetime import date, time, datetime
 from base64 import b64encode
 from management_routes import management_bp
 from user_authentication_routes import user_authentication_bp
+from user_authentication_routes import auth_login
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -27,6 +30,9 @@ login_manager.init_app(app)
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return auth_login()
 
 @app.route('/')
 def home():
@@ -84,21 +90,29 @@ def management():
 
 
 @app.route('/management/analytics')
+@login_required
+@role_required(['ADMIN'])
 def managementAnalytics():
     return render_template('management/managementanalytics.html');
 
 
 @app.route('/management/inquiries')
+@login_required
+@role_required(['ADMIN'])
 def managementInquiries():
     return render_template('management/managementinquiries.html');
 
 
 @app.route('/management/users')
+@login_required
+@role_required(['ADMIN'])
 def managementUsers():
     return render_template('management/managementusers.html');
 
 
 @app.route('/client',methods={'GET','POST'})
+@login_required
+@role_required(['CLIENT'])
 def client():
     user = User.query.filter_by(user_id=1).first()
     return render_template('client/client.html', user_id=user.user_id, first_name=user.first_name,
@@ -220,10 +234,10 @@ if __name__ == '__main__':
             db.session.add(event)
 
         users = [
-            {'username': 'client', 'email': 'client@umd.edu', 'first_name': 'Lucid', 'last_name': 'Client',
+            {'username': 'client', 'email': 'client@umd.edu', 'first_name': 'Lucid', 'last_name': 'CLIENT',
              'password': generate_password_hash('clientpw', method='sha256'), 'role': 'CLIENT', 'phone': 1234567890,
              'dob': date(2000, 5, 15), 'zipcode': 20783},
-            {'username': 'guest', 'email': 'guest@umd.edu', 'first_name': 'Lucid', 'last_name': 'Guest',
+            {'username': 'guest', 'email': 'guest@umd.edu', 'first_name': 'Lucid', 'last_name': 'GUEST',
              'password': generate_password_hash('guestpw', method='sha256'), 'role': 'GUEST', 'phone': 1234567890,
              'dob': date(2000, 5, 15), 'zipcode': 20783},
             {'username': 'admin', 'email': 'admin@umd.edu', 'first_name': 'Lucid', 'last_name': 'ADMIN',
