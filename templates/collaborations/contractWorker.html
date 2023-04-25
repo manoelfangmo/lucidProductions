@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contract Worker Inquiries</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/contractWorker.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/eventInquiry.css">
     <link rel="stylesheet" href="/static/css/navbar.css">
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
-
-
-</head>
 
 <body>
 <style>
@@ -17,87 +14,60 @@
 			background-color: #FEEEB1;
 		}
 	</style>
+</head>
+
+<head>
+
 <navbar-component></navBar-component>
 
-<div class="container"></div>
-            {% if form_submitted==True %}
-            <div class="col-12">
-                <h2>Thank you for your submission!</h2>
+</head>
+                    <label id="ty" style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
+                </div>
             </div>
-                <div class="col-6">
-                    <p>Event Type: </p>
-                </div>
-                <div class="col-6">
-                         <p>{{ request.form.get('event_type') }}:</p>
-                </div>
-                <div class="col-6">
-                    <p>Name: </p>
-                </div>
-                <div class="col-6">
-                         <p>{{ request.form.get('name') }}:</p>
-                </div>
-                <div class="col-6">
-                    <p>Phone:</p>
-                </div>
-                <div class="col-6">
-                         <p>{{ request.form.get('phone') }}:</p>
-                </div>
-                <div class="col-6">
-                    <p>Company: </p>
-                </div>
-                <div class="col-6">
-                         <p>{{ request.form.get('company') }}:</p>
-                </div>
-                <div class="col-6">
-                    <p>Email: </p>
-                </div>
-                <div class="col-6">
-                         <p>{{ request.form.get('email') }}:</p>
-                </div>
-                <div class="col-6">
-                    <p>Event Needs: </p>
-                </div>
-                <div class="col-6">
-                         <p>{{ request.form.get('event_needs') }}:</p>
-                </div>
-                <p> <a href="{{ url_for('contractWorker')}}">Complete form again</a></p>
+        </div>
 
-            {%  else %}
+                    <label id="ty" style="color: blue"> <br>  <a href="/"> <- Back to Home</a> </label>
+                </div>
+            </div>
+        </div>
 
-                <form class="row g-3" action="{{ url_for('contractWorker') }}" method="post">
-                    <div class="col-md-6">
-                        <label for="event_type" class="form-label">Event Type></label>
-                        <input type="text" class="form-control" id="event_type" name="event_type">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
-                    <div class="col-12">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
-                    </div>
-                <div class="col-12">
-                        <label for=" company" class="form-label">Company</label>
-                        <input type="text" class="form-control" id="company" name="company">
-                    </div>
-                <div class="col-12">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="col-12">
-                        <label for="event_needs" class="form-label">Event Needs:</label>
-                        <input type="text" class="form-control" id="event_needs" name="event_needs">
-                    </div>
 
-                <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-                    {% endif %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<footer-component></footer-component>
+<form class="row g-3" action="{{ url_for('contractWorker') }}" method="post">
+<div class="mainContainer">
+  <h1><strong>Contract Worker Inquiry Form</strong></h1>
+    <form>
+         <div class="formContent">
+
+        <div class="left">
+
+            <label for="eventType"> Event Type: </label>
+            <input type="text" id="eventType" name="eventType"> <br>
+            <label for="name"> Name: </label>
+            <input type="text" id="name" name="name">  <br>
+            <label for="email"> Email: </label>
+            <input type="text" id="email" name="email">  <br>
+            <label for="occupation"> Occupation: </label>
+            <input type="text" id="occupation" name="occupation"> <br>
+            <label for="sample"> Sample of Past Work: </label>
+            <input type="file" id="sample" name="sample"> <br>
+        </div>
+        <div class="right">
+
+            <label for="event-needs"> What Services Are You Looking To Provide? </label></strong>
+            <textarea id="event-needs" name="event-needs" ></textarea>
+        </div>
+    </div>
+
+
+    <button> Submit</button>
+    </form>
+
+
+
 </div>
+    </form>
+
+
+<footer-component></footer-component>
 </body>
-{% endblock page_content %}
 </html>
