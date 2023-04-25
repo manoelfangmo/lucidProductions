@@ -93,7 +93,13 @@ def managementUsers():
 
 @app.route('/client')
 def client():
-    return render_template('client/client.html');
+    user = User.query.filter_by(user_id=1).first()
+
+    return render_template('client/client.html', first_name=user.first_name,last_name=user.last_name,phone=user.phone,email=user.email,dob=user.dob,zipcode=user.zipcode);
+
+
+
+
 
 
 @app.route('/guest')
