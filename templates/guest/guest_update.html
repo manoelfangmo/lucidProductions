@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Account</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/gaccount.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
+    <script src="/static/scripts/guestAccountNavigation.js" type="application/javascript" defer></script>
+</head>
+<body>
+<navigation-component></navigation-component>
+<style>
+		body {
+			background-color: #FEEEB1;
+		}
+	</style>
+
+
+<div class="right">
+    <h1 id="header"> Account
+        <p1 id="reviewHead">Personal Information</p1>
+    </h1>
+{% if action and action in ['update'] %}
+<form class="row g-3"
+      action="{{ url_for('guest_edit', user_id=guest['user_id']) }}" method="post">
+{% else %}
+    <div class="row g-3">
+{% endif %}
+
+  <div class="col-md-4">
+    {% if action and action in ['update'] %}
+    <label for="first_name" class="form-label"><strong>First Name</strong></label>
+    <input type="text" class="form-control" id="first_name" name="first_name" value="{{ guest['first_name'] if guest else '' }}" required>
+    {% else %}
+        <strong>First Name</strong>
+        <br>{{ guest['first_name'] }}
+    {% endif %}
+  </div>
+
+
+  <div class="col-md-4">
+    {% if action and action in ['update'] %}
+    <label for="last_name" class="form-label"><strong>Last Name</strong></label>
+    <input type="text" class="form-control" id="last_name" name="last_name" value="{{ guest['last_name'] if guest else '' }}" required>
+    {% else %}
+        <strong>Last Name</strong>
+        <br>{{ guest['last_name'] }}
+    {% endif %}
+  </div>
+
+  <div class="col-md-4">
+    {% if action and action in [ 'update'] %}
+    <label for="dob" class="form-label"><strong>Birth Date</strong></label>
+    <input type="date" class="form-control" id="dob" name="dob" value="{{ guest['dob'].strftime('%Y-%m-%d') if guest else '' }}" required>
+    {% else %}
+        <strong>Birth Date</strong>
+        <br>{{ guest['dob'].strftime('%m/%d/%Y') }}
+    {% endif %}
+  </div>
+
+  <div class="col-md-12">
+    {% if action and action in ['update'] %}
+    <label for="email" class="form-label"><strong>Email</strong></label>
+    <input type="email" class="form-control" id="email" name="email" maxlength="100" value="{{ guest['email'] if guest else '' }}" required>
+    {% else %}
+        <strong>Email</strong>
+        <br>{{ guest['email'] }}
+    {% endif %}
+  </div>
+
+
+  <div class="col-12 text-center">
+    {% if action and action in ['update'] %}
+    <button class="btn btn-primary" type="submit">{{ 'Update' if action=='update' }} Guest </button>
+    {% endif %}
+  </div>
+
+{% if action and action in ['update'] %}
+</form>
+{% else %}
+     </div>
+{%  endif %}
+</body>
+</html>

@@ -18,22 +18,19 @@
 	</style>
 
 <div class="right">
-    <h1 id="header"> Account
+    <body id="header"> Account
         <br>
         <br>
         <p1 id="reviewHead">Personal Information</p1>
         <br>
         <br>
-    </h1>
-    <button class="button" type="button"> Edit Information</button>
-    <button class="button" type="button"> Save</button>
-    </h1>
 
     <br>
     <br>
-    <form>
+    <form action="{{ url_for('client') }}" method="post">
         <div class="row">
             <div class="col">
+                <input type="hidden" name="user_id">
                 <label for="firstName">First Name:</label>
                 <input type="text" class="form-control" value={{ first_name }}>
             </div>
@@ -62,7 +59,11 @@
                 <input type="text" class="form-control" value={{ zipcode }}>
             </div>
         </div>
+                    <div class=buttonDiv>
+                        <button class="button" type="submit"  name="save"> Save</button>
+                        <button class="button" id="deleteButton" type="submit" name="delete" >Delete</button>
 
+                    </div>
     </form>
 
 </div>

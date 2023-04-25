@@ -1,10 +1,10 @@
 import os
 from flask import Flask, render_template, redirect, url_for, flash, request
-from sqlalchemy.orm import defer
+from flask_login import LoginManager
 from werkzeug.security import generate_password_hash
 
 from models import db, Event, User
-from datetime import date, time
+from datetime import date, time, datetime
 from base64 import b64encode
 from management_routes import management_bp
 from user_authentication_routes import user_authentication_bp
@@ -20,6 +20,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'beyond_course_scope'
 db.init_app(app)
 
+login_manager = LoginManager()
+login_manager.login_view = 'login' # default login route
+login_manager.init_app(app)
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 @app.route('/')
 def home():
@@ -91,43 +98,85 @@ def managementUsers():
     return render_template('management/managementusers.html');
 
 
-@app.route('/client')
+@app.route('/client',methods={'GET','POST'})
 def client():
     user = User.query.filter_by(user_id=1).first()
-
-    return render_template('client/client.html', first_name=user.first_name,last_name=user.last_name,phone=user.phone,email=user.email,dob=user.dob,zipcode=user.zipcode);
-
-
-
-
+    return render_template('client/client.html', user_id=user.user_id, first_name=user.first_name,
+                                   last_name=user.last_name, phone=user.phone, email=user.email, dob=user.dob,
+                                   zipcode=user.zipcode);
 
 
 @app.route('/guest')
-def guest():
-    return render_template('guest/guest.html');
+def guest_view_all():
+    guests = User.query.order_by(User.user_id) \
+        .all()
+    return render_template('guest/guest.html', guests=guests);
+
+@app.route('/guest/<int:user_id>')
+def guest_view(user_id):
+    guests = User.query.filter_by(user_id=user_id)
+
+    if guests:
+        return render_template('guest/guest.html', guests=guests, action=os.read);
+    else:
+        flash(f'Guest attempting to be viewed could not be found!', 'error')
+        return redirect(url_for(guest_view_all))
+
+@app.route('/guest/update/<int:user_id>', methods=['GET', 'POST'])
+def guest_edit(user_id):
+    if request.method == 'GET':
+        guest = User.query.filter_by(user_id=user_id)
+
+        if guest:
+            return render_template('guest/guest_update.html', guest=guest, action='update')
+
+        else: flash(f'Guest attempting to be edited could not be found!')
+
+    elif request.method == 'POST':
+        guest = User.query.filter_by(user_id=user_id)\
+
+        if guest:
+            guest.first_name = request.form['first_name']
+            guest.last_name = request.form['last_name']
+            guest.email = request.form['email']
+            guest.dob = request.form['dob']
+            guest.zipcode = request.form['zipcode']
+
+            db.session.commit()
+            flash(f'{guest.first_name}{guest.last_name} was successfully updated!' 'success')
+        else:
+            flash(f'Guest attempting to be edited could not be found!', 'error')
+            return redirect(url_for('guest_view'))
 
 
-@app.route('/guest/flag')
+    return redirect(url_for('guest_view'))
+
+@app.route('/guest/delete/<int:user_id>')
+def guest_delete(user_id):
+    guest = User.query.filter_by(user_id=user_id).first()
+
+    if guest:
+        db.session.delete(guest)
+        db.session.commit()
+        return redirect(url_for('home'))
+    else:
+        flash(f'Delete failed! Guest could not be found.', 'error')
+        return redirect(url_for('guest_view'))
+
+
+@app.route('/guest/flag/<user_id>')
 def guestFlag():
     return render_template('guest/guestflag.html');
 
 
-@app.route('/client/contractWorker', methods = ['GET', 'POST'])
+@app.route('/collaborations/contractWorker')
 def contractWorker():
-    if request.method == 'POST':
-        print('Event type entered: ' + request.form.get('eventType'))
-        print('Name entered: ' + request.form.get('name'))
-        print('Email entered: ' + request.form.get('email'))
-        print('Occupation entered: ' + request.form.get('occupation'))
-        print('Work sample entered: ' + request.form.get('sample'))
-
     return render_template('collaborations/contractWorker.html');
 
 
 @app.route('/client/interestForm')
 def eventInquiry():
     return render_template('collaborations/eventInquiry.html');
-
 
 
 if __name__ == '__main__':
