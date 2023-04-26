@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="/static/css/events.css">
     <title>Events</title>
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
+<script src="https://kit.fontawesome.com/fc88626b57.js" crossorigin="anonymous"></script>
+    <script src="/static/scripts/flagEvent.js" type="application/javascript" defer></script>
 
 
 </head>
 
 <body>
 <style>
-		body {
-			background-color: #FEEEB1;
-		}
-	</style>
+    body {
+        background-color: #FEEEB1;
+    }
+</style>
 <navbar-component></navBar-component>
 <div class="mainContainer">
     <div class="dropDownMenu">
@@ -30,17 +32,15 @@
 
     <div class="events">
         {% for each_flyer, date,id in zip(flyers,dates,event_ids) %}
-        <div class="event" id="event1">
-            <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}">
-            </a>
-            <div class="time"> {{  date.weekday }} <br> {{ date.monthday }} <br> {{ date.month }}</div>
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
+            <div class="event" data-eventId={{ id }}>
+                <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}">
+                </a>
+                <div class="time"> {{ date.weekday }} <br> {{ date.monthday }} <br> {{ date.month }}</div>
+             <i class="fa-solid fa-bookmark fa-3x" id="flagIcon"  ></i>
 
 
-        </div>
-        {%endfor%}
-
-
+            </div>
+        {% endfor %}
 
 
     </div>

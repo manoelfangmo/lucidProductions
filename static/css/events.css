@@ -14,22 +14,23 @@ div.events{
     flex-direction: column;
     justify-content: center;
     position: relative;
+    margin: 1rem;
 }
 .event:hover{
     scale: 1.2;
 }
 
 
-#saveIcon{
+i{
     position: absolute;
     top: .25rem;
     right: .25rem;
-    height: 3rem;
-    width: 3rem;
-    background-color: #0B53B2;
+    color: #818488
+
 }
-#saveIcon:hover {
-    background-color: white;
+i:hover {
+    color: yellow;
+    cursor: pointer;
 }
 .time{
     position: absolute;

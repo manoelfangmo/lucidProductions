@@ -79,6 +79,11 @@ def event_details(event_id):
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
                            date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest= user_is_guest)
 
+@app.route('/events/flagEvent', methods=['POST'])
+def flag_event():
+    print(request.form['event_id'])
+    return "Event Flagged Successfully"
+    # return redirect(url_for('events'))
 
 @app.route('/collaborations')
 def collaborations():
