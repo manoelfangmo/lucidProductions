@@ -71,8 +71,13 @@ def event_details(event_id):
     flyer = b64encode(curr_event.event_image).decode('utf-8')
     curr_event_date = curr_event.event_date.strftime("%x")
     curr_event_time = curr_event.event_time.strftime("%I:%M %p")
+
+    user_is_guest = False
+    if current_user.is_authenticated and current_user.role == "GUEST":
+        user_is_guest = True
+
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
-                           date=curr_event_date, time=curr_event_time, event_id=event_id)
+                           date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest= user_is_guest)
 
 
 @app.route('/collaborations')

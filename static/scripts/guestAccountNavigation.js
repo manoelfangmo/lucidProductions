@@ -14,7 +14,7 @@ const accountNavigation = '     <div class = "accountMenu">\n' +
 
     '        </div>\n' +
     '\n' +
-    '        <a href="/logout"><button class="button" type="button"> Sign Out</button>\</a>\n' +
+    '        <a href="/logout"><button class="button" type="button"> Sign Out</button></a>\n' +
     '    </div>\n' +
     '    </div>';
 class navigation extends HTMLElement {

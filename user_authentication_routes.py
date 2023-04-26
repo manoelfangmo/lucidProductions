@@ -60,7 +60,6 @@ def auth_login():
             # Set session variable to indicate user is logged in
             login_user(user)
             session['user_id'] = user.user_id
-            print(current_user.role)
 
             if(current_user.role == "CLIENT"):
                 return redirect(url_for('client',  user_id=session['user_id']))

@@ -39,7 +39,12 @@
             <br>
             <br>
             {% if event.event_date < currentDate %}
+                {% if user_is_guest  %}
                 <button id="myBtn">Leave Review</button>
+                 {% else %}
+                    <a href="/account/login"><button >Leave Review</button></a>
+                  {% endif %}
+
             {% else %}
                 <a href="https://posh.vip/">
                     <button id="buyTickets">Buy Tickets</button>

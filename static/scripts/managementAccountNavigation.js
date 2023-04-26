@@ -21,7 +21,7 @@ const managementAccountNavigation = '     <div class = "accountMenu">\n' +
     '            <label style="color: blue"> <a href="/management/event">Events</a> </label> <br> <br>\n' +
     '        </div>\n' +
 
-    '        <a href="/logout"><button class="button" type="button"> Sign Out</button>\</a>n' +
+    '        <a href="/logout"><button class="button" type="button"> Sign Out</button></a>\n' +
     '    </div>\n' +
     '    </div>';
 class managementNavigation extends HTMLElement {

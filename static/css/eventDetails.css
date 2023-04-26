@@ -18,13 +18,14 @@
 }
 
 
-button#myBtn{
+button{
     width: 15rem;
     height: 3rem;
     border-radius: 10px;
     background-color: #0B53B2;
     color: white;
         font-weight: bold;
+    cursor: pointer;
 
 }
 
@@ -47,15 +48,7 @@ img#eventImage{
 .eventText{
     font-size:1.5rem;
 }
-button#buyTickets{
-    width: 15rem;
-    height: 3rem;
-    border-radius: 10px;
-    background-color: #0B53B2;
-    color: white;
-        font-weight: bold;
 
-}
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
