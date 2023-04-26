@@ -40,7 +40,6 @@ class User(UserMixin, db.Model):
     zipcode = db.Column(db.Integer, nullable=False)
     phone = db.Column(db.Integer, nullable=False)
 
-
     def __init__(self, username, first_name, last_name, email, password, dob, zipcode, role, phone):
         self.username = username
         self.first_name = first_name
@@ -58,3 +57,21 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return f"{self.first_name} {self.last_name} ({self.username})"
+
+
+class Review(db.Model):
+    __tablename__ = "review"
+    review_id = db.Column(db.Integer, primary_key=True)
+    review_rating = db.Column(db.Integer, nullable=False)
+    review_text = db.Column(db.Text, nullable=True)
+    event_id = db.Column(db.Integer, db.ForeignKey('event.event_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+
+    def __init__(self, review_rating, review_text, event_id, user_id):
+        self.review_rating = review_rating
+        self.review_text = review_text
+        self.event_id = event_id
+        self.user_id = user_id
+
+    def __repr__(self):
+        return f"{self.review_text} {self.review_rating}"

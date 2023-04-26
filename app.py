@@ -1,11 +1,11 @@
 import os
 from flask import Flask, render_template, redirect, url_for, flash, request
-from flask_login import LoginManager, login_required
+from flask_login import LoginManager, login_required, current_user
 from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
 from authorize import role_required
-from models import db, Event, User
+from models import db, Event, User, Review
 from datetime import date, time, datetime
 from base64 import b64encode
 from management_routes import management_bp
@@ -80,12 +80,20 @@ def about():
 
 
 @app.route('/events/reviews', methods=['POST'])
+@login_required
+@role_required(['GUEST'])
 def reviews():
-    print("event_rating" + " " + request.form['review_rating'])
-    print("event_id" + " " +request.form['event_id'])
-    event_id = request.form['event_id']
+    review_rating = request.form['review_rating']
+    review_text = request.form['review_text']
 
-    return redirect(url_for('event_details',event_id=event_id));
+    event_id = request.form['event_id']
+    user_id = current_user.user_id
+
+    review = Review(review_rating=review_rating, review_text=review_text, event_id=event_id, user_id=user_id)
+    db.session.add(review)
+    db.session.commit()
+
+    return redirect(url_for('event_details',event_id=event_id))
 
 
 @app.route('/management')
