@@ -1,16 +1,13 @@
 import os
 from flask import Flask, render_template, redirect, url_for, flash, request
-from flask_login import LoginManager, login_required, current_user
 from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
-from authorize import role_required
-from models import db, Event, User, Review
+from models import db, Event, User
 from datetime import date, time, datetime
 from base64 import b64encode
 from management_routes import management_bp
 from user_authentication_routes import user_authentication_bp
-from user_authentication_routes import auth_login
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -23,16 +20,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'beyond_course_scope'
 db.init_app(app)
 
-login_manager = LoginManager()
-login_manager.login_view = 'login' # default login route
-login_manager.init_app(app)
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    return auth_login()
 
 @app.route('/')
 def home():
@@ -66,7 +53,7 @@ def event_details(event_id):
     curr_event_date = curr_event.event_date.strftime("%x")
     curr_event_time = curr_event.event_time.strftime("%I:%M %p")
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
-                           date=curr_event_date, time=curr_event_time, event_id=event_id)
+                           date=curr_event_date, time=curr_event_time)
 
 
 @app.route('/collaborations')
@@ -79,21 +66,9 @@ def about():
     return render_template('about.html');
 
 
-@app.route('/events/reviews', methods=['POST'])
-@login_required
-@role_required(['GUEST'])
+@app.route('/events/reviews')
 def reviews():
-    review_rating = request.form['review_rating']
-    review_text = request.form['review_text']
-
-    event_id = request.form['event_id']
-    user_id = current_user.user_id
-
-    review = Review(review_rating=review_rating, review_text=review_text, event_id=event_id, user_id=user_id)
-    db.session.add(review)
-    db.session.commit()
-
-    return redirect(url_for('event_details',event_id=event_id))
+    return render_template('events/reviews.html');
 
 
 @app.route('/management')
@@ -102,29 +77,21 @@ def management():
 
 
 @app.route('/management/analytics')
-@login_required
-@role_required(['ADMIN'])
 def managementAnalytics():
     return render_template('management/managementanalytics.html');
 
 
 @app.route('/management/inquiries')
-@login_required
-@role_required(['ADMIN'])
 def managementInquiries():
     return render_template('management/managementinquiries.html');
 
 
 @app.route('/management/users')
-@login_required
-@role_required(['ADMIN'])
 def managementUsers():
     return render_template('management/managementusers.html');
 
 
 @app.route('/client',methods={'GET','POST'})
-@login_required
-@role_required(['CLIENT'])
 def client():
     user = User.query.filter_by(user_id=1).first()
     return render_template('client/client.html', user_id=user.user_id, first_name=user.first_name,
@@ -132,42 +99,33 @@ def client():
                                    zipcode=user.zipcode);
 
 
-@app.route('/guest', methods=['GET', 'POST'])
+@app.route('/guest')
 def guest():
-   user = User.query.filter_by(user_id=2).first()
-   if request.method == 'GET':
-       return render_template('guest/guest.html', user_id=user.user_id, first_name=user.first_name,
-                              last_name=user.last_name,
-                              phone_number=user.phone, email=user.email, date_of_birth=user.dob, zip=user.zipcode);
-   if request.method == 'POST':
-       if 'user_id' in request.form and request.form['user_id']:
-           curr_user = User.query.filter_by(user_id=request.form.get('user_id')).one()
-           if 'save' in request.form:
-               curr_user.first_name = request.form['first_name']
-               curr_user.last_name = request.form['last_name']
-               curr_user.email = request.form['email']
-               curr_user.phone = request.form['phone_number']
-               curr_user.zip_code = request.form['zip']
-               curr_user.dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d').date()
-               db.session.commit()
-           return render_template('guest/guest.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
-                                  last_name=curr_user.last_name,
-                                  phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob, zip=curr_user.zipcode);
+    return render_template('guest/guest.html');
 
 
-@app.route('/guest/flag/<user_id>')
+@app.route('/guest/flag')
 def guestFlag():
     return render_template('guest/guestflag.html');
 
 
-@app.route('/collaborations/contractWorker')
+@app.route('/client/contractWorker', methods = ['GET', 'POST'])
 def contractWorker():
+    if request.method == 'POST':
+        print('Event type entered: ' + request.form.get('eventType'))
+        print('Name entered: ' + request.form.get('name'))
+        print('Email entered: ' + request.form.get('email'))
+        print('Occupation entered: ' + request.form.get('occupation'))
+        print('Work sample entered: ' + request.form.get('sample'))
+
+
     return render_template('collaborations/contractWorker.html');
 
 
 @app.route('/client/interestForm')
 def eventInquiry():
     return render_template('collaborations/eventInquiry.html');
+
 
 
 if __name__ == '__main__':
@@ -211,10 +169,10 @@ if __name__ == '__main__':
             db.session.add(event)
 
         users = [
-            {'username': 'client', 'email': 'client@umd.edu', 'first_name': 'Lucid', 'last_name': 'CLIENT',
+            {'username': 'client', 'email': 'client@umd.edu', 'first_name': 'Lucid', 'last_name': 'Client',
              'password': generate_password_hash('clientpw', method='sha256'), 'role': 'CLIENT', 'phone': 1234567890,
              'dob': date(2000, 5, 15), 'zipcode': 20783},
-            {'username': 'guest', 'email': 'guest@umd.edu', 'first_name': 'Lucid', 'last_name': 'GUEST',
+            {'username': 'guest', 'email': 'guest@umd.edu', 'first_name': 'Lucid', 'last_name': 'Guest',
              'password': generate_password_hash('guestpw', method='sha256'), 'role': 'GUEST', 'phone': 1234567890,
              'dob': date(2000, 5, 15), 'zipcode': 20783},
             {'username': 'admin', 'email': 'admin@umd.edu', 'first_name': 'Lucid', 'last_name': 'ADMIN',
