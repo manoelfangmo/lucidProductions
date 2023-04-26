@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, url_for, flash, request
-from flask_login import LoginManager, login_required, current_user, logout_user
+from flask_login import LoginManager, login_required, current_user
 from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
@@ -33,12 +33,6 @@ def load_user(user_id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     return auth_login()
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    flash(f'You have been logged out.', 'success')
-    return redirect(url_for('home'))
 
 @app.route('/')
 def home():
@@ -58,10 +52,7 @@ def events():
         flyers.append(b64encode(event.event_image).decode('utf-8'))
         event_ids.append(event.event_id)
     if events:
-        user_is_guest = False
-        if current_user.is_authenticated and current_user.role == "GUEST":
-            user_is_guest = True
-        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids, user_is_guest=user_is_guest);
+        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids);
 
     else:
         flash(f'Unable To Load Events', 'error')
@@ -74,21 +65,9 @@ def event_details(event_id):
     flyer = b64encode(curr_event.event_image).decode('utf-8')
     curr_event_date = curr_event.event_date.strftime("%x")
     curr_event_time = curr_event.event_time.strftime("%I:%M %p")
-
-    user_is_guest = False
-    if current_user.is_authenticated and current_user.role == "GUEST":
-        user_is_guest = True
-
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
-                           date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest= user_is_guest)
+                           date=curr_event_date, time=curr_event_time, event_id=event_id)
 
-@app.route('/events/flagEvent', methods=['POST'])
-@login_required
-@role_required(['CLIENT'])
-def flag_event():
-    print(request.form['event_id'])
-    return "Event Flagged Successfully"
-    # return redirect(url_for('events'))
 
 @app.route('/collaborations')
 def collaborations():
@@ -156,49 +135,8 @@ def client():
 @app.route('/guest')
 @login_required
 @role_required(['GUEST'])
-def guest_view_all():
-    guests = User.query.order_by(User.user_id) \
-        .all()
-    return render_template('guest/guest.html', guests=guests);
-
-@app.route('/guest/<int:user_id>')
-def guest_view(user_id):
-    guests = User.query.filter_by(user_id=user_id)
-
-    if guests:
-        return render_template('guest/guest.html', guests=guests, action=os.read);
-    else:
-        flash(f'Guest attempting to be viewed could not be found!', 'error')
-        return redirect(url_for(guest_view_all))
-
-@app.route('/guest/update/<int:user_id>', methods=['GET', 'POST'])
-def guest_edit(user_id):
-    if request.method == 'GET':
-        guest = User.query.filter_by(user_id=user_id)
-
-        if guest:
-            return render_template('guest/guest_update.html', guest=guest, action='update')
-
-        else: flash(f'Guest attempting to be edited could not be found!')
-
-    elif request.method == 'POST':
-        guest = User.query.filter_by(user_id=user_id)\
-
-        if guest:
-            guest.first_name = request.form['first_name']
-            guest.last_name = request.form['last_name']
-            guest.email = request.form['email']
-            guest.dob = request.form['dob']
-            guest.zipcode = request.form['zipcode']
-
-            db.session.commit()
-            flash(f'{guest.first_name}{guest.last_name} was successfully updated!' 'success')
-        else:
-            flash(f'Guest attempting to be edited could not be found!', 'error')
-            return redirect(url_for('guest_view'))
-
-
-    return redirect(url_for('guest_view'))
+def guest():
+    return render_template('guest/guest.html');
 
 @app.route('/guest/delete/<int:user_id>')
 def guest_delete(user_id):
