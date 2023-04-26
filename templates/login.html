@@ -11,38 +11,39 @@
 </head>
 <body>
 <style>
-		body {
-			background-color: #FEEEB1;
-		}
-	</style>
+    body {
+        background-color: #FEEEB1;
+    }
+</style>
 
-    <div class="left">
-        <h1 id="heading"> WELCOME TO <br>LUCID PRODUCTIONS</h1>
-        <h2 id="subheading"> Where dreams become reality </h2>
-        <a href="/"> <p id="backToHome">Back to Home</p></a>
-    </div>
-    <div class="right">
-        <div class = "rightContent">
-            {%if error is defined %}
+<div class="left">
+    <h1 id="heading"> WELCOME TO <br>LUCID PRODUCTIONS</h1>
+    <h2 id="subheading"> Where dreams become reality </h2>
+    <a href="/"><p id="backToHome">Back to Home</p></a>
+</div>
+<div class="right">
+    <div class="rightContent">
+        {% if error is defined %}
             <div class="error">{{ error }}</div>
-            {% endif %}
-                    <h3 for="fName"> Want To Join The Lucid Family?</h3>
+        {% endif %}
+        <h3 for="fName"> Want To Join The Lucid Family?</h3>
 
-            <h4 > <a href="/account/createAccount"> Sign Up!</a> </h4>
-            <h3> Log In </h3>
+        <h4><a href="/account/createAccount"> Sign Up!</a></h4>
+        <h3> Log In </h3>
 
-        <form id="form"action="{{ url_for('user_authentication.auth_login') }}" method="post">
-
+        <form id="form" action="{{ url_for('user_authentication.auth_login') }}" method="post">
+            <input type="hidden" name="next" value="{{ request.args.get('next') }}">
+            <!-- For redirection when user tries to access a page that requires login without the proper credentials -->
             <label for="coRes"> Username: </label>
             <input type="text" id="coRes2" name="username"> <br>
             <label for="tel"> Password: </label>
             <input type="password" id="tel" name="password"> <br>
             <input id="submit" type="submit" value="Sign In">
         </form>
-        </div>
-
-
     </div>
+
+
+</div>
 
 
 </body>

@@ -14,7 +14,6 @@ from flask_login import current_user, login_user
 
 @user_authentication_bp.route('/account/createAccount', methods=['GET','POST'])
 def create_account():
-    default_guest_route_function = 'guest_view'
     if request.method == 'POST':
         username = request.form.get('username')
         existing_user = User.query.filter_by(username=username).first()
@@ -43,13 +42,15 @@ def create_account():
             db.session.add(user)
             db.session.commit()
 
-        return redirect(url_for(default_guest_route_function, user_id=session['user_id']))
+        return redirect(url_for(auth_login))
 
     else:
         return render_template('createAccount.html')
 
 @user_authentication_bp.route('/account/login', methods=['GET', 'POST'])
 def auth_login():
+
+
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -60,17 +61,26 @@ def auth_login():
             # Set session variable to indicate user is logged in
             login_user(user)
             session['user_id'] = user.user_id
-
-            if(current_user.role == "CLIENT"):
-                return redirect(url_for('client',  user_id=session['user_id']))
-
-            if(current_user.role == "GUEST"):
-                return redirect(url_for('guest_view',  user_id=session['user_id']))
+            # Get the next page from the URL parameter
+            next_page = request.form['next']
+            # If the next page is set redirect to next page
+            if next_page != "None":
+                print(next_page)
+                return redirect(next_page)
 
             else:
-                return redirect(url_for('management',  user_id=session['user_id']))
+                if(current_user.role == "CLIENT"):
+                    return redirect(url_for('client',  user_id=session['user_id']))
+                if(current_user.role == "GUEST"):
+                    return redirect(url_for('guest_view',  user_id=session['user_id']))
+                else:
+                    return redirect(url_for('management',  user_id=session['user_id']))
         else:
             error = 'Invalid username or password'
             return render_template( 'login.html', error=error)
     else:
-        return render_template('login.html');
+        need_login_error = request.args.get('error') # is performing action that their role does not allow
+        if need_login_error:
+            return render_template('login.html',error=need_login_error);
+        else:
+            return render_template('login.html');

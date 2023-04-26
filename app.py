@@ -58,7 +58,10 @@ def events():
         flyers.append(b64encode(event.event_image).decode('utf-8'))
         event_ids.append(event.event_id)
     if events:
-        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids);
+        user_is_guest = False
+        if current_user.is_authenticated and current_user.role == "GUEST":
+            user_is_guest = True
+        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids, user_is_guest=user_is_guest);
 
     else:
         flash(f'Unable To Load Events', 'error')
@@ -80,6 +83,8 @@ def event_details(event_id):
                            date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest= user_is_guest)
 
 @app.route('/events/flagEvent', methods=['POST'])
+@login_required
+@role_required(['CLIENT'])
 def flag_event():
     print(request.form['event_id'])
     return "Event Flagged Successfully"
@@ -149,6 +154,8 @@ def client():
 
 
 @app.route('/guest')
+@login_required
+@role_required(['GUEST'])
 def guest_view_all():
     guests = User.query.order_by(User.user_id) \
         .all()
