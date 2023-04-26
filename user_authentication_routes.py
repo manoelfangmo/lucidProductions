@@ -72,7 +72,7 @@ def auth_login():
                 if(current_user.role == "CLIENT"):
                     return redirect(url_for('client',  user_id=session['user_id']))
                 if(current_user.role == "GUEST"):
-                    return redirect(url_for('guest_view',  user_id=session['user_id']))
+                    return redirect(url_for('guest',  user_id=session['user_id']))
                 else:
                     return redirect(url_for('management',  user_id=session['user_id']))
         else:

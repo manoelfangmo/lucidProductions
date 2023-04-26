@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/events.css">
     <title>Events</title>
-    <script> let userIsGuest = {{ user_is_guest|tojson }}</script>
+    <script> {% if user_is_guest is defined %}let userIsGuest = {{ user_is_guest|tojson }} {% endif %}</script>
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
     <script src="https://kit.fontawesome.com/fc88626b57.js" crossorigin="anonymous"></script>
     <script src="/static/scripts/flagEvent.js" type="application/javascript" defer></script>

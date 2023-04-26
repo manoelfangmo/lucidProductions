@@ -75,3 +75,17 @@ class Review(db.Model):
 
     def __repr__(self):
         return f"{self.review_text} {self.review_rating}"
+
+
+class Flag(db.Model):
+    __tablename__ = "flag"
+    flag_id = db.Column(db.Integer, primary_key=True)
+    event_id = db.Column(db.Integer, db.ForeignKey('event.event_id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+
+    def __init__(self, event_id, user_id):
+        self.event_id = event_id
+        self.user_id = user_id
+
+    def __repr__(self):
+        return f"{self.event_id} {self.user_id}"

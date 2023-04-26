@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, url_for, flash, request
-from flask_login import LoginManager, login_required, current_user
+from flask_login import LoginManager, login_required, current_user, logout_user
 from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
@@ -34,6 +34,12 @@ def load_user(user_id):
 def login():
     return auth_login()
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash(f'You have been logged out.', 'success')
+    return redirect(url_for('home'))
 @app.route('/')
 def home():
     return render_template('home.html');
@@ -52,12 +58,21 @@ def events():
         flyers.append(b64encode(event.event_image).decode('utf-8'))
         event_ids.append(event.event_id)
     if events:
-        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids);
+        user_is_guest = False
+        if current_user.is_authenticated and current_user.role == "GUEST":
+            user_is_guest = True
+        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids, user_is_guest=user_is_guest);
 
     else:
         flash(f'Unable To Load Events', 'error')
         return redirect(url_for('home'))
-
+@app.route('/events/flagEvent', methods=['POST'])
+@login_required
+@role_required(['GUEST'])
+def flag_event():
+    print(request.form['event_id'])
+    return "Event Flagged Successfully"
+    # return redirect(url_for('events'))
 
 @app.route('/events/eventDetails/<event_id>', methods=['GET'])
 def event_details(event_id):
