@@ -66,7 +66,7 @@ def event_details(event_id):
     curr_event_date = curr_event.event_date.strftime("%x")
     curr_event_time = curr_event.event_time.strftime("%I:%M %p")
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
-                           date=curr_event_date, time=curr_event_time)
+                           date=curr_event_date, time=curr_event_time, event_id=event_id)
 
 
 @app.route('/collaborations')
@@ -79,9 +79,13 @@ def about():
     return render_template('about.html');
 
 
-@app.route('/events/reviews')
+@app.route('/events/reviews', methods=['POST'])
 def reviews():
-    return render_template('events/reviews.html');
+    print("event_rating" + " " + request.form['review_rating'])
+    print("event_id" + " " +request.form['event_id'])
+    event_id = request.form['event_id']
+
+    return redirect(url_for('event_details',event_id=event_id));
 
 
 @app.route('/management')

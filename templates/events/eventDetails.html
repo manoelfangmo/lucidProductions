@@ -53,9 +53,12 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
 
-                        <form>
+                <form action="{{ url_for('reviews') }}" method="post">
+                    <input type="hidden" name="review_rating">
+                    <input type="hidden" name="event_id" value={{ event_id }}>
 
-                <div class="innerModalContent">
+
+                    <div class="innerModalContent">
                         <div class="reviewStars">
                             <span class="fa fa-star" id="oneStar"></span>
                             <span class="fa fa-star" id="twoStar"></span>
@@ -65,11 +68,11 @@
                         </div>
 
                         <label> Describe Your Experience</label>
-                        <textarea id="modalTextArea"></textarea>
-                        <button id="modalButton">Submit</button>
+                        <textarea id="modalTextArea" type="text" name="review_text"></textarea>
+                        <button id="modalButton" type="submit">Submit</button>
 
-                </div>
-                                                </form>
+                    </div>
+                </form>
 
 
             </div>
