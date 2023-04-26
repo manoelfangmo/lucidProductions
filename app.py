@@ -132,62 +132,27 @@ def client():
                                    zipcode=user.zipcode);
 
 
-@app.route('/guest')
-def guest_view_all():
-    guests = User.query.order_by(User.user_id) \
-        .all()
-    return render_template('guest/guest.html', guests=guests);
-
-@app.route('/guest/<int:user_id>')
-def guest_view(user_id):
-    guests = User.query.filter_by(user_id=user_id)
-
-    if guests:
-        return render_template('guest/guest.html', guests=guests, action=os.read);
-    else:
-        flash(f'Guest attempting to be viewed could not be found!', 'error')
-        return redirect(url_for(guest_view_all))
-
-@app.route('/guest/update/<int:user_id>', methods=['GET', 'POST'])
-def guest_edit(user_id):
-    if request.method == 'GET':
-        guest = User.query.filter_by(user_id=user_id)
-
-        if guest:
-            return render_template('guest/guest_update.html', guest=guest, action='update')
-
-        else: flash(f'Guest attempting to be edited could not be found!')
-
-    elif request.method == 'POST':
-        guest = User.query.filter_by(user_id=user_id)\
-
-        if guest:
-            guest.first_name = request.form['first_name']
-            guest.last_name = request.form['last_name']
-            guest.email = request.form['email']
-            guest.dob = request.form['dob']
-            guest.zipcode = request.form['zipcode']
-
-            db.session.commit()
-            flash(f'{guest.first_name}{guest.last_name} was successfully updated!' 'success')
-        else:
-            flash(f'Guest attempting to be edited could not be found!', 'error')
-            return redirect(url_for('guest_view'))
-
-
-    return redirect(url_for('guest_view'))
-
-@app.route('/guest/delete/<int:user_id>')
-def guest_delete(user_id):
-    guest = User.query.filter_by(user_id=user_id).first()
-
-    if guest:
-        db.session.delete(guest)
-        db.session.commit()
-        return redirect(url_for('home'))
-    else:
-        flash(f'Delete failed! Guest could not be found.', 'error')
-        return redirect(url_for('guest_view'))
+@app.route('/guest', methods=['GET', 'POST'])
+def guest():
+   user = User.query.filter_by(user_id=2).first()
+   if request.method == 'GET':
+       return render_template('guest/guest.html', user_id=user.user_id, first_name=user.first_name,
+                              last_name=user.last_name,
+                              phone_number=user.phone, email=user.email, date_of_birth=user.dob, zip=user.zipcode);
+   if request.method == 'POST':
+       if 'user_id' in request.form and request.form['user_id']:
+           curr_user = User.query.filter_by(user_id=request.form.get('user_id')).one()
+           if 'save' in request.form:
+               curr_user.first_name = request.form['first_name']
+               curr_user.last_name = request.form['last_name']
+               curr_user.email = request.form['email']
+               curr_user.phone = request.form['phone_number']
+               curr_user.zip_code = request.form['zip']
+               curr_user.dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d').date()
+               db.session.commit()
+           return render_template('guest/guest.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
+                                  last_name=curr_user.last_name,
+                                  phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob, zip=curr_user.zipcode);
 
 
 @app.route('/guest/flag/<user_id>')
