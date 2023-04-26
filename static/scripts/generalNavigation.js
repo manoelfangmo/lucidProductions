@@ -3,7 +3,7 @@ const navBar = '   <div class="navDiv">\n' +
     '    <nav class="navbar">\n' +
     '\n' +
     '\n' +
-    '        <div class="logo"><img src="/static/images/lucidLogo.png" id="logo" alt="logo"></div>\n' +
+    '        <div class="logo"><a href="/"><img src="/static/images/lucidLogo.png" id="logo" alt="logo"></a></div>\n' +
     '\n' +
     '\n' +
     '        <!-- USING CHECKBOX HACK -->\n' +

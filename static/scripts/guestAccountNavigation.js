@@ -4,7 +4,7 @@ const accountNavigation = '     <div class = "accountMenu">\n' +
     '            <div class="left">\n' +
     '\n' +
     '\n' +
-    '        <img src="/static/images/lucidLogo.png" id="menuLogo">\n' +
+    '        <a href="/"><img src="/static/images/lucidLogo.png" id="menuLogo"></a>\n' +
     '\n' +
     '        <div class="leftContent">\n' +
     '            <img src="/static/images/user.png">\n' +
@@ -14,7 +14,7 @@ const accountNavigation = '     <div class = "accountMenu">\n' +
 
     '        </div>\n' +
     '\n' +
-    '        <button class="button" type="buttom"> Sign Out</button>\n' +
+    '        <a href="/logout"><button class="button" type="button"> Sign Out</button>\</a>\n' +
     '    </div>\n' +
     '    </div>';
 class navigation extends HTMLElement {

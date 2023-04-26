@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, url_for, flash, request
-from flask_login import LoginManager, login_required, current_user
+from flask_login import LoginManager, login_required, current_user, logout_user
 from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
@@ -33,6 +33,12 @@ def load_user(user_id):
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     return auth_login()
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash(f'You have been logged out.', 'success')
+    return redirect(url_for('home'))
 
 @app.route('/')
 def home():
