@@ -5,7 +5,7 @@ from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
 from authorize import role_required
-from models import db, Event, User, Review, Flag
+from models import db, Event, User, Review, Flag, EventInquiry
 from datetime import date, time, datetime
 from base64 import b64encode
 from management_routes import management_bp
@@ -230,15 +230,20 @@ def eventInquiry():
 
 
 @app.route('/client/interestForm', methods = ['GET', 'POST'])
+@login_required
+@role_required(['CLIENT'])
 def eventInquiry():
     if request.method == 'POST':
+        user_id = current_user.user_id
         event_type = request.form['event_type']
         name = request.form['name']
         phone = request.form['phone']
         company = request.form['company']
         email = request.form['email']
         event_needs = request.form['event_needs']
-        print(event_type + " " + name + " " + phone+  " " + company + " " + email + " " + event_needs)
+        event_inquiry = EventInquiry(event_type=event_type, user_id=user_id, name=name, company=company, email=email, phone=phone, event_needs=event_needs)
+        db.session.add(event_inquiry)
+        db.session.commit()
     return render_template('collaborations/eventInquiry.html');
 
 

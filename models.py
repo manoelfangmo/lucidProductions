@@ -95,31 +95,29 @@ class Flag(db.Model):
 class EventInquiry(db.Model):
     __tablename__ = "eventInquiry"
 
-    eventInquiryId = db.Column(db.Integer, primary_key=True)
-    event_type = db.Column(db.String(100), unique=True, nullable=False)
+    event_Inquiry_Id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    event_type = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(50), nullable=False)
     phone = db.Column(db.String(50), nullable=False)
     company = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(100), nullable=False)
-    event_needs = db.Column(db.String(20), nullable=False)
+    event_needs = db.Column(db.Text, nullable=False)
 
-    def __init__(self, username, first_name, last_name, email, password, dob, zipcode, role, phone):
-        self.username = username
-        self.first_name = first_name
-        self.last_name = last_name
+    def __init__(self, event_type, name, phone, company, email, event_needs, user_id):
+        self.event_type = event_type
+        self.user_id = user_id
+        self.name = name
+        self.company = company
         self.email = email
-        self.password = password
-        self.role = role
-        self.dob = dob
-        self.zipcode = zipcode
         self.phone = phone
+        self.event_needs = event_needs
+
 
     # Function for flask_login manager to provider a user ID to know who is logged in
     def get_id(self):
-        return self.user_id
+        return self.eventInquiryId
 
-    def __repr__(self):
-        return f"{self.first_name} {self.last_name} ({self.username})"
 
     class ContractWorker(db.Model):
         __tablename__ = "contract_worker"
