@@ -1,14 +1,15 @@
 const myElements = document.querySelectorAll("#flagIcon");
 
 if (userIsGuest) {
+    let currColor
     myElements.forEach((element) => {
         element.addEventListener("click", (event) => {
-            let currentColor = event.target.style.color;
+            currentColor = event.target.style.color;
             let color = currentColor === "yellow" ? "#818488" : "yellow";
             event.target.style.color = color;
+            currColor = color
         });
     });
-
     document.addEventListener("DOMContentLoaded", function () {
         const flagButtons = document.querySelectorAll(".fa-solid");
         flagButtons.forEach(function (button) {
@@ -16,13 +17,19 @@ if (userIsGuest) {
                 const eventId = this.closest(".event").dataset.eventid;
                 console.log(this.closest(".event").dataset)
                 const xhr = new XMLHttpRequest();
-                xhr.open("POST", "/events/flagEvent");
+                console.log(currColor)
+                if (currColor === "#818488") { //delete if flag color switches to gray
+                    xhr.open("POST", "/events/flagEvent/deleteFlag");
+
+                } else {
+                    xhr.open("POST", "/events/flagEvent");
+                }
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onload = function () {
                     if (xhr.status === 200) {
-                        alert("Event flagged successfully!");
+                        alert("Successful!");
                     } else {
-                        alert("An error occurred while flagging the event.");
+                        alert("Error Occurred");
                     }
                 };
                 xhr.send("event_id=" + encodeURIComponent(eventId));

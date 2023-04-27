@@ -5,7 +5,7 @@ from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
 from authorize import role_required
-from models import db, Event, User, Review
+from models import db, Event, User, Review, Flag
 from datetime import date, time, datetime
 from base64 import b64encode
 from management_routes import management_bp
@@ -70,9 +70,22 @@ def events():
 @login_required
 @role_required(['GUEST'])
 def flag_event():
-    print(request.form['event_id'])
+    user_id = current_user.user_id
+    event_id = request.form['event_id']
+    flag = Flag(user_id=user_id,event_id=event_id)
+    db.session.add(flag)
+    db.session.commit()
     return "Event Flagged Successfully"
-    # return redirect(url_for('events'))
+@app.route('/events/flagEvent/deleteFlag', methods=['POST'])
+@login_required
+@role_required(['GUEST'])
+def delete_flag_event():
+    user_id = current_user.user_id
+    event_id = request.form['event_id']
+    flag = Flag.query.filter_by(event_id=event_id, user_id=user_id).first()
+    db.session.delete(flag)
+    db.session.commit()
+    return "Flag Deleted Successfully"
 
 @app.route('/events/eventDetails/<event_id>', methods=['GET'])
 def event_details(event_id):
