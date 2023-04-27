@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_login import LoginManager, login_required, current_user, logout_user
 from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
-
+from visualizations_routes import visualizations_bp
 from authorize import role_required
 from models import db, Event, User, Review, Flag
 from datetime import date, time, datetime
@@ -17,6 +17,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 app.register_blueprint(management_bp)
 app.register_blueprint(user_authentication_bp)
+app.register_blueprint(visualizations_bp)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'lucid.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
