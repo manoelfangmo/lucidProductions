@@ -44,6 +44,8 @@ form #submit{
 #backToLogin {
     padding-top: 75%;
     padding-left: 5%;
+    position: absolute;
     color: yellow;
+    top: 50%;
 }
 
