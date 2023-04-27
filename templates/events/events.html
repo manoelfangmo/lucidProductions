@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/background.css">
     <link rel="stylesheet" href="/static/css/events.css">
+
     <title>Events</title>
     <script> {% if user_is_guest is defined %}let userIsGuest = {{ user_is_guest|tojson }} {% endif %}</script>
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
@@ -15,11 +17,6 @@
 </head>
 
 <body>
-<style>
-    body {
-        background-color: #FEEEB1;
-    }
-</style>
 <navbar-component></navBar-component>
 <div class="mainContainer">
     <div class="dropDownMenu">
