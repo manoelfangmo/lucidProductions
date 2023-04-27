@@ -204,8 +204,15 @@ def guestFlag():
     return render_template('guest/guestflag.html');
 
 
-@app.route('/collaborations/contractWorker')
+@app.route('/client/contractWorker', methods = ['GET', 'POST'])
 def contractWorker():
+    if request.method == 'POST':
+        print('Event type entered: ' + request.form.get('eventType'))
+        print('Name entered: ' + request.form.get('name'))
+        print('Email entered: ' + request.form.get('email'))
+        print('Occupation entered: ' + request.form.get('occupation'))
+        print('Work sample entered: ' + request.form.get('sample'))
+
     return render_template('collaborations/contractWorker.html');
 
 
