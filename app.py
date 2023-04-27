@@ -204,17 +204,6 @@ def guest():
                                    zip=curr_user.zipcode);
 
 
-@app.route('/guest/delete/<int:user_id>')
-def guest_delete(user_id):
-    guest = User.query.filter_by(user_id=user_id).first()
-
-    if guest:
-        db.session.delete(guest)
-        db.session.commit()
-        return redirect(url_for('home'))
-    else:
-        flash(f'Delete failed! Guest could not be found.', 'error')
-        return redirect(url_for('guest_view'))
 
 
 @app.route('/guest/flag/<user_id>')

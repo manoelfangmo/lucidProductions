@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Client Account</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/caccount.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
-    <link rel="stylesheet" href="/static/css/background.css">
-    <script src="/static/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
+    <link rel="stylesheet" type="text/css" href="/css/maccount.css">
+    <link rel="stylesheet" type="text/css" href="/css/accountNavigation.css">
+    <script src="/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="/scripts/guestAccountNavigation.js" type="application/javascript" defer></script>
+
 </head>
 <body>
-
-<navigation-component></navigation-component>
-
+<client-navigation-component></client-navigation-component>
+<guest-navigation-component></guest-navigation-component>
+<management-navigation-component></management-navigation-component>
+<style>
+		body {
+			background-color: #FEEEB1;
+		}
+	</style>
 
 <div class="right">
     <body id="header"> Account

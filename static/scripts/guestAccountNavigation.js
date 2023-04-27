@@ -24,4 +24,4 @@ class navigation extends HTMLElement {
   }
 }
 
-customElements.define("navigation-component", navigation);
+customElements.define("guest-navigation-component", navigation);

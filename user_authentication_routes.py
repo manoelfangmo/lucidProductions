@@ -85,6 +85,6 @@ def auth_login():
     else:
         need_login_error = request.args.get('error') # is performing action that their role does not allow
         if need_login_error:
-            return render_template('login.html',error=need_login_error);
+            return render_template('login.html', error=need_login_error);
         else:
             return render_template('login.html');
