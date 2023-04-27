@@ -91,7 +91,6 @@ class Flag(db.Model):
         return f"{self.event_id} {self.user_id}"
 
 
-
 class EventInquiry(db.Model):
     __tablename__ = "eventInquiry"
 
@@ -113,35 +112,30 @@ class EventInquiry(db.Model):
         self.phone = phone
         self.event_needs = event_needs
 
-
     # Function for flask_login manager to provider a user ID to know who is logged in
     def get_id(self):
         return self.eventInquiryId
 
 
-    class ContractWorker(db.Model):
-        __tablename__ = "contract_worker"
+class ContractWorker(db.Model):
+    __tablename__ = "contract_inquiry"
 
-        contractInquiryId = db.Column(db.Integer, primary_key=True)
-        event_type = db.Column(db.String(100), nullable=False)
-        name = db.Column(db.String(50), nullable=False)
-        email = db.Column(db.String(50), nullable=False)
-        occupation = db.Column(db.String(100), nullable=False)
-        sample = db.Column(LargeBinary, nullable=False)
-        event_needs = db.text(db.Text, nullable=False)
+    contract_inquiry_id = db.Column(db.Integer, primary_key=True)
+    event_type = db.Column(db.String(100), nullable=False)
+    name = db.Column(db.String(50), nullable=False)
+    email = db.Column(db.String(50), nullable=False)
+    occupation = db.Column(db.String(100), nullable=False)
+    sample = db.Column(LargeBinary, nullable=False)
+    event_needs = db.Column(db.Text, nullable=False)
 
-        def __init__(self, event_type, name, email, occupation, sample, event_needs):
-            self.event_type = event_type
-            self.name = name
-            self.email = email
-            self.occupation = occupation
-            self.sample = sample
-            self.event_needs = event_needs
+    def __init__(self, event_type, name, email, occupation, sample, event_needs):
+        self.event_type = event_type
+        self.name = name
+        self.email = email
+        self.occupation = occupation
+        self.sample = sample
+        self.event_needs = event_needs
 
-
-        # Function for flask_login manager to provider a user ID to know who is logged in
-        def get_id(self):
-            return self.contractInquiryId
-
-
-
+    # Function for flask_login manager to provider a user ID to know who is logged in
+    def get_id(self):
+        return self.contractInquiryId

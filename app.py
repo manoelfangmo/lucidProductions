@@ -5,7 +5,7 @@ from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
 from authorize import role_required
-from models import db, Event, User, Review, Flag, EventInquiry
+from models import db, Event, User, Review, Flag, EventInquiry, ContractWorker
 from datetime import date, time, datetime
 from base64 import b64encode
 from management_routes import management_bp
@@ -211,22 +211,14 @@ def contractWorker():
         name = request.form['name']
         email = request.form['email']
         occupation = request.form['occupation']
-        sample = request.files.get['sample']
+        sample = request.files.get('sample').read()
         event_needs = request.form['event_needs']
-        print(event_type + " " + name + " " + email + " " + occupation + " " + sample + " " + event_needs)
+        contract_inquiry = ContractWorker(event_type=event_type, name=name, email=email, occupation=occupation, sample=sample, event_needs=event_needs)
+        db.session.add(contract_inquiry)
+        db.session.commit()
     return render_template('collaborations/contractWorker.html');
 
 
-@app.route('/client/interestForm')
-def eventInquiry():
-    if request.method == 'POST':
-        print('Event type entered: ' + request.form.get('eventType'))
-        print('Name entered: ' + request.form.get('name'))
-        print('Email entered: ' + request.form.get('email'))
-        print('Occupation entered: ' + request.form.get('occupation'))
-        print('Work sample entered: ' + request.form.get('sample'))
-
-    return render_template('collaborations/contractWorker.html');
 
 
 @app.route('/client/interestForm', methods = ['GET', 'POST'])
