@@ -1,4 +1,6 @@
 import os
+import sqlite3
+
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_login import LoginManager, login_required, current_user, logout_user
 from sqlalchemy.orm import defer
@@ -207,17 +209,26 @@ def guestFlag():
 @app.route('/client/contractWorker', methods = ['GET', 'POST'])
 def contractWorker():
     if request.method == 'POST':
-        print('Event type entered: ' + request.form.get('eventType'))
-        print('Name entered: ' + request.form.get('name'))
-        print('Email entered: ' + request.form.get('email'))
-        print('Occupation entered: ' + request.form.get('occupation'))
-        print('Work sample entered: ' + request.form.get('sample'))
-
+        event_type = request.form['event_type']
+        name = request.form['name']
+        email = request.form['email']
+        occupation = request.form['occupation']
+        sample = request.files.get['sample']
+        event_needs = request.form['event_needs']
+        print(event_type + " " + name + " " + email + " " + occupation + " " + sample + " " + event_needs)
     return render_template('collaborations/contractWorker.html');
 
 
 @app.route('/client/interestForm')
 def eventInquiry():
+    if request.method == 'POST':
+        print('Event type entered: ' + request.form.get('eventType'))
+        print('Name entered: ' + request.form.get('name'))
+        print('Phone entered: ' + request.form.get('phone'))
+        print('Company entered: ' + request.form.get('company'))
+        print('Email entered: ' + request.form.get('email'))
+        print('Services needed entered:') + request.form.get('event-needs')
+
     return render_template('collaborations/eventInquiry.html');
 
 
