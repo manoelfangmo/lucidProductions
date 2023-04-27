@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="fixed merge errors and enabled logout">
-      <change afterPath="$PROJECT_DIR$/lucid.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/team11spring2023bmgt407.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/team11spring2023bmgt407.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts/clientAccountNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/clientAccountNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts/guestAccountNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/guestAccountNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/scripts/managementAccountNavigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/scripts/managementAccountNavigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/client/client.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/client/client.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/collaborations/eventInquiry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations/eventInquiry.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/guest/guest.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/guest/guest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/management/management.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/management.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user_authentication_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/user_authentication_routes.py" afterDir="false" />
-    </list>
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="fixed merge errors and enabled logout" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -316,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682551827257</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed merge errors and enabled logout">
+      <created>1682623549834</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1682623549834</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
