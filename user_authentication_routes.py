@@ -74,11 +74,11 @@ def auth_login():
 
             else:
                 if(current_user.role == "CLIENT"):
-                    return redirect(url_for('client',  user_id=session['user_id']))
+                    return redirect(url_for('user',  user_id=session['user_id']))
                 if(current_user.role == "GUEST"):
-                    return redirect(url_for('guest',  user_id=session['user_id']))
+                    return redirect(url_for('user',  user_id=session['user_id']))
                 else:
-                    return redirect(url_for('management',  user_id=session['user_id']))
+                    return redirect(url_for('user',  user_id=session['user_id']))
         else:
             error = 'Invalid username or password'
             return render_template( 'login.html', error=error)

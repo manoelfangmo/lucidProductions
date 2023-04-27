@@ -1,7 +1,5 @@
 .right {
     width: 35vw;
-
-
 }
 
 .rightContent {
@@ -24,11 +22,10 @@ form #submit {
 
 
 #backToHome {
-    padding-top: 75%;
+    padding-top: 65%;
     padding-left: 5%;
-    position: absolute;
     color: yellow;
-    top: 50%;
+    bottom: 2rem;
 }
 
 

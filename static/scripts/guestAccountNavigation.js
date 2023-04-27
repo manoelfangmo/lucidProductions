@@ -1,4 +1,4 @@
-const accountNavigation = '     <div class = "accountMenu">\n' +
+const guestAccountNavigation = '     <div class = "accountMenu">\n' +
     '            <input type="checkbox" id="checkbox_toggle"/>\n' +
     '             <label for="checkbox_toggle" class="hamburger">&#9776;</label>\n' +
     '            <div class="left">\n' +
@@ -17,11 +17,11 @@ const accountNavigation = '     <div class = "accountMenu">\n' +
     '        <a href="/logout"><button class="button" type="button"> Sign Out</button></a>\n' +
     '    </div>\n' +
     '    </div>';
-class navigation extends HTMLElement {
+class guestNavigation extends HTMLElement {
   constructor() {
     super();
-    this.innerHTML = accountNavigation;
+    this.innerHTML = guestAccountNavigation;
   }
 }
 
-customElements.define("guest-navigation-component", navigation);
+customElements.define("guest-navigation-component", guestNavigation);
