@@ -4,10 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="fixed merge errors and enabled logout">
+    <list default="true" id="3293e431-3d49-4661-b340-74ac22a7c5e3" name="Changes" comment="fixed event review functionality for guests.">
+      <change afterPath="$PROJECT_DIR$/static/css/background.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/access_denied.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/access_denied.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/client/client.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/client/client.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/collaborations/contractWorker.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations/contractWorker.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/collaborations/eventInquiry.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/collaborations/eventInquiry.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/createAccount.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/createAccount.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/events/eventDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/eventDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/events/events.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/events/events.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/guest/guest.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/guest/guest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/guest/guest_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/guest/guest_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/guest/guestflag.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/guest/guestflag.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/management/management.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/management.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/management/managementanalytics.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementanalytics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/management/managementevent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementevent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/management/managementinquiries.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementinquiries.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/management/managementreviews.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementreviews.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/management/managementusers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/management/managementusers.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +37,8 @@
       <list>
         <option value="Flask Main" />
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -307,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682551827257</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed event review functionality for guests.">
+      <created>1682621451900</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1682621451900</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,10 +371,11 @@
     <MESSAGE value="made color change when wen user flags an unflags an event" />
     <MESSAGE value="enabled redirection to page that required login when user logs in from a page that requires log in and made user role to be guest to enable an event to be flagged" />
     <MESSAGE value="fixed merge errors and enabled logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed merge errors and enabled logout" />
+    <MESSAGE value="fixed event review functionality for guests." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed event review functionality for guests." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/team11spring2023bmgt407$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1682473463263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1682621395799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/team11spring2023bmgt407$team11spring2023bmgt407.coverage" NAME="team11spring2023bmgt407 Coverage Results" MODIFIED="1682622792974" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
