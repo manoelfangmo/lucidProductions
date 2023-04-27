@@ -24,15 +24,19 @@ app.config['SECRET_KEY'] = 'beyond_course_scope'
 db.init_app(app)
 
 login_manager = LoginManager()
-login_manager.login_view = 'login' # default login route
+login_manager.login_view = 'login'  # default login route
 login_manager.init_app(app)
+
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     return auth_login()
+
 
 @app.route('/logout')
 @login_required
@@ -40,6 +44,8 @@ def logout():
     logout_user()
     flash(f'You have been logged out.', 'success')
     return redirect(url_for('home'))
+
+
 @app.route('/')
 def home():
     return render_template('home.html');
@@ -61,21 +67,26 @@ def events():
         user_is_guest = False
         if current_user.is_authenticated and current_user.role == "GUEST":
             user_is_guest = True
-        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids, user_is_guest=user_is_guest);
+        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids,
+                               user_is_guest=user_is_guest);
 
     else:
         flash(f'Unable To Load Events', 'error')
         return redirect(url_for('home'))
+
+
 @app.route('/events/flagEvent', methods=['POST'])
 @login_required
 @role_required(['GUEST'])
 def flag_event():
     user_id = current_user.user_id
     event_id = request.form['event_id']
-    flag = Flag(user_id=user_id,event_id=event_id)
+    flag = Flag(user_id=user_id, event_id=event_id)
     db.session.add(flag)
     db.session.commit()
     return "Event Flagged Successfully"
+
+
 @app.route('/events/flagEvent/deleteFlag', methods=['POST'])
 @login_required
 @role_required(['GUEST'])
@@ -86,6 +97,7 @@ def delete_flag_event():
     db.session.delete(flag)
     db.session.commit()
     return "Flag Deleted Successfully"
+
 
 @app.route('/events/eventDetails/<event_id>', methods=['GET'])
 def event_details(event_id):
@@ -98,7 +110,6 @@ def event_details(event_id):
         user_is_guest = True
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
                            date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest=user_is_guest)
-
 
 
 @app.route('/collaborations')
@@ -125,7 +136,7 @@ def reviews():
     db.session.add(review)
     db.session.commit()
 
-    return redirect(url_for('event_details',event_id=event_id))
+    return redirect(url_for('event_details', event_id=event_id))
 
 
 @app.route('/management')
@@ -154,37 +165,39 @@ def managementUsers():
     return render_template('management/managementusers.html');
 
 
-@app.route('/client',methods={'GET','POST'})
+@app.route('/client', methods={'GET', 'POST'})
 @login_required
 @role_required(['CLIENT'])
 def client():
     user = User.query.filter_by(user_id=1).first()
     return render_template('client/client.html', user_id=user.user_id, first_name=user.first_name,
-                                   last_name=user.last_name, phone=user.phone, email=user.email, dob=user.dob,
-                                   zipcode=user.zipcode);
+                           last_name=user.last_name, phone=user.phone, email=user.email, dob=user.dob,
+                           zipcode=user.zipcode);
 
 
 @app.route('/guest', methods=['GET', 'POST'])
 def guest():
-   user = User.query.filter_by(user_id=2).first()
-   if request.method == 'GET':
-       return render_template('guest/guest.html', user_id=user.user_id, first_name=user.first_name,
-                              last_name=user.last_name,
-                              phone_number=user.phone, email=user.email, date_of_birth=user.dob, zip=user.zipcode);
-   if request.method == 'POST':
-       if 'user_id' in request.form and request.form['user_id']:
-           curr_user = User.query.filter_by(user_id=request.form.get('user_id')).one()
-           if 'save' in request.form:
-               curr_user.first_name = request.form['first_name']
-               curr_user.last_name = request.form['last_name']
-               curr_user.email = request.form['email']
-               curr_user.phone = request.form['phone_number']
-               curr_user.zip_code = request.form['zip']
-               curr_user.dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d').date()
-               db.session.commit()
-           return render_template('guest/guest.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
-                                  last_name=curr_user.last_name,
-                                  phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob, zip=curr_user.zipcode);
+    user = User.query.filter_by(user_id=2).first()
+    if request.method == 'GET':
+        return render_template('guest/guest.html', user_id=user.user_id, first_name=user.first_name,
+                               last_name=user.last_name,
+                               phone_number=user.phone, email=user.email, date_of_birth=user.dob, zip=user.zipcode);
+    if request.method == 'POST':
+        if 'user_id' in request.form and request.form['user_id']:
+            curr_user = User.query.filter_by(user_id=request.form.get('user_id')).one()
+            if 'save' in request.form:
+                curr_user.first_name = request.form['first_name']
+                curr_user.last_name = request.form['last_name']
+                curr_user.email = request.form['email']
+                curr_user.phone = request.form['phone_number']
+                curr_user.zip_code = request.form['zip']
+                curr_user.dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d').date()
+                db.session.commit()
+            return render_template('guest/guest.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
+                                   last_name=curr_user.last_name,
+                                   phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob,
+                                   zip=curr_user.zipcode);
+
 
 @app.route('/guest/delete/<int:user_id>')
 def guest_delete(user_id):
@@ -204,7 +217,7 @@ def guestFlag():
     return render_template('guest/guestflag.html');
 
 
-@app.route('/client/contractWorker', methods = ['GET', 'POST'])
+@app.route('/client/contractWorker', methods=['GET', 'POST'])
 def contractWorker():
     if request.method == 'POST':
         event_type = request.form['event_type']
@@ -291,13 +304,26 @@ if __name__ == '__main__':
              'dob': date(2000, 5, 15), 'zipcode': 20783},
         ]
 
-
         for each_user in users:
             a_user = User(first_name=each_user['first_name'], last_name=each_user['last_name'],
                           phone=each_user['phone'], email=each_user['email'],
                           dob=each_user['dob'], zipcode=each_user['zipcode'], username=each_user['username'],
                           password=each_user['password'], role=each_user['role'])
             db.session.add(a_user)
+
+        reviews = [
+            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
+            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
+            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
+            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
+            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
+
+        ]
+
+        for each_review in reviews:
+            a_review = Review(review_rating=each_review['review_rating'], review_text=each_review['review_text'],
+                              event_id=each_review['event_id'], user_id=each_review['user_id'])
+            db.session.add(a_review)
 
         db.session.commit()
     app.run()
