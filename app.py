@@ -217,8 +217,16 @@ def contractWorker():
     return render_template('collaborations/contractWorker.html');
 
 
-@app.route('/client/interestForm')
+@app.route('/client/interestForm', methods = ['GET', 'POST'])
 def eventInquiry():
+    if request.method == 'POST':
+        event_type = request.form['event_type']
+        name = request.form['name']
+        phone = request.form['phone']
+        company = request.form['company']
+        email = request.form['email']
+        event_needs = request.form['event_needs']
+        print(event_type + " " + name + " " + phone+  " " + company + " " + email + " " + event_needs)
     return render_template('collaborations/eventInquiry.html');
 
 

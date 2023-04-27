@@ -89,3 +89,35 @@ class Flag(db.Model):
 
     def __repr__(self):
         return f"{self.event_id} {self.user_id}"
+
+
+
+class EventInquiry(db.Model):
+    __tablename__ = "eventInquiry"
+
+    eventInquiryId = db.Column(db.Integer, primary_key=True)
+    event_type = db.Column(db.String(100), unique=True, nullable=False)
+    name = db.Column(db.String(50), nullable=False)
+    phone = db.Column(db.String(50), nullable=False)
+    company = db.Column(db.String(100), unique=True, nullable=False)
+    email = db.Column(db.String(100), nullable=False)
+    event_needs = db.Column(db.String(20), nullable=False)
+
+    def __init__(self, username, first_name, last_name, email, password, dob, zipcode, role, phone):
+        self.username = username
+        self.first_name = first_name
+        self.last_name = last_name
+        self.email = email
+        self.password = password
+        self.role = role
+        self.dob = dob
+        self.zipcode = zipcode
+        self.phone = phone
+
+    # Function for flask_login manager to provider a user ID to know who is logged in
+    def get_id(self):
+        return self.user_id
+
+    def __repr__(self):
+        return f"{self.first_name} {self.last_name} ({self.username})"
+
