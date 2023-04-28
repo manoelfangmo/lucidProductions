@@ -13,9 +13,12 @@ import datetime as dt
 
 visualizations_bp = Blueprint('visualizations', __name__)
 
+
 @visualizations_bp.route('/management/analytics')
 @login_required
 @role_required(['ADMIN'])
 def management_analytics():
-    avg_rating = db.session.query(func.avg(Review.review_rating)).scalar()
-    return f'The average rating is {avg_rating}';
+    avg_rating = db.session.query(func.avg(Review.review_rating).label('average rating')
+                                  ) \
+        .all()
+    print(avg_rating)
