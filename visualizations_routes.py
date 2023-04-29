@@ -22,3 +22,7 @@ def management_analytics():
                                   ) \
         .all()
     print(avg_rating)
+
+    fig = px.bar(avg_rating, y='Average Rating')
+    fig.show()
+    return render_template('managementanalytics.html')
