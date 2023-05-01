@@ -53,3 +53,10 @@ def management_event():
         flyers.append(b64encode(event.event_image).decode('utf-8'))
     return render_template('management/managementevent.html', flyers=flyers, events=all_events, zip=zip, user=userTest)
 
+
+@management_bp.route('/management/inquiries/viewInquiry', methods=['GET', 'POST'])
+@login_required
+@role_required(['ADMIN'])
+def management_view_inquiry():
+    return render_template('management/managementviewinquiry.html')
+

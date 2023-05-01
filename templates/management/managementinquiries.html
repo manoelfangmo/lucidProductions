@@ -15,71 +15,52 @@
 <body>
 
 
-
 <navigation-component>
 
 </navigation-component>
 
 
 <div class="right">
-    <h1 id="header"> Events</h1>
-    <div class="addEvent">
-        <button class="button" type="button" id="myBtn"> Add Event</button>
-
-    </div>
+    <h1 id="header"> Inquiries</h1>
     <div class="mainContent">
 
-            <div class="event">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
-                <img src="/static/images/fileIcon.png" class="eventEditor">
+        <div class="event">
+            <img src="/static/images/fileIcon.png" class="eventEditor">
 
-            </div>
+        </div>
+        <div class="event">
+            <img src="/static/images/fileIcon.png" class="eventEditor">
 
+        </div>
+        <div class="event">
+            <img src="/static/images/fileIcon.png" class="eventEditor">
 
-    </div>
-    <div id="myModal" class="modal">
+        </div>
+        <div class="event">
+            <img src="/static/images/fileIcon.png" class="eventEditor">
 
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
+        </div>
+        <div class="event">
+            <img src="/static/images/fileIcon.png" class="eventEditor">
 
+        </div>
+        <div class="event">
+            <img src="/static/images/fileIcon.png" class="eventEditor">
 
-            <div class="innerModalContent">
-                <form action="{{ url_for('management_event') }}" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="event_id">
-                    <label for="event_name"> Event Name: </label>
-                    <input type="text" id="fName" name="event_name" required> <br>
-                    <label for="fName"> Event Date: </label>
-                    <input type="date" id="fName" name="event_date" required> <br>
-                    <label for="fName"> Event Time: </label>
-                    <input type="time" id="fName" name="event_time" required> <br>
-                    <label for="fName"> Event Description: </label>
-                    <textarea type="text" id="fName" name="event_description" required> </textarea> <br>
-                    <label for="chooseFile" id="chooseImageLabel"> <span id="fileLblPrompt">Change Image:</span>
-                        <input type="file" id="chooseFile" name="event_image" required> <br>
-                    </label>
-                    <br>
-                    <div class=buttonDiv>
-                        <button class="button" type="submit" value="upload" name="save"> Save</button>
-                        <button class="button" id="deleteButton" type="submit" name="delete" >Delete</button>
+        </div>
+        <div class="event">
+            <img src="/static/images/fileIcon.png" class="eventEditor">
 
-                    </div>
-
-                </form>
-            </div>
+        </div>
+        <div class="event">
+            <img src="/static/images/fileIcon.png" class="eventEditor">
 
         </div>
 
+
     </div>
+
+
 </div>
 
 
