@@ -27,43 +27,64 @@
                 </div>
             </div>
         </div>
-
-
-<form class="row g-3" action="{{ url_for('eventInquiry') }}" method="post">
-<div class="mainContainer">
-  <h1><strong>Event Services Inquiry Form</strong></h1>
-    <form>
-         <div class="formContent">
-
-        <div class="left">
-
-          <label for="eventType"> Event Type: </label>
-            <input type="text" id="event-type" name="event_type"> <br>
-            <label for="name"> Name: </label>
-            <input type="text" id="name" name="name">  <br>
-            <label for="phone"> Phone: </label>
-            <input type="text" id="phone" name="phone">  <br>
-            <label for="company"> Company: </label>
-            <input type="text" id="company" name="company"> <br>
-            <label for="email"> Email: </label>
-            <input type="email" id="email" name="email"> <br>
+    {% if form_submitted %}
+        <div class="submitMessage">
+            <h2>Thank You For Completing The Form </h2>
         </div>
-        <div class="right">
-
-            <label for="event_needs"> What are your event needs? </label></strong>
-            <textarea id="event-needs" name="event_needs" ></textarea>
+        <div class="submitMessage">
+            <p>Event Type: {{ request.form.get('event_type') }} </p>
         </div>
-    </div>
+        <div class="submitMessage">
+            <p>Name: {{ request.form.get('name') }} </p>
+        </div>
+        <div class="submitMessage">
+            <p>Phone: {{ request.form.get('phone') }} </p>
+        </div>
+        <div class="submitMessage">
+            <p>Company: {{ request.form.get('company') }} </p>
+        </div>
+        <div class="submitMessage">
+            <p>Email: {{ request.form.get('email') }} </p>
+        </div>
+        <p><a href="{{ url_for('eventInquiry') }}">Complete form again</a></p>
+
+    {% else %}
+
+        <form class="row g-3" action="{{ url_for('eventInquiry') }}" method="post">
+        <div class="mainContainer">
+          <h1><strong>Event Services Inquiry Form</strong></h1>
+            <form>
+                <div class="formContent">
+
+                <div class="left">
+
+                  <label for="eventType"> Event Type: </label>
+                    <input type="text" id="event-type" name="event_type"> <br>
+                    <label for="name"> Name: </label>
+                    <input type="text" id="name" name="name">  <br>
+                    <label for="phone"> Phone: </label>
+                    <input type="text" id="phone" name="phone">  <br>
+                    <label for="company"> Company: </label>
+                    <input type="text" id="company" name="company"> <br>
+                    <label for="email"> Email: </label>
+                    <input type="email" id="email" name="email"> <br>
+                </div>
+                <div class="right">
+
+                    <label for="event_needs"> What are your event needs? </label></strong>
+                    <textarea id="event-needs" name="event_needs" ></textarea>
+                </div>
+            </div>
 
 
-    <button> Submit</button>
-    </form>
+            <button> Submit</button>
+            </form>
 
 
 
-</div>
-    </form>
-
+        </div>
+            </form>
+    {% endif %}
 <footer-component></footer-component>
 </body>
 </html>
