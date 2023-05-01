@@ -49,9 +49,14 @@ def create_account():
 
 @user_authentication_bp.route('/account/login', methods=['GET', 'POST'])
 def auth_login():
-
-
-    if request.method == 'POST':
+    if current_user.is_authenticated:
+        if(current_user.role == "CLIENT"):
+            return redirect(url_for('client',  user_id=session['user_id']))
+        if(current_user.role == "GUEST"):
+            return redirect(url_for('guest',  user_id=session['user_id']))
+        else:
+            return redirect(url_for('management',  user_id=session['user_id']))
+    elif request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
@@ -65,7 +70,6 @@ def auth_login():
             next_page = request.form['next']
             # If the next page is set redirect to next page
             if next_page != "None":
-                print(next_page)
                 return redirect(next_page)
 
             else:
