@@ -97,3 +97,14 @@ input[type=checkbox] {
         right: 6rem;
     }
 }
+
+.button {
+    background-color: #0B53B2;
+    cursor: pointer;
+    color: white;
+    border-radius: 15px;
+    align-items: center;
+    width: 10rem;
+    height: 2rem;
+    margin: 1rem;
+}
