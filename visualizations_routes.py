@@ -15,23 +15,9 @@ visualizations_bp = Blueprint('visualizations', __name__)
 
 
 @visualizations_bp.route('/management/analytics')
-@login_required
-@role_required(['ADMIN'])
+# @login_required
+# @role_required(['ADMIN'])
 def management_analytics():
-    avg_rating = db.session.query(func.avg(Review.review_rating).label('average rating')
-                                  ) \
-        .all()
-    #df_average_rating = pd.DataFrame(avg_rating, columns=['average rating'])
-    #print(avg_rating)
-
-    #average_rating_fig = px.bar(data_frame=df_average_rating, x=None, y=avg_rating,title='Average Guest Review Rating',
-    #                               labels={'': '', 'average rating': ''},
-     #                              color_discrete_sequence=['#990000', '#000000'],
-      #                             text_auto=True)
-  #  average_rating_fig.update_layout(
-       # yaxis={'tickmode': 'linear', 'dtick': 1},
-        #title={'x': 0.5}
-   # )
-
-    #average_rating_fig_JSON = average_rating_fig.to_json()
-    return render_template('managementanalytics.html', rating=avg_rating)
+    avg_rating = db.session.query(func.avg(Review.review_rating).label('average rating')).scalar()
+    avg_rating_int = int(avg_rating)
+    return render_template('management/managementanalytics.html', rating=avg_rating_int)
