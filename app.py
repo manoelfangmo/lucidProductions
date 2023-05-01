@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_login import LoginManager, login_required, current_user, logout_user
+from sqlalchemy import func
 from sqlalchemy.orm import defer
 from werkzeug.security import generate_password_hash
 
@@ -11,12 +12,16 @@ from base64 import b64encode
 from management_routes import management_bp
 from user_authentication_routes import user_authentication_bp
 from user_authentication_routes import auth_login
+import matplotlib.pyplot as plt
+import numpy as np
+from visualizations_routes import visualizations_bp
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.register_blueprint(management_bp)
 app.register_blueprint(user_authentication_bp)
+app.register_blueprint(visualizations_bp)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'lucid.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -226,15 +231,14 @@ def contractWorker():
         occupation = request.form['occupation']
         sample = request.files.get('sample').read()
         event_needs = request.form['event_needs']
-        contract_inquiry = ContractWorker(event_type=event_type, name=name, email=email, occupation=occupation, sample=sample, event_needs=event_needs)
+        contract_inquiry = ContractWorker(event_type=event_type, name=name, email=email, occupation=occupation,
+                                          sample=sample, event_needs=event_needs)
         db.session.add(contract_inquiry)
         db.session.commit()
     return render_template('collaborations/contractWorker.html');
 
 
-
-
-@app.route('/client/interestForm', methods = ['GET', 'POST'])
+@app.route('/client/interestForm', methods=['GET', 'POST'])
 @login_required
 @role_required(['CLIENT'])
 def eventInquiry():
@@ -246,10 +250,12 @@ def eventInquiry():
         company = request.form['company']
         email = request.form['email']
         event_needs = request.form['event_needs']
-        event_inquiry = EventInquiry(event_type=event_type, user_id=user_id, name=name, company=company, email=email, phone=phone, event_needs=event_needs)
+        event_inquiry = EventInquiry(event_type=event_type, user_id=user_id, name=name, company=company, email=email,
+                                     phone=phone, event_needs=event_needs)
         db.session.add(event_inquiry)
         db.session.commit()
-    return render_template('collaborations/eventInquiry.html');
+    return render_template('collaborations/eventInquiry.html')
+
 
 
 if __name__ == '__main__':

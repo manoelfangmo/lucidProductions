@@ -1,6 +1,7 @@
 body {
     background-color: whitesmoke;
 }
+
 .button {
     background-color: #0B53B2;
     cursor: pointer;
@@ -41,7 +42,7 @@ form input {
 
 }
 
-p{
+p {
     font-weight: lighter;
     font-size: 2rem;
     font-family: gill sans;
@@ -65,15 +66,14 @@ p{
 }
 
 
-
 #mgmtUsers tr:nth-child(even) {
-    font-size:2rem;
+    font-size: 2rem;
     font-family: gill sans;
     font-weight: lighter;
 }
 
 #mgmtUsers tr:nth-child(odd) {
-    font-size:2rem;
+    font-size: 2rem;
     font-family: gill sans;
     font-weight: lighter;
 }
@@ -81,7 +81,7 @@ p{
 #mgmtUsers th {
     text-align: left;
     color: black;
-    font-size:2rem;
+    font-size: 2rem;
     font-family: gill sans;
 }
 
@@ -89,4 +89,44 @@ p{
     display: grid;
     margin: 1em;
     padding: 1em;
+}
+
+.bar-graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.bar {
+    width: 20%;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+}
+
+.star {
+    font-size: 24px;
+    color: #f5ba10;
+    margin-right: 5px;
+}
+
+.score {
+    font-size: 24px;
+    margin-left: 10px;
+    font-weight: bold;
 }

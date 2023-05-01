@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Management Analytics</title>
     <link rel="stylesheet" type="text/css" href="/static/css/maccount.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
@@ -13,30 +13,37 @@
 <body>
 
 
+<navigation-component>
 
-    <navigation-component>
-
-    </navigation-component>
-
-
-     <div class="right">
-            <h1 id="header"> Account
-                <br>
-                <br> <p1 id="reviewHead"> Analytics Dashboard </p1> </br>
-                <br>
-                <button class="button" type="button"> Create New Event </button>
-                <button class="button" type="button"> Manage Event </button>
-            </h1>
-<h3>Average Rating</h3>
-     </div>
+</navigation-component>
 
 
-<div class="row">
-    <div class="col-12">
-        <div class="row d-flex justify-content-center">
-            <div class="col-10" id="average_rating_graph"></div>
-        </div>
-    </div>
+<div class="right">
+    <h1 id="header"> Account
+        <br>
+        <br>
+        <p1 id="reviewHead"> Analytics Dashboard</p1>
+        </br>
+        <br>
+        <button class="button" type="button"> Create New Event</button>
+        <button class="button" type="button"> Manage Event</button>
+    </h1>
+    <h3>Average Guest Review Rating</h3>
+    <div class="rating">
+		<div class="stars">
+			{% for i in range(5) %}
+				{% if i < rating %}
+					<span class="star">&#9733;</span>
+				{% else %}
+					<span class="star">&#9734;</span>
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="score">{{ rating }}</div>
+	</div>
 </div>
+
+
+
 </body>
 </html>
