@@ -3,7 +3,7 @@ from flask_login import login_required
 from sqlalchemy.orm import defer
 
 from authorize import role_required
-from models import db, Event
+from models import db, Event, EventInquiry
 from datetime import date, time, datetime
 from base64 import b64encode, b64decode
 
@@ -53,3 +53,19 @@ def management_event():
         flyers.append(b64encode(event.event_image).decode('utf-8'))
     return render_template('management/managementevent.html', flyers=flyers, events=all_events, zip=zip, user=userTest)
 
+
+@management_bp.route('/management/inquiries')
+@login_required
+@role_required(['ADMIN'])
+def managementInquiries():
+    event_inquiry_ids = [event_inquiry.event_Inquiry_Id for event_inquiry in EventInquiry.query.all()]
+    return render_template('management/managementinquiries.html', event_inquiries = event_inquiry_ids);
+
+
+@management_bp.route('/management/inquiries/viewInquiry', methods=['GET', 'POST'])
+@login_required
+@role_required(['ADMIN'])
+def management_view_inquiry():
+    print(request.args.get('inquiry_id'))
+
+    return render_template('management/managementviewinquiry.html')

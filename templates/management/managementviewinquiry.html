@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create New Event</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
     <script src="/static/scripts/editEventModal.js" type="application/javascript" defer></script>
@@ -15,30 +14,19 @@
 <body>
 
 
+
 <navigation-component>
 
 </navigation-component>
 
 
 <div class="right">
-    <h1 id="header"> Inquiries</h1>
+    <h1 id="header"> Inquiry</h1>
     <div class="mainContent">
-        {% for inquiry in event_inquiries %}
-        <div class="event">
-            <a href="{{ url_for('management.management_view_inquiry', inquiry_id=inquiry) }}">
-            <img src="/static/images/fileIcon.png" class="eventEditor">
-        </a>
-
-
-        </div>
-        {% endfor %}
 
 
 
     </div>
-
-
-</div>
 
 
 </body>
