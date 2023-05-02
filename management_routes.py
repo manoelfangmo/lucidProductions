@@ -66,6 +66,11 @@ def managementInquiries():
 @login_required
 @role_required(['ADMIN'])
 def management_view_inquiry():
-    print(request.args.get('inquiry_id'))
-
-    return render_template('management/managementviewinquiry.html')
+    curr_inquiry = EventInquiry.query.filter_by(event_Inquiry_Id=request.args.get('inquiry_id')).one()
+    print(curr_inquiry.event_type)
+    print(curr_inquiry.name)
+    print(curr_inquiry.company)
+    print(curr_inquiry.email)
+    print(curr_inquiry.phone)
+    print(curr_inquiry.event_needs)
+    return render_template('management/managementviewinquiry.html', curr_inquiry=curr_inquiry)
