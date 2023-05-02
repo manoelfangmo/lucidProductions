@@ -35,10 +35,9 @@ def create_account():
             user_type = request.form['userType']
 
             # Create a new User object and add it to the database
-            user = User(first_name=first_name, last_name=last_name, phone=phone, email=user_email,
-                        dob=datetime.strptime(dob, '%Y-%m-%d').date(), zipcode=zipcode, username=username,
-                        password=password, role=user_type)
-            db.session.add(user)
+            User(first_name=first_name, last_name=last_name, phone=phone, email=user_email,
+                 dob=datetime.strptime(dob, '%Y-%m-%d').date(), zipcode=zipcode, username=username,
+                 password=password, role=user_type)
             db.session.commit()
 
         return redirect(url_for(auth_login))
