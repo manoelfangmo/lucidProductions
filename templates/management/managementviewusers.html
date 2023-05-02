@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create New Event</title>
+    <title>Create New User</title>
     <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
@@ -19,20 +19,14 @@
 
 
 
-<div class="right">
+<div class="mainContent">
     <h1 id="header">Manager Accounts</h1>
-    <div class="mainContent">
-        {% for user_id in admin_user_ids %}
-        <div class="event">
-            <a href="{{ url_for('management_view_user', user_id=user_id) }}">
-            <img src="/static/images/fileIcon.png" class="eventEditor">
-        </a>
 
-
-        </div>
-        {% endfor %}
-
-
+    <p>First Name: {{ curr_user.first_name }}</p>
+    <p>Last Name: {{ curr_user.last_name }}</p>
+    <p>Email: {{ curr_user.email }}</p>
+    <p>Phone: {{ curr_user.phone }}</p>
+    <p>Zip Code: {{ curr_user.zipcode }}</p>
 
     </div>
 

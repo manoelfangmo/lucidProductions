@@ -169,8 +169,20 @@ def managementInquiries():
 def managementUsers():
     admin_users = User.query.filter(User.role == 'ADMIN').all()
     admin_user_ids = [user.user_id for user in admin_users]
-    print(admin_user_ids)
-    return render_template('management/managementusers.html');
+    return render_template('management/managementusers.html', admin_user_ids = admin_user_ids);
+@app.route('/management/users/viewUser')
+@login_required
+@role_required(['ADMIN'])
+def management_view_user():
+    print(request.args.get('user_id'))
+    curr_user = User.query.filter_by(user_id=request.args.get('user_id')).one()
+    print(curr_user.first_name)
+    print(curr_user.last_name)
+    print(curr_user.email)
+    print(curr_user.phone)
+    print(curr_user.zipcode)
+
+    return render_template('management/managementviewusers.html', curr_user=curr_user);
 
 
 
