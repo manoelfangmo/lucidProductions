@@ -64,6 +64,7 @@ def auth_login():
             next_page = request.form['next']
             # If the next page is set redirect to next page
             if next_page != "None":
+                print(next_page)
                 return redirect(next_page)
 
             else:

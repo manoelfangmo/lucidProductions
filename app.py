@@ -156,11 +156,7 @@ def managementAnalytics():
     return render_template('management/managementanalytics.html');
 
 
-@app.route('/management/inquiries')
-@login_required
-@role_required(['ADMIN'])
-def managementInquiries():
-    return render_template('management/managementinquiries.html');
+
 
 
 @app.route('/management/users')

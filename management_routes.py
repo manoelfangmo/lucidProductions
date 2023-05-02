@@ -13,7 +13,6 @@ management_bp = Blueprint('management', __name__)
 @login_required
 @role_required(['ADMIN'])
 def management_event():
-    userTest = "management"; #testing user type
     if request.method == 'POST':
         if"event_id" in request.form and request.form["event_id"]: ## if updating or deleting event
             curr_event = Event.query.filter_by(event_id=request.form['event_id']).one()
@@ -51,7 +50,7 @@ def management_event():
     flyers = []
     for event in all_events:
         flyers.append(b64encode(event.event_image).decode('utf-8'))
-    return render_template('management/managementevent.html', flyers=flyers, events=all_events, zip=zip, user=userTest)
+    return render_template('management/managementevent.html', flyers=flyers, events=all_events, zip=zip)
 
 
 @management_bp.route('/management/inquiries')
@@ -61,6 +60,8 @@ def managementInquiries():
     event_inquiry_ids = [event_inquiry.event_Inquiry_Id for event_inquiry in EventInquiry.query.all()]
     contract_inquiry_ids = [contract_worker.contract_inquiry_id for contract_worker in ContractWorker.query.all()]
     return render_template('management/managementinquiries.html', event_inquiries = event_inquiry_ids, contract_inquiries = contract_inquiry_ids);
+
+
 
 @management_bp.route('/management/inquiries/viewInquiry', methods=['GET', 'POST'])
 @login_required
