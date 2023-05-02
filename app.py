@@ -167,6 +167,9 @@ def managementInquiries():
 @login_required
 @role_required(['ADMIN'])
 def managementUsers():
+    admin_users = User.query.filter(User.role == 'ADMIN').all()
+    admin_user_ids = [user.user_id for user in admin_users]
+    print(admin_user_ids)
     return render_template('management/managementusers.html');
 
 
