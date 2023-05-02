@@ -5,17 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Client Account</title>
     <link rel="stylesheet" type="text/css" href="/static/css/caccount.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/background.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
-    <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/guestAccountNavigation.js" type="application/javascript" defer></script>
+
 </head>
 <body>
+<script>
+    var myVariable = {{ user_role|tojson }}
+    console.log(myVariable)
 
-<navigation-component></navigation-component>
+</script>
+{%  if user_role == 'GUEST' %}
+<guest-navigation-component></guest-navigation-component>
+
+{%  elif user_role == 'CLIENT' %}
+<client-navigation-component></client-navigation-component>
+
+{% elif user_role == 'ADMIN' %}
+<management-navigation-component></management-navigation-component>
+
+{% endif %}
 
 
 <div class="right">
-    <body id="header"> Account
+    <body> <p1 id="header"> Account </p1>
         <br>
         <br>
         <p1 id="reviewHead">Personal Information</p1>
@@ -24,36 +40,35 @@
 
     <br>
     <br>
-    <form action="{{ url_for('client') }}" method="post">
+    <form action="{{ url_for('user_authentication.user') }}" method="post">
         <div class="row">
             <div class="col">
-                <input type="hidden" name="user_id">
                 <label for="firstName">First Name:</label>
-                <input type="text" class="form-control" value={{ first_name }}>
+                <input type="text" class="form-control" name='first_name' value={{ first_name }}>
             </div>
             <div class="col">
                 <label for="lastName">Last Name:</label>
-                <input type="text" class="form-control" value={{ last_name }}>
+                <input type="text" class="form-control" name="last_name" value={{ last_name }}>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="phoneNumber">Phone:</label>
-                <input type="text" class="form-control" value={{ phone }}>
+                <input type="text" class="form-control" name = 'phone' value={{ phone }}>
             </div>
             <div class="col">
                 <label for="email">Email:</label>
-                <input type="text" class="form-control" value={{ email }}>
+                <input type="text" class="form-control" name='email' value={{ email }}>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label for="dob">Date of Birth:</label>
-                <input type="text" class="form-control" value={{ dob }}>
+                <input type="text" class="form-control" name="dob" value={{ dob }}>
             </div>
             <div class="col">
                 <label for="zip">Zip Code</label>
-                <input type="text" class="form-control" value={{ zipcode }}>
+                <input type="text" class="form-control" name='zipcode' value={{ zip }}>
             </div>
         </div>
                     <div class=buttonDiv>
@@ -65,5 +80,5 @@
 
 </div>
 
-</body>
 </html>
+

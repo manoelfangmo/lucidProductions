@@ -7,12 +7,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from models import *
 
 user_authentication_bp = Blueprint('user_authentication', __name__)
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, login_required
 
 
-
-
-@user_authentication_bp.route('/account/createAccount', methods=['GET','POST'])
+@user_authentication_bp.route('/account/createAccount', methods=['GET', 'POST'])
 def create_account():
     if request.method == 'POST':
         username = request.form.get('username')
@@ -21,10 +19,10 @@ def create_account():
         existing_email = User.query.filter_by(email=user_email).first()
         if existing_user:
             error = 'Username already taken'
-            return render_template( 'createAccount.html', error=error)
+            return render_template('createAccount.html', error=error)
         if existing_email:
             error = 'Account Already Exists Please Login'
-            return render_template( 'login.html', error=error)
+            return render_template('login.html', error=error)
         else:
             # Get the form data
             first_name = request.form['first_name']
@@ -38,7 +36,8 @@ def create_account():
 
             # Create a new User object and add it to the database
             user = User(first_name=first_name, last_name=last_name, phone=phone, email=user_email,
-                        dob=datetime.strptime(dob, '%Y-%m-%d').date(), zipcode=zipcode,username=username, password=password, role=user_type)
+                        dob=datetime.strptime(dob, '%Y-%m-%d').date(), zipcode=zipcode, username=username,
+                        password=password, role=user_type)
             db.session.add(user)
             db.session.commit()
 
@@ -47,15 +46,11 @@ def create_account():
     else:
         return render_template('createAccount.html')
 
+
 @user_authentication_bp.route('/account/login', methods=['GET', 'POST'])
 def auth_login():
     if current_user.is_authenticated:
-        if(current_user.role == "CLIENT"):
-            return redirect(url_for('client',  user_id=session['user_id']))
-        if(current_user.role == "GUEST"):
-            return redirect(url_for('guest',  user_id=session['user_id']))
-        else:
-            return redirect(url_for('management',  user_id=session['user_id']))
+        return redirect(url_for('user_authentication.user'))
     elif request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -73,18 +68,37 @@ def auth_login():
                 return redirect(next_page)
 
             else:
-                if(current_user.role == "CLIENT"):
-                    return redirect(url_for('client',  user_id=session['user_id']))
-                if(current_user.role == "GUEST"):
-                    return redirect(url_for('guest',  user_id=session['user_id']))
-                else:
-                    return redirect(url_for('management',  user_id=session['user_id']))
+                return redirect(url_for('user_authentication.user'))
+
         else:
             error = 'Invalid username or password'
-            return render_template( 'login.html', error=error)
+            return render_template('login.html', error=error)
     else:
-        need_login_error = request.args.get('error') # is performing action that their role does not allow
+        need_login_error = request.args.get('error')  # is performing action that their role does not allow
         if need_login_error:
-            return render_template('login.html',error=need_login_error);
+            return render_template('login.html', error=need_login_error);
         else:
             return render_template('login.html');
+
+@user_authentication_bp.route('/account', methods=['GET', 'POST'])
+@login_required
+def user():
+    curr_user = User.query.filter_by(user_id=current_user.user_id).first()
+    if request.method == 'GET':
+        return render_template('user.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
+                               last_name=curr_user.last_name,
+                               phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob, zip=curr_user.zipcode, user_role= curr_user.role);
+    if request.method == 'POST':
+        if 'user_id' in request.form and request.form['user_id']:
+            if 'save' in request.form:
+                curr_user.first_name = request.form['first_name']
+                curr_user.last_name = request.form['last_name']
+                curr_user.email = request.form['email']
+                curr_user.phone = request.form['phone_number']
+                curr_user.zip_code = request.form['zip']
+                curr_user.dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d').date()
+                db.session.commit()
+            return render_template('user.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
+                                   last_name=curr_user.last_name,
+                                   phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob,
+                                   zip=curr_user.zipcode, user_role=curr_user.role)

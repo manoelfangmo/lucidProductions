@@ -31,5 +31,5 @@ class managementNavigation extends HTMLElement {
   }
 }
 
-customElements.define("navigation-component", managementNavigation);
+customElements.define("management-navigation-component", managementNavigation);
 

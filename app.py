@@ -170,39 +170,6 @@ def managementUsers():
     return render_template('management/managementusers.html');
 
 
-@app.route('/client', methods={'GET', 'POST'})
-@login_required
-@role_required(['CLIENT'])
-def client():
-    user = User.query.filter_by(user_id=1).first()
-    return render_template('client/client.html', user_id=user.user_id, first_name=user.first_name,
-                           last_name=user.last_name, phone=user.phone, email=user.email, dob=user.dob,
-                           zipcode=user.zipcode);
-
-
-@app.route('/guest', methods=['GET', 'POST'])
-def guest():
-    user = User.query.filter_by(user_id=2).first()
-    if request.method == 'GET':
-        return render_template('guest/guest.html', user_id=user.user_id, first_name=user.first_name,
-                               last_name=user.last_name,
-                               phone_number=user.phone, email=user.email, date_of_birth=user.dob, zip=user.zipcode);
-    if request.method == 'POST':
-        if 'user_id' in request.form and request.form['user_id']:
-            curr_user = User.query.filter_by(user_id=request.form.get('user_id')).one()
-            if 'save' in request.form:
-                curr_user.first_name = request.form['first_name']
-                curr_user.last_name = request.form['last_name']
-                curr_user.email = request.form['email']
-                curr_user.phone = request.form['phone_number']
-                curr_user.zip_code = request.form['zip']
-                curr_user.dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d').date()
-                db.session.commit()
-            return render_template('guest/guest.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
-                                   last_name=curr_user.last_name,
-                                   phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob,
-                                   zip=curr_user.zipcode);
-
 
 @app.route('/guest/delete/<int:user_id>')
 def guest_delete(user_id):
