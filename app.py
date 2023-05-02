@@ -72,7 +72,7 @@ def events():
         user_is_guest = False
         if current_user.is_authenticated and current_user.role == "GUEST":
             user_is_guest = True
-        return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids,
+        return render_template('events/events.html', flyers=flyers, dates=dates, zipcode=zipcode, event_ids=event_ids,
                                user_is_guest=user_is_guest);
 
     else:
@@ -156,11 +156,7 @@ def managementAnalytics():
     return render_template('management/managementanalytics.html');
 
 
-@app.route('/management/inquiries')
-@login_required
-@role_required(['ADMIN'])
-def managementInquiries():
-    return render_template('management/managementinquiries.html');
+
 
 
 @app.route('/management/users')

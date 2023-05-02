@@ -8,7 +8,7 @@ const managementAccountNavigation = '     <div class = "accountMenu">\n' +
     '\n' +
     '        <div class="leftContent">\n' +
     '            <img src="/static/images/user.png">\n' +
-    '            <label style="color: blue"> <a href="/management"> Personal Information </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/account"> Personal Information </a> </label> <br> <br>\n' +
     '            <img src="/static/images/review.png">\n' +
     '            <label style="color: blue"> <a href="/management/reviews">Reviews</a> </label> <br> <br>\n' +
     '            <img src="/static/images/data.png">\n' +

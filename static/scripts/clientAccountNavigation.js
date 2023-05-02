@@ -8,7 +8,7 @@ const clientAccountNavigation = '     <div class = "accountMenu">\n' +
     '\n' +
     '        <div class="leftContent">\n' +
     '            <img src="/static/images/user.png">\n' +
-    '            <label style="color: blue"> <a href="/client"> Personal Information </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/account"> Personal Information </a> </label> <br> <br>\n' +
     '            <img src="/static/images/event.png">\n' +
     '            <label style="color: blue" > <a href="/management/event" id="c"> Events </a> </label> <br> <br>\n' +
 

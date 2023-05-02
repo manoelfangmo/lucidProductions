@@ -138,4 +138,4 @@ class ContractWorker(db.Model):
 
     # Function for flask_login manager to provider a user ID to know who is logged in
     def get_id(self):
-        return self.contractInquiryId
+        return self.contract_inquiry_id

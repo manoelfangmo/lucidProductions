@@ -27,7 +27,6 @@ def create_account():
             # Get the form data
             first_name = request.form['first_name']
             last_name = request.form['last_name']
-
             phone = request.form['phone']
             dob = request.form['dob']
             zipcode = request.form['zipcode']
@@ -35,9 +34,10 @@ def create_account():
             user_type = request.form['userType']
 
             # Create a new User object and add it to the database
-            User(first_name=first_name, last_name=last_name, phone=phone, email=user_email,
-                 dob=datetime.strptime(dob, '%Y-%m-%d').date(), zipcode=zipcode, username=username,
-                 password=password, role=user_type)
+            user = User(first_name=first_name, last_name=last_name, phone=phone, email=user_email,
+                        dob=datetime.strptime(dob, '%Y-%m-%d').date(), zipcode=zipcode, username=username,
+                        password=password, role=user_type)
+            db.session.add(user)
             db.session.commit()
 
         return redirect(url_for(auth_login))
@@ -79,6 +79,7 @@ def auth_login():
         else:
             return render_template('login.html');
 
+
 @user_authentication_bp.route('/account', methods=['GET', 'POST'])
 @login_required
 def user():
@@ -86,18 +87,26 @@ def user():
     if request.method == 'GET':
         return render_template('user.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
                                last_name=curr_user.last_name,
-                               phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob, zip=curr_user.zipcode, user_role= curr_user.role);
+                               phone=curr_user.phone, email=curr_user.email, dob=curr_user.dob,
+                               zipcode=curr_user.zipcode, user_role=curr_user.role);
     if request.method == 'POST':
-        if 'user_id' in request.form and request.form['user_id']:
-            if 'save' in request.form:
-                curr_user.first_name = request.form['first_name']
-                curr_user.last_name = request.form['last_name']
-                curr_user.email = request.form['email']
-                curr_user.phone = request.form['phone_number']
-                curr_user.zip_code = request.form['zip']
-                curr_user.dob = datetime.strptime(request.form['date_of_birth'], '%Y-%m-%d').date()
-                db.session.commit()
-            return render_template('user.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
-                                   last_name=curr_user.last_name,
-                                   phone_number=curr_user.phone, email=curr_user.email, date_of_birth=curr_user.dob,
-                                   zip=curr_user.zipcode, user_role=curr_user.role)
+        print(curr_user.first_name)
+        if 'save' in request.form:
+            curr_user.first_name = request.form['first_name']
+            print(curr_user.first_name)
+            curr_user.last_name = request.form['last_name']
+            print(curr_user.last_name)
+            curr_user.email = request.form['email']
+            print(curr_user.email)
+            curr_user.phone = request.form['phone']
+            print(curr_user.phone)
+            curr_user.zipcode = request.form['zipcode']
+            print(curr_user.zipcode)
+            curr_user.dob = datetime.strptime(request.form['dob'], '%Y-%m-%d').date()
+            print(curr_user.dob)
+            db.session.commit()
+            print(curr_user.first_name)
+        return render_template('user.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
+                               last_name=curr_user.last_name,
+                               phone=curr_user.phone, email=curr_user.email, dob=curr_user.dob,
+                               zipcode=curr_user.zipcode, user_role=curr_user.role)

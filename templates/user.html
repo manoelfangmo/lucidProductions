@@ -18,7 +18,7 @@
     console.log(myVariable)
 
 </script>
-{%  if user_role == 'GUEST' %}
+{%  if user_role == 'GUEST' or user_role == 'guest' %}
 <guest-navigation-component></guest-navigation-component>
 
 {%  elif user_role == 'CLIENT' %}
@@ -53,7 +53,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <label for="phoneNumber">Phone:</label>
+                <label for="phone">Phone:</label>
                 <input type="text" class="form-control" name = 'phone' value={{ phone }}>
             </div>
             <div class="col">
@@ -67,8 +67,8 @@
                 <input type="text" class="form-control" name="dob" value={{ dob }}>
             </div>
             <div class="col">
-                <label for="zip">Zip Code</label>
-                <input type="text" class="form-control" name='zipcode' value={{ zip }}>
+                <label for="zipcode">Zip Code</label>
+                <input type="text" class="form-control" name='zipcode' value={{ zipcode }}>
             </div>
         </div>
                     <div class=buttonDiv>

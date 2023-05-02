@@ -8,7 +8,7 @@ const guestAccountNavigation = '     <div class = "accountMenu">\n' +
     '\n' +
     '        <div class="leftContent">\n' +
     '            <img src="/static/images/user.png">\n' +
-    '            <label style="color: blue"> <a href="/guest"> Personal Information </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/account"> Personal Information </a> </label> <br> <br>\n' +
     '            <img src="/static/images/folder.png">\n' +
     '            <label style="color: blue"> <a href="/events"> Flagged Events </a> </label> <br> <br>\n' +
 
