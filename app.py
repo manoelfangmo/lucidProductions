@@ -235,7 +235,9 @@ def contractWorker():
                                           sample=sample, event_needs=event_needs)
         db.session.add(contract_inquiry)
         db.session.commit()
-    return render_template('collaborations/contractWorker.html');
+        return render_template('collaborations/contractWorker.html', form_submitted=True);
+    else:
+        return render_template('collaborations/contractWorker.html');
 
 
 @app.route('/client/interestForm', methods=['GET', 'POST'])
@@ -254,7 +256,9 @@ def eventInquiry():
                                      phone=phone, event_needs=event_needs)
         db.session.add(event_inquiry)
         db.session.commit()
-    return render_template('collaborations/eventInquiry.html')
+        return render_template('collaborations/eventInquiry.html', form_submitted=True);
+    else:
+        return render_template('collaborations/eventInquiry.html');
 
 
 
