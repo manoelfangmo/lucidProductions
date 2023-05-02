@@ -139,8 +139,10 @@ p {
 
 .inquiriesAnalytics {
     background: #ff781f;
+    width: 25%;
 }
 
 .ratingsAnalytics {
     background: #b042ff;
+    width: 25%;
 }
