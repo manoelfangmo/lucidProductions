@@ -130,3 +130,16 @@ p {
     margin-left: 10px;
     font-weight: bold;
 }
+
+.inquiries {
+    display: flex;
+    align-items: center;
+}
+
+.inquiriesAnalytics {
+    background: #ff781f;
+}
+
+.ratingsAnalytics {
+    background: #b042ff;
+}

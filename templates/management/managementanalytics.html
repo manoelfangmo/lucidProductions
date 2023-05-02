@@ -28,21 +28,29 @@
         <button class="button" type="button"> Create New Event</button>
         <button class="button" type="button"> Manage Event</button>
     </h1>
-    <h3>Average Guest Review Rating</h3>
-    <div class="rating">
-		<div class="stars">
-			{% for i in range(5) %}
-				{% if i < rating %}
-					<span class="star">&#9733;</span>
-				{% else %}
-					<span class="star">&#9734;</span>
-				{% endif %}
-			{% endfor %}
-		</div>
-		<div class="score">{{ rating }}</div>
-	</div>
-</div>
+    <div class="ratingsAnalytics">
+        <h3>Average Guest Review Rating</h3>
+        <div class="rating">
+            <div class="stars">
+                {% for i in range(5) %}
+                    {% if i < rating %}
+                        <span class="star">&#9733;</span>
+                    {% else %}
+                        <span class="star">&#9734;</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="score">{{ rating }}</div>
+        </div>
+    </div>
 
+    <div class="inquiriesAnalytics">
+        <h3>Number of Event Services Inquiries</h3>
+        <div class="inquiries">
+            <div class="score">{{ num_event_inquiries }}</div>
+        </div>
+    </div>
+</div>
 
 
 </body>
