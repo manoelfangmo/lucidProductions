@@ -40,7 +40,8 @@ def create_account():
             db.session.add(user)
             db.session.commit()
 
-        return redirect(url_for(auth_login))
+        print("doingthis")
+        return redirect(url_for('login'))
 
     else:
         return render_template('createAccount.html')
@@ -48,6 +49,7 @@ def create_account():
 
 @user_authentication_bp.route('/account/login', methods=['GET', 'POST'])
 def auth_login():
+    print("doingthis")
     if current_user.is_authenticated:
         return redirect(url_for('user_authentication.user'))
     elif request.method == 'POST':
