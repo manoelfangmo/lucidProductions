@@ -40,6 +40,7 @@ def create_account():
             db.session.add(user)
             db.session.commit()
 
+
         print("doingthis")
         return redirect(url_for('login'))
 

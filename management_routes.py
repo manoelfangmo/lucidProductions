@@ -82,6 +82,7 @@ def management_view_contract_inquiry():
     blob_data = curr_inquiry.sample
     return render_template('management/managementviewinquiry.html', curr_inquiry=curr_inquiry, isContractInquiry=True)
 
+
 @management_bp.route('/management/inquiries/viewContractInquiry/sample', methods=['GET', 'POST'])
 @login_required
 @role_required(['ADMIN'])

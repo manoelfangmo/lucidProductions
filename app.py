@@ -43,6 +43,7 @@ def login():
     return auth_login()
 
 
+
 @app.route('/logout')
 @login_required
 def logout():

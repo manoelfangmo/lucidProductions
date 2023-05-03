@@ -128,6 +128,7 @@ class ContractWorker(db.Model):
     sample = db.Column(LargeBinary, nullable=False)
     event_needs = db.Column(db.Text, nullable=False)
 
+
     def __init__(self, event_type, name, email, occupation, sample, event_needs):
         self.event_type = event_type
         self.name = name
