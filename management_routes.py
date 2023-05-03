@@ -89,3 +89,9 @@ def management_download_sample():
     curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
     blob_data = curr_inquiry.sample
     return send_file(BytesIO(blob_data),download_name="sample.pdf", as_attachment=True)
+
+@management_bp.route('/management/users/adduser')
+@login_required
+@role_required(['ADMIN'])
+def management_add_user():
+    return render_template('management/managementaddusers.html')

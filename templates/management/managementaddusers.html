@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create New Event</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
+    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/editEventModal.js" type="application/javascript" defer></script>
+    <link rel="stylesheet" href="/static/css/background.css">
+    <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
+
+</head>
+<body>
+
+
+<management-navigation-component></management-navigation-component>
+
+
+
+<div class="right">
+    <h1 id="header">Manager Accounts</h1>
+    <div class="mainContent">
+        <form action="{{ url_for('user_authentication.create_account') }}" method="post">
+            <div class="row">
+                <div class="col">
+                    <label for="firstName">First Name:</label>
+                    <input type="text" class="form-control" placeholder="First name" name="first_name" required>
+                </div>
+                <div class="col">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" placeholder="Last name" name="last_name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="phoneNumber">Phone:</label>
+                    <input type="text" class="form-control" placeholder="222-333-4444" name="phone" required>
+                </div>
+                <div class="col">
+                    <label for="email">Email:</label>
+                    <input type="text" class="form-control" placeholder="Email" name="email" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" class="form-control" placeholder="00/00/0000" name="dob" required>
+                </div>
+                <div class="col">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" class="form-control" name="zipcode" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="col">
+                    <div class="col">
+                        <label for="cars">User Type:</label>
+                        <input value="ADMIN" id="admin" name="userType" readonly="readonly">
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="pwd">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="col">
+                    <div class="col">
+                        <label for="pwd">Re-Enter Password:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <button id="submit" type="submit"> Submit</button>
+            <br>
+        </form>
+
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
