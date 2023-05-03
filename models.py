@@ -94,7 +94,7 @@ class Flag(db.Model):
 class EventInquiry(db.Model):
     __tablename__ = "eventInquiry"
 
-    event_inquiry_id = db.Column(db.Integer, primary_key=True)
+    event_Inquiry_Id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     event_type = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(50), nullable=False)
