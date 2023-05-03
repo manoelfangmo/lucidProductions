@@ -30,7 +30,15 @@
 
             </div>
         {% endfor %}
-    
+        {% for inquiry in contract_inquiries %}
+            <div class="event">
+                <a href="{{ url_for('management.management_view_contract_inquiry', inquiry_id=inquiry) }}">
+                    <img src="/static/images/fileIcon1.png" class="eventEditor">
+                </a>
+            </div>
+
+        {% endfor %}
+
 
     </div>
 

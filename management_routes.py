@@ -1,4 +1,6 @@
-from flask import render_template, request, flash, Blueprint
+from io import BytesIO
+
+from flask import render_template, request, flash, Blueprint,send_file
 from flask_login import login_required
 from sqlalchemy.orm import defer
 
@@ -59,6 +61,7 @@ def management_event():
 def managementInquiries():
     event_inquiry_ids = [event_inquiry.event_Inquiry_Id for event_inquiry in EventInquiry.query.all()]
     contract_inquiry_ids = [contract_worker.contract_inquiry_id for contract_worker in ContractWorker.query.all()]
+    print(contract_inquiry_ids)
     return render_template('management/managementinquiries.html', event_inquiries = event_inquiry_ids, contract_inquiries = contract_inquiry_ids);
 
 
@@ -68,10 +71,21 @@ def managementInquiries():
 @role_required(['ADMIN'])
 def management_view_inquiry():
     curr_inquiry = EventInquiry.query.filter_by(event_Inquiry_Id=request.args.get('inquiry_id')).one()
-    print(curr_inquiry.event_type)
-    print(curr_inquiry.name)
-    print(curr_inquiry.company)
-    print(curr_inquiry.email)
-    print(curr_inquiry.phone)
-    print(curr_inquiry.event_needs)
+
     return render_template('management/managementviewinquiry.html', curr_inquiry=curr_inquiry)
+
+@management_bp.route('/management/inquiries/viewContractInquiry', methods=['GET', 'POST'])
+@login_required
+@role_required(['ADMIN'])
+def management_view_contract_inquiry():
+    curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
+    blob_data = curr_inquiry.sample
+    return render_template('management/managementviewinquiry.html', curr_inquiry=curr_inquiry, isContractInquiry=True)
+
+@management_bp.route('/management/inquiries/viewContractInquiry/sample', methods=['GET', 'POST'])
+@login_required
+@role_required(['ADMIN'])
+def management_download_sample():
+    curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
+    blob_data = curr_inquiry.sample
+    return send_file(BytesIO(blob_data),download_name="sample.pdf", as_attachment=True)

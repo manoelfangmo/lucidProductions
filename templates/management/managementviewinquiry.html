@@ -28,15 +28,28 @@
                    value={{ curr_inquiry.event_type }} readonly="readonly"> <br>
             <label for="name"> Name: </label>
             <input type="text" id="name" name="name" value={{ curr_inquiry.name }} readonly="readonly"> <br>
-            <label for="phone"> Phone: </label>
+            <label for="email"> Email: </label>
+            <input type="email" id="email" name="email" value={{ curr_inquiry.email }} readonly="readonly"> <br>
+            {% if isContractInquiry %}
+            <label for="company"> Occupation: </label>
+            <input type="text" id="company" name="company" value={{ curr_inquiry.occupation }} readonly="readonly"> <br>
+
+            {% else %}
+                <label for="phone"> Phone: </label>
             <input type="text" id="phone" name="phone" value={{ curr_inquiry.phone }} readonly="readonly"> <br>
             <label for="company"> Company: </label>
             <input type="text" id="company" name="company" value={{ curr_inquiry.company }} readonly="readonly"> <br>
-            <label for="email"> Email: </label>
-            <input type="email" id="email" name="email" value={{ curr_inquiry.email }} readonly="readonly"> <br>
+            {% endif %}
         </div>
         <div class="rightForm">
+          {% if isContractInquiry %}
+              <div class="downloadDiv">
+                          <label for="company"> Work Sample File: </label>
+          <a href="{{ url_for('management.management_download_sample', inquiry_id=curr_inquiry.contract_inquiry_id) }}"> <button id="downloadButton" type="button" name >Download </button><br> </a>
 
+              </div>
+
+            {% endif %}
             <label for="event_needs"> Event Needs: </label>
             <textarea id="event-needs" name="event_needs" readonly="readonly">{{ curr_inquiry.event_needs }}</textarea>
         </div>
