@@ -38,10 +38,12 @@
             <label for="zipcode"> Zip Code: </label>
             <input type="text" id="zipcode" name="zipcode" value={{ curr_user.zipcode }} readonly="readonly"> <br>
         </div>
+    </div>
 
-
+        <form action="{{ url_for('management_view_user') }}" method="POST">
+    <input type="hidden" name="management_user_Id" value="{{ curr_user.user_id }}">
+    <button type="submit">Delete User</button>
+</form>
 </div>
-
-
 </body>
 </html>

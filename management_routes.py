@@ -105,3 +105,14 @@ def delete_inquiry():
     db.session.commit()
     flash('Inquiry deleted successfully', 'success')
     return redirect(url_for('management.managementInquiries'))
+
+@management_bp.route('/management/users/viewUser/delete', methods=['POST'])
+@login_required
+@role_required(['ADMIN'])
+def delete_user():
+    user_id = request.form['user_id']
+    delete_user = user_id.query.filter_by(user_id=user_id).first()
+    db.session.delete(delete_user)
+    db.session.commit()
+    flash('User deleted successfully', 'success')
+    return redirect(url_for('management.managementviewusers.html'))
