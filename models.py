@@ -94,7 +94,7 @@ class Flag(db.Model):
 class EventInquiry(db.Model):
     __tablename__ = "eventInquiry"
 
-    event_Inquiry_Id = db.Column(db.Integer, primary_key=True)
+    event_inquiry_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     event_type = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(50), nullable=False)
@@ -114,7 +114,7 @@ class EventInquiry(db.Model):
 
     # Function for flask_login manager to provider a user ID to know who is logged in
     def get_id(self):
-        return self.eventInquiryId
+        return self.event_inquiry_id
 
 
 class ContractWorker(db.Model):
