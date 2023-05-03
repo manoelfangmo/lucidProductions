@@ -1,6 +1,6 @@
 from io import BytesIO
 
-from flask import render_template, request, flash, Blueprint,send_file
+from flask import render_template, request, flash, Blueprint,send_file, url_for, redirect
 from flask_login import login_required
 from sqlalchemy.orm import defer
 
@@ -89,3 +89,14 @@ def management_download_sample():
     curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
     blob_data = curr_inquiry.sample
     return send_file(BytesIO(blob_data),download_name="sample.pdf", as_attachment=True)
+
+@management_bp.route('/management/inquiries/viewInquiry/delete', methods=['POST'])
+@login_required
+@role_required(['ADMIN'])
+def delete_inquiry():
+    inquiry_id = request.form['event_Inquiry_Id']
+    delete_inquiry = EventInquiry.query.filter_by(event_Inquiry_Id=inquiry_id).first()
+    db.session.delete(delete_inquiry)
+    db.session.commit()
+    flash('Inquiry deleted successfully', 'success')
+    return redirect(url_for('management.managementInquiries'))
