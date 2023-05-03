@@ -114,7 +114,7 @@ class EventInquiry(db.Model):
 
     # Function for flask_login manager to provider a user ID to know who is logged in
     def get_id(self):
-        return self.event_inquiry_id
+        return self.event_Inquiry_id
 
 
 class ContractWorker(db.Model):
