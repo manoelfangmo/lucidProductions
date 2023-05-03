@@ -56,6 +56,10 @@
         </div>
     </div>
 
+<form action="{{ url_for('management.delete_inquiry') }}" method="POST">
+    <input type="hidden" name="event_Inquiry_Id" value="{{ curr_inquiry.event_Inquiry_Id }}">
+    <button type="submit">Delete Inquiry</button>
+</form>
 
 </div>
 </div>
