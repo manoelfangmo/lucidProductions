@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create New Event</title>
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
-    <link rel="stylesheet" href="/css/inquiries.css">
+    <link rel="stylesheet" href="/static/css/inquiries.css">
     <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
     <script src="/static/scripts/editEventModal.js" type="application/javascript" defer></script>
@@ -19,14 +19,31 @@
 <div class="right">
     <h1 id="header"> Inquiry Information</h1>
 
-    <p>Event Type: {{ curr_inquiry.event_type }}</p>
-    <p>Name: {{ curr_inquiry.name }}</p>
-    <p>Company: {{ curr_inquiry.company }}</p>
-    <p>Email: {{ curr_inquiry.email }}</p>
-    <p>Phone: {{ curr_inquiry.phone }}</p>
-    <p>Event Needs: {{ curr_inquiry.event_needs }}</p>
+    <div class="formContent">
 
+        <div class="leftForm">
+
+            <label for="eventType"> Event Type: </label>
+            <input type="text" id="event-type" name="event_type"
+                   value={{ curr_inquiry.event_type }} readonly="readonly"> <br>
+            <label for="name"> Name: </label>
+            <input type="text" id="name" name="name" value={{ curr_inquiry.name }} readonly="readonly"> <br>
+            <label for="phone"> Phone: </label>
+            <input type="text" id="phone" name="phone" value={{ curr_inquiry.phone }} readonly="readonly"> <br>
+            <label for="company"> Company: </label>
+            <input type="text" id="company" name="company" value={{ curr_inquiry.company }} readonly="readonly"> <br>
+            <label for="email"> Email: </label>
+            <input type="email" id="email" name="email" value={{ curr_inquiry.email }} readonly="readonly"> <br>
+        </div>
+        <div class="rightForm">
+
+            <label for="event_needs"> Event Needs: </label>
+            <textarea id="event-needs" name="event_needs" readonly="readonly">{{ curr_inquiry.event_needs }}</textarea>
+        </div>
     </div>
+
+
+</div>
 </div>
 </body>
 </html>

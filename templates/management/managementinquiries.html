@@ -18,21 +18,19 @@
 <management-navigation-component></management-navigation-component>
 
 
-
 <div class="right">
     <h1 id="header"> Inquiries</h1>
     <div class="mainContent">
         {% for inquiry in event_inquiries %}
-        <div class="event">
-            <a href="{{ url_for('management.management_view_inquiry', inquiry_id=inquiry) }}">
-            <img src="/static/images/fileIcon.png" class="eventEditor">
-        </a>
+            <div class="event">
+                <a href="{{ url_for('management.management_view_inquiry', inquiry_id=inquiry) }}">
+                    <img src="/static/images/fileIcon.png" class="eventEditor">
+                </a>
 
 
-        </div>
+            </div>
         {% endfor %}
-
-
+    
 
     </div>
 
