@@ -6,7 +6,7 @@
     <title>Create New User</title>
     <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
-    <link rel="stylesheet" href="/css/inquiries.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/inquiries.css">
     <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
     <script src="/static/scripts/editEventModal.js" type="application/javascript" defer></script>
@@ -18,18 +18,25 @@
 
 <management-navigation-component></management-navigation-component>
 
-
-
 <div class="right">
-    <h1 id="header">Manager Accounts</h1>
+    <h1 id="header"> Manager Accounts</h1>
 
-    <p>First Name: {{ curr_user.first_name }}</p>
-    <p>Last Name: {{ curr_user.last_name }}</p>
-    <p>Email: {{ curr_user.email }}</p>
-    <p>Phone: {{ curr_user.phone }}</p>
-    <p>Zip Code: {{ curr_user.zipcode }}</p>
+    <div class="formContent">
 
-    </div>
+        <div class="leftForm">
+
+            <label for="first_name"> First Name: </label>
+            <input type="text" id="first_name" name="first_name"
+                   value={{ curr_user.first_name }} readonly="readonly"> <br>
+            <label for="last_name"> Last Name: </label>
+            <input type="text" id="last_name" name="last_name" value={{ curr_user.last_name }} readonly="readonly"> <br>
+            <label for="email"> Email: </label>
+            <input type="text" id="email" name="email" value={{ curr_user.email }} readonly="readonly"> <br>
+            <label for="company"> Phone: </label>
+            <input type="text" id="phone" name="phone" value={{ curr_user.phone }} readonly="readonly"> <br>
+            <label for="zipcode"> Zip Code: </label>
+            <input type="text" id="zipcode" name="zipcode" value={{ curr_user.zipcode }} readonly="readonly"> <br>
+        </div>
 
 
 </div>
