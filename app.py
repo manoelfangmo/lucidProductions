@@ -43,6 +43,7 @@ def login():
     return auth_login()
 
 
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -156,16 +157,15 @@ def managementAnalytics():
     return render_template('management/managementanalytics.html');
 
 
-
-
-
 @app.route('/management/users')
 @login_required
 @role_required(['ADMIN'])
 def managementUsers():
     admin_users = User.query.filter(User.role == 'ADMIN').all()
     admin_user_ids = [user.user_id for user in admin_users]
-    return render_template('management/managementusers.html', admin_user_ids = admin_user_ids);
+    return render_template('management/managementusers.html', admin_user_ids=admin_user_ids);
+
+
 @app.route('/management/users/viewUser')
 @login_required
 @role_required(['ADMIN'])
@@ -179,7 +179,6 @@ def management_view_user():
     print(curr_user.zipcode)
 
     return render_template('management/managementviewusers.html', curr_user=curr_user);
-
 
 
 @app.route('/guest/delete/<int:user_id>')
@@ -239,7 +238,6 @@ def eventInquiry():
         return render_template('collaborations/eventInquiry.html');
 
 
-
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
@@ -289,7 +287,7 @@ if __name__ == '__main__':
              'dob': date(2000, 5, 15), 'zipcode': 20783},
             {'username': 'admin', 'email': 'admin@umd.edu', 'first_name': 'Lucid', 'last_name': 'ADMIN',
              'password': generate_password_hash('adminpw', method='sha256'), 'role': 'ADMIN', 'phone': 1234567890,
-             'dob': date(2000, 5, 15), 'zipcode': 20783},
+             'dob': date(2000, 5, 15), 'zipcode': 20783}
         ]
 
         for each_user in users:
@@ -312,6 +310,22 @@ if __name__ == '__main__':
             a_review = Review(review_rating=each_review['review_rating'], review_text=each_review['review_text'],
                               event_id=each_review['event_id'], user_id=each_review['user_id'])
             db.session.add(a_review)
+
+        eventInquiries = [
+            {'user_id': 1, 'event_type': 'bday party', 'name': 'sample inquirer',
+             'phone': '3011234567', 'company': 'SOAL Sound', 'email': 'inquirer@umd.edu',
+             'event_needs': 'whole lotta gang sh*t'},
+            {'user_id': 2, 'event_type': 'wedding party', 'name': 'sample inquirer 2',
+             'phone': '3011234568', 'company': 'OVO Sound', 'email': 'inquirer2@umd.edu',
+             'event_needs': 'whole lotta gang sh*t ma negg'}
+        ]
+
+        for each_inquiry in eventInquiries:
+            a_event_inquiry = EventInquiry(user_id=each_inquiry['user_id'],
+                                           event_type=each_inquiry['event_type'], name=each_inquiry['name'],
+                                           phone=each_inquiry['phone'], company=each_inquiry['company'],
+                                           email=each_inquiry['email'], event_needs=each_inquiry['event_needs'])
+            db.session.add(a_event_inquiry)
 
         db.session.commit()
     app.run()
