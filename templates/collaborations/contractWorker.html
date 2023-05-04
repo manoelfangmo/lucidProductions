@@ -19,24 +19,16 @@
 <!-- Form to gather information from users who are interested in becoming a contractor or vendor. -->
     {% if form_submitted %}
         <div class="submitMessage">
-            <h2>Thank You For Completing The Form </h2>
+            <h2>Thank You For Completing Our Inquiry Form! </h2>
         </div>
         <div class="submitMessage">
             <p>Event Type: {{ request.form.get('event_type') }} </p>
-        </div>
-        <div class="submitMessage">
             <p>Name: {{ request.form.get('name') }} </p>
-        </div>
-        <div class="submitMessage">
             <p>Email: {{ request.form.get('email') }} </p>
-        </div>
-        <div class="submitMessage">
             <p>Occupation: {{ request.form.get('occupation') }} </p>
+            <p>What Services Are You Looking To Provide?: {{ request.form.get('event_needs') }} </p>
+        <p><a href="{{ url_for('contractWorker') }}">Complete form again!</a></p>
         </div>
-        <div class="submitMessage">
-            <p>Sample: {{ request.form.get('sample') }} </p>
-        </div>
-        <p><a href="{{ url_for('contractWorker') }}">Complete form again</a></p>
 <!--  If form is submitted,  code displays a thank you message and submitted information. If the
 form has not been submitted then form is shown for  user to fill out. -->
     {% else %}
