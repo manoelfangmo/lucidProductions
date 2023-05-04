@@ -67,15 +67,19 @@ def guestFlag():
     flagged_events = {}
     for flag in flags:
         flagged_events[flag.event_id] = flag.event_id
-    events = Event.query.filter_by(event_id=flagged_events[flag.event_id])
-    events_now = {}
-    for event in events:
-        events_now[event.event_id] = {"event_image": b64encode(event.event_image).decode('utf-8'), "event_id": event.event_id}
-    flagged_events.update(events_now)
-    for event in flagged_events.values():
-                flyers.append(event["event_image"])
-                event_ids.append(event["event_id"])
-    return render_template('guest/guestflag.html', flyers=flyers, zip=zip, event_ids=event_ids);
+    for event_id in flagged_events.values():
+        event = Event.query.filter_by(event_id=event_id).first()
+        if event is not None:
+            flyers.append(b64encode(event.event_image).decode('utf-8'))
+            event_ids.append(event.event_id)
+        else:
+            # Removes the flag from events
+            Flag.query.filter_by(user_id=user_id, event_id=event_id).delete()
+            db.session.commit()
+            # Remove the event from the list of flagged events
+            flagged_events.pop(event_id)
+    return render_template('guest/guestflag.html', flyers=flyers, zip=zip, event_ids=event_ids)
+
 
 
 @app.route('/events')
@@ -101,7 +105,7 @@ def events():
         flash(f'Unable To Load Events', 'error')
         return redirect(url_for('home'))
 
-@app.route('/event/flagEvent', methods=['POST'])
+@app.route('/events/flagEvent', methods=['POST'])
 @login_required
 @role_required(['GUEST'])
 def flag_event():

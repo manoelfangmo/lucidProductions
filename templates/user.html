@@ -16,7 +16,7 @@
 </head>
 <body>
 
-{% if user_role == 'GUEST' or user_role == 'guest' %}
+{% if user_role == 'GUEST' %}
     <guest-navigation-component></guest-navigation-component>
 
 {% elif user_role == 'CLIENT'  %}

@@ -24,5 +24,5 @@ class guestNavigation extends HTMLElement {
     this.innerHTML = guestAccountNavigation;
   }
 }
-t
+
 customElements.define("guest-navigation-component", guestNavigation);
