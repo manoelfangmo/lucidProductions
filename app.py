@@ -22,7 +22,7 @@ app = Flask(__name__)
 app.register_blueprint(management_bp)
 app.register_blueprint(user_authentication_bp)
 app.register_blueprint(visualizations_bp)
-
+#Above lines establish and link new py files. Separated python files by key differences in order to not have one massive py file
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'lucid.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'beyond_course_scope'
@@ -35,8 +35,8 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
-
+    return User.query.get(int(user_id)) #
+#loads user from user id in database and becomes able to access across system
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -50,6 +50,7 @@ def logout():
     flash(f'You have been logged out.', 'success')
     return redirect(url_for('home'))
 
+#routes that handle all login and logout info
 
 @app.route('/')
 def home():
@@ -79,8 +80,7 @@ def guestFlag():
             # Remove the event from the list of flagged events
             flagged_events.pop(event_id)
     return render_template('guest/guestflag.html', flyers=flyers, zip=zip, event_ids=event_ids)
-
-
+    #route that handles flag functionality. ALlows guest users to flag and unflag events they are interested in
 
 @app.route('/events')
 def events():
@@ -104,6 +104,8 @@ def events():
     else:
         flash(f'Unable To Load Events', 'error')
         return redirect(url_for('home'))
+#events page route, shows past events sorted by date and  all events that have yet to occur.
+
 
 @app.route('/events/flagEvent', methods=['POST'])
 @login_required
@@ -115,6 +117,7 @@ def flag_event():
     db.session.add(flag)
     db.session.commit()
     return "Event Flagged Successfully"
+#route handling flagging events
 
 @app.route('/events/flagEvent/deleteFlag', methods=['POST'])
 @login_required
@@ -126,7 +129,7 @@ def delete_flag_event():
     db.session.delete(flag)
     db.session.commit()
     return "Flag Deleted Successfully"
-
+#route handling flag deletion
 @app.route('/events/eventDetails/<event_id>', methods=['GET'])
 def event_details(event_id):
     curr_event = Event.query.filter_by(event_id=event_id).one()
@@ -142,7 +145,7 @@ def event_details(event_id):
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
                            date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest=user_is_guest,
                            auth_but_not_guest=auth_but_not_guest)
-
+#route for more specific event information, specified by event id primary key when clicked on from events page
 
 @app.route('/collaborations')
 def collaborations():
@@ -169,7 +172,7 @@ def reviews():
     db.session.commit()
 
     return redirect(url_for('event_details', event_id=event_id))
-
+#primary code handling reviews, including storing and retrieving guest submitted data through POST request
 
 @app.route('/management')
 def management():
@@ -205,7 +208,7 @@ def management_view_user():
     print(curr_user.zipcode)
 
     return render_template('management/managementviewusers.html', curr_user=curr_user);
-
+#route that allows managers to view user details
 
 @app.route('/guest/delete/<int:user_id>')
 def guest_delete(user_id):
@@ -260,7 +263,7 @@ def eventInquiry():
     else:
         return render_template('clientInquiry.html');
 
-
+#prior two routes display submission forms for clients and potential contract workers to apply for work or send inquiry to management
 @app.route('/accessDenied')
 @login_required
 def access_denied():
@@ -358,3 +361,5 @@ if __name__ == '__main__':
 
         db.session.commit()
     app.run()
+
+    #Code that allows preloaded data to be entered into lucid database, includes reviews, inquiries, users, and events
