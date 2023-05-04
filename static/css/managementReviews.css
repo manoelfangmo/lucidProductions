@@ -15,13 +15,13 @@
 
 
 #mgmtUsers tr:nth-child(even) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: gill sans;
     font-weight: lighter;
 }
 
 #mgmtUsers tr:nth-child(odd) {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: gill sans;
     font-weight: lighter;
 }
@@ -29,7 +29,6 @@
 #mgmtUsers th {
     text-align: left;
     color: black;
-    font-size: 2rem;
     font-family: gill sans;
 }
 

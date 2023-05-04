@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    margin-top: 7rem !important;
+
 }
 
 
@@ -34,6 +36,7 @@
     text-align: center;
     color: #0B53B2;
     font-style: italic;
+    margin-bottom: 1rem;
 
 }
 .content h2{

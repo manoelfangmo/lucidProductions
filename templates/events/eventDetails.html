@@ -37,7 +37,11 @@
             {% if event.event_date < currentDate %}
                 {% if user_is_guest %}
                     <button id="myBtn">Leave Review</button>
-                {% else %}
+                {% elif auth_but_not_guest %}
+                    <a href="/accessDenied">
+                        <button>Leave Review</button>
+                    </a>
+                 {% else %}
                     <a href="/account/login">
                         <button>Leave Review</button>
                     </a>
