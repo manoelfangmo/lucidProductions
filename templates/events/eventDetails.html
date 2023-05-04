@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/static/css/eventDetails.css">
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
     <link rel="stylesheet" href="/static/css/background.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
     <script src="/static/scripts/eventReview.js" type="application/javascript" defer></script>
 
@@ -35,7 +37,11 @@
             {% if event.event_date < currentDate %}
                 {% if user_is_guest %}
                     <button id="myBtn">Leave Review</button>
-                {% else %}
+                {% elif auth_but_not_guest %}
+                    <a href="/accessDenied">
+                        <button>Leave Review</button>
+                    </a>
+                 {% else %}
                     <a href="/account/login">
                         <button>Leave Review</button>
                     </a>

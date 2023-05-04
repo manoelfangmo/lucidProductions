@@ -43,7 +43,6 @@ def login():
     return auth_login()
 
 
-
 @app.route('/logout')
 @login_required
 def logout():
@@ -131,10 +130,14 @@ def event_details(event_id):
     curr_event_date = curr_event.event_date.strftime("%x")
     curr_event_time = curr_event.event_time.strftime("%I:%M %p")
     user_is_guest = False
+    auth_but_not_guest = False
     if current_user.is_authenticated and current_user.role == "GUEST":
         user_is_guest = True
+    if current_user.is_authenticated and current_user.role != "GUEST":
+        auth_but_not_guest = True
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
-                           date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest=user_is_guest)
+                           date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest=user_is_guest,
+                           auth_but_not_guest=auth_but_not_guest)
 
 
 @app.route('/collaborations')
@@ -252,6 +255,12 @@ def eventInquiry():
         return render_template('collaborations/eventInquiry.html', form_submitted=True);
     else:
         return render_template('collaborations/eventInquiry.html');
+
+
+@app.route('/accessDenied')
+@login_required
+def access_denied():
+    return render_template('access_denied.html');
 
 
 if __name__ == '__main__':
