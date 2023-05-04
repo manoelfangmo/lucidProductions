@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Management Reviews</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/maccount.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/managementReviews.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
@@ -18,62 +18,27 @@
 
 
 <div class="right">
-    <h1 id="header">Account
+    <h1 id="header">Reviews </h1>
         <br>
         <br>
-        <p1 id="reviewHead">Reviews</p1>
-        </br>
         <br>
-    </h1>
-    <br>
-    <br>
+
     <div class="grid-container2">
         <table id="mgmtUsers">
             <tr>
                 <th>Event</th>
-                <th>Reviewer</th>
-                <th>Event Date</th>
+                <th>Review</th>
+                <th>Rating</th>
             </tr>
+            {% for review, event_name in reviews %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ event_name }}</td>
+                <td>{{ review.review_text }}</td>
+                <td>{{ review.review_rating }}</td>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            {% endfor %}
+
+
 
         </table>
     </div>
