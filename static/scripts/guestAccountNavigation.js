@@ -10,7 +10,7 @@ const guestAccountNavigation = '     <div class = "accountMenu">\n' +
     '            <img src="/static/images/user.png">\n' +
     '            <label style="color: blue"> <a href="/account"> Personal Information </a> </label> <br> <br>\n' +
     '            <img src="/static/images/folder.png">\n' +
-    '            <label style="color: blue"> <a href="/events"> Flagged Events </a> </label> <br> <br>\n' +
+    '            <label style="color: blue"> <a href="/guest/guestFlag"> Flagged Events </a> </label> <br> <br>\n' +
 
     '        </div>\n' +
     '\n' +
@@ -24,5 +24,5 @@ class guestNavigation extends HTMLElement {
     this.innerHTML = guestAccountNavigation;
   }
 }
-
+t
 customElements.define("guest-navigation-component", guestNavigation);

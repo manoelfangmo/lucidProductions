@@ -19,10 +19,10 @@
 {% if user_role == 'GUEST' or user_role == 'guest' %}
     <guest-navigation-component></guest-navigation-component>
 
-{% elif user_role == 'CLIENT' %}
+{% elif user_role == 'CLIENT'  %}
     <client-navigation-component></client-navigation-component>
 
-{% elif user_role == 'ADMIN' %}
+{% elif user_role == 'ADMIN'  %}
     <management-navigation-component></management-navigation-component>
 
 {% endif %}

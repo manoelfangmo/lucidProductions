@@ -88,7 +88,6 @@ form input {
 }
 
 
-
 div.events{
     display: flex;
     padding-top: 12%;
@@ -106,44 +105,11 @@ div.events{
     justify-content: center;
     position: relative;
 }
-.event:hover{
-    scale: 1.2;
-}
-
-
-#saveIcon{
-    position: absolute;
-    top: .25rem;
-    right: .25rem;
-    height: 3rem;
-    width: 3rem;
-    background-color: #0B53B2;
-}
-#saveIcon:hover {
-    background-color: white;
-}
-.time{
-    position: absolute;
-    background-color: White;
-    left: 2rem;
-    top: 1rem;
-    display: flex;
-    height: 4rem;
-    width: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1rem;
-    margin-top: 1rem;
-    opacity: 0.9;
-}
-
-
 
 .event img{
-    margin: 20px;
-    width: 16rem;
-    height: 16rem;
+    margin: 10px;
+    width: 26rem;
+    height: 26rem;
     border-radius: 30px;
 }
 

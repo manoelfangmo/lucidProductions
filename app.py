@@ -57,6 +57,28 @@ def home():
     return render_template('home.html');
 
 
+@app.route('/guest/guestFlag')
+@login_required
+@role_required(['GUEST'])
+def guestFlag():
+    user_id = current_user.user_id
+    flyers = []
+    event_ids = []
+    flags = Flag.query.filter_by(user_id=user_id).all()
+    flagged_events = {}
+    for flag in flags:
+        flagged_events[flag.event_id] = flag.event_id
+    events = Event.query.filter_by(event_id=flagged_events[flag.event_id])
+    events_now = {}
+    for event in events:
+        events_now[event.event_id] = {"event_image": b64encode(event.event_image).decode('utf-8'), "event_id": event.event_id}
+    flagged_events.update(events_now)
+    for event in flagged_events.values():
+                flyers.append(event["event_image"])
+                event_ids.append(event["event_id"])
+    return render_template('guest/guestflag.html', flyers=flyers, zip=zip, event_ids=event_ids);
+
+
 @app.route('/events')
 def events():
     events = Event.query.options(defer(Event.event_image)).order_by(Event.event_date).all()
@@ -80,8 +102,7 @@ def events():
         flash(f'Unable To Load Events', 'error')
         return redirect(url_for('home'))
 
-
-@app.route('/events/flagEvent', methods=['POST'])
+@app.route('/event/flagEvent', methods=['POST'])
 @login_required
 @role_required(['GUEST'])
 def flag_event():
@@ -91,7 +112,6 @@ def flag_event():
     db.session.add(flag)
     db.session.commit()
     return "Event Flagged Successfully"
-
 
 @app.route('/events/flagEvent/deleteFlag', methods=['POST'])
 @login_required
@@ -103,7 +123,6 @@ def delete_flag_event():
     db.session.delete(flag)
     db.session.commit()
     return "Flag Deleted Successfully"
-
 
 @app.route('/events/eventDetails/<event_id>', methods=['GET'])
 def event_details(event_id):
@@ -194,9 +213,6 @@ def guest_delete(user_id):
         return redirect(url_for('guest_view'))
 
 
-@app.route('/guest/flag/<user_id>')
-def guestFlag():
-    return render_template('guest/guestflag.html');
 
 
 @app.route('/client/contractWorker', methods=['GET', 'POST'])
