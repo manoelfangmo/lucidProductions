@@ -233,9 +233,9 @@ def eventInquiry():
                                      phone=phone, event_needs=event_needs)
         db.session.add(event_inquiry)
         db.session.commit()
-        return render_template('collaborations/eventInquiry.html', form_submitted=True);
+        return render_template('clientInquiry.html', form_submitted=True);
     else:
-        return render_template('collaborations/eventInquiry.html');
+        return render_template('clientInquiry.html');
 
 
 if __name__ == '__main__':
