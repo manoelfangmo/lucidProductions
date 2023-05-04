@@ -3,11 +3,12 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 from sqlalchemy import func
 from werkzeug.security import check_password_hash
 from werkzeug.utils import secure_filename
-from models import db, Event, User, Review, Flag, EventInquiry
+from models import db, Event, User, Review, Flag, EventInquiry, ContractWorker
 from authorize import role_required
 import plotly.express as px
 import pandas as pd
 import datetime as dt
+from sqlalchemy import extract
 
 visualizations_bp = Blueprint('visualizations', __name__)
 
@@ -21,8 +22,35 @@ def management_analytics():
     avg_rating_int = int(avg_rating)
 
     num_event_inquiries = db.session.query(
-        func.count(EventInquiry.event_inquiry_id).label('number of event inquiries')).scalar()
+        func.count(EventInquiry.event_Inquiry_Id).label('number of event inquiries')).scalar()
     num_event_inquiries_int = int(num_event_inquiries)
 
+    num_contract_inquiries = db.session.query(
+        func.count(ContractWorker.contract_inquiry_id).label('number of contract work inquiries')).scalar()
+    num_contract_inquiries_int = int(num_contract_inquiries)
+
+    qry_events_per_month = db.session.query(
+        func.strftime('%Y-%m', Event.event_date).label('Month'),
+        func.count(Event.event_id).label('Events Scheduled')
+    ) \
+        .group_by('Month') \
+        .order_by('Month') \
+        .all()
+
+    df_events_per_month = pd.DataFrame(qry_events_per_month, columns=['Month', 'Events Scheduled'])
+
+    events_per_month_fig = px.line(df_events_per_month, x="Month", y="Events Scheduled",
+                                   color_discrete_sequence=px.colors.qualitative.Antique,
+                                   title="Number of Events Scheduled per Month", markers=True,
+                                   labels={'Month': '', 'Events Scheduled': 'Count'})
+
+    events_per_month_fig.update_layout(
+        title={'x': 0.5}
+    )
+
+    events_per_month_figJSON = events_per_month_fig.to_json()
+
     return render_template('management/managementanalytics.html', rating=avg_rating_int,
-                           num_event_inquiries=num_event_inquiries_int)
+                           num_event_inquiries=num_event_inquiries_int,
+                           num_contract_inquiries=num_contract_inquiries_int,
+                           events_per_month_graph=events_per_month_figJSON)

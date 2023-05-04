@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </head>
 <body>
@@ -50,8 +51,24 @@
             <div class="score">{{ num_event_inquiries }}</div>
         </div>
     </div>
+
+    <div class="contractAnalytics">
+        <h3>Number of Event Services Inquiries</h3>
+        <div class="contracts">
+            <div class="score">{{ num_contract_inquiries }}</div>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <h3>Number of Event Per Month</h3>
+        <div class="col-12 row d-flex justify-content-center" id="events_per_month_graph"></div>
+    </div>
+
 </div>
 
+<script>
+    Plotly.newPlot('events_per_month_graph', JSON.parse('{{ events_per_month_graph|safe }}'));
+</script>
 
 </body>
 </html>
