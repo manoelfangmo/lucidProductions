@@ -39,9 +39,10 @@ def create_account():
                         password=password, role=user_type)
             db.session.add(user)
             db.session.commit()
-
-
-        return redirect(url_for('login'))
+        if('creating_admin_account' in request.args):
+            return redirect(url_for('managementUsers'))
+        else:
+            return redirect(url_for('login'))
 
     else:
         return render_template('createAccount.html')
@@ -107,8 +108,11 @@ def user():
 @user_authentication_bp.route('/account/delete', methods=['GET','POST'])
 @login_required
 def delete_user():
-    user_id = current_user.user_id
+    user_id = request.args.get('user_id', current_user.user_id) ##if deleting a specific user that is not the current user
     curr_user = User.query.filter_by(user_id=user_id).first()
     db.session.delete(curr_user)
     db.session.commit()
-    return redirect(url_for('home'))
+    if ('deleting_admin_account' in request.args):
+        return redirect(url_for('managementUsers'))
+    else:
+        return redirect(url_for('home'))

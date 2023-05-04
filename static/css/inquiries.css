@@ -1,3 +1,6 @@
+#header{
+    margin-bottom: 4rem;
+}
 .formContent{
     margin-top: 3rem;
     display: flex;
@@ -27,7 +30,7 @@ input{
     margin-bottom: 1rem;
     align-items: center;
 }
-#downloadButton{
+button{
     width: 10rem;
     height: 2rem;
     background-color: #0B53B2;
@@ -36,14 +39,3 @@ input{
     margin-left: 1rem;
 }
 
-button {
-    background-color: #0B53B2;
-    cursor: pointer;
-    color: white;
-    border-radius: 15px;
-    align-items: center;
-    width: 10rem;
-    height: 2rem;
-    margin-left: 300px;
-    margin-top: 55px;
-}

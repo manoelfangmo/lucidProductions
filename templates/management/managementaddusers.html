@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create New Event</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
+    <title>Create Manager Account</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/managementAddUsers.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
     <script src="/static/scripts/editEventModal.js" type="application/javascript" defer></script>
@@ -20,9 +20,9 @@
 
 
 <div class="right">
-    <h1 id="header">Manager Accounts</h1>
+    <h1 id="header">Create Manager Account</h1>
     <div class="mainContent">
-        <form action="{{ url_for('user_authentication.create_account') }}" method="post">
+        <form action="{{ url_for('user_authentication.create_account', creating_admin_account=True) }}" method="post">
             <div class="row">
                 <div class="col">
                     <label for="firstName">First Name:</label>
@@ -60,11 +60,8 @@
                     <input type="text" id="username" name="username" required>
                 </div>
                 <div class="col">
-                    <div class="col">
                         <label for="cars">User Type:</label>
                         <input value="ADMIN" id="admin" name="userType" readonly="readonly">
-
-                    </div>
 
                 </div>
             </div>
@@ -74,10 +71,8 @@
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div class="col">
-                    <div class="col">
                         <label for="pwd">Re-Enter Password:</label>
                         <input type="password" id="confirm-password" name="confirm-password" required>
-                    </div>
 
                 </div>
             </div>
