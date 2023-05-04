@@ -6,9 +6,7 @@
     <title>Event Details</title>
     <link rel="stylesheet" type="text/css" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/eventDetails.css">
-    <script src="/static/scripts/slider.js" type="application/javascript" defer></script>
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
     <script src="/static/scripts/eventReview.js" type="application/javascript" defer></script>
@@ -38,13 +36,6 @@
                 {% if user_is_guest %}
                     <button id="myBtn">Leave Review</button>
                 {% else %}
-                    {{ user_is_guest }}
-
-                    <script>
-                    var myVariable = {{ user_is_guest|tojson }}
-                    console.log(myVariable)
-                    </script>
-
                     <a href="/account/login">
                         <button>Leave Review</button>
                     </a>

@@ -41,7 +41,6 @@ def create_account():
             db.session.commit()
 
 
-        print("doingthis")
         return redirect(url_for('login'))
 
     else:
@@ -50,7 +49,6 @@ def create_account():
 
 @user_authentication_bp.route('/account/login', methods=['GET', 'POST'])
 def auth_login():
-    print("doingthis")
     if current_user.is_authenticated:
         return redirect(url_for('user_authentication.user'))
     elif request.method == 'POST':
@@ -94,23 +92,23 @@ def user():
                                phone=curr_user.phone, email=curr_user.email, dob=curr_user.dob,
                                zipcode=curr_user.zipcode, user_role=curr_user.role);
     if request.method == 'POST':
-        print(curr_user.first_name)
         if 'save' in request.form:
             curr_user.first_name = request.form['first_name']
-            print(curr_user.first_name)
             curr_user.last_name = request.form['last_name']
-            print(curr_user.last_name)
             curr_user.email = request.form['email']
-            print(curr_user.email)
             curr_user.phone = request.form['phone']
-            print(curr_user.phone)
             curr_user.zipcode = request.form['zipcode']
-            print(curr_user.zipcode)
             curr_user.dob = datetime.strptime(request.form['dob'], '%Y-%m-%d').date()
-            print(curr_user.dob)
             db.session.commit()
-            print(curr_user.first_name)
         return render_template('user.html', user_id=curr_user.user_id, first_name=curr_user.first_name,
                                last_name=curr_user.last_name,
                                phone=curr_user.phone, email=curr_user.email, dob=curr_user.dob,
                                zipcode=curr_user.zipcode, user_role=curr_user.role)
+@user_authentication_bp.route('/account/delete', methods=['GET','POST'])
+@login_required
+def delete_user():
+    user_id = current_user.user_id
+    curr_user = User.query.filter_by(user_id=user_id).first()
+    db.session.delete(curr_user)
+    db.session.commit()
+    return redirect(url_for('home'))
