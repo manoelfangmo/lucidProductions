@@ -25,6 +25,7 @@
             <img id="eventImage" src="data:image/jpg;base64,{{ flyer }}">
 
         </div>
+    <!-- Code for displaying event details -->
         <div class="textContent">
             <h1 id="which"> When?</h1>
             <p class="eventText">{{ date }} {{ time }}</p>
@@ -34,6 +35,9 @@
             <p class="eventText"> {{ event.event_description }}</p>
             <br>
             <br>
+        <!-- Code leave review button if the event date has passed and the
+    user is a guest and access denied message if the user is authenticated but not a guest,
+    or a log in button if the user is not authenticated -->
             {% if event.event_date < currentDate %}
                 {% if user_is_guest %}
                     <button id="myBtn">Leave Review</button>
@@ -52,7 +56,7 @@
                     <button id="buyTickets">Buy Tickets</button>
                 </a>
             {% endif %}
-
+<!-- Allows users to leave a review for an event can select amount of stars out of 5 -->
         </div>
         <div id="myModal" class="modal">
 
