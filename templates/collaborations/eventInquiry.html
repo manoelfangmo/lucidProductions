@@ -27,6 +27,7 @@
                 </div>
             </div>
         </div>
+<!-- Form to gather information from users who are interested in hosting an event. -->
     {% if form_submitted %}
         <div class="submitMessage">
             <h2>Thank You For Completing The Form </h2>
@@ -47,7 +48,8 @@
             <p>Email: {{ request.form.get('email') }} </p>
         </div>
         <p><a href="{{ url_for('eventInquiry') }}">Complete form again</a></p>
-
+<!--  If form is submitted,  code displays a thank you message and submitted information. If the
+form has not been submitted then form is shown for user to fill out. -->
     {% else %}
 
         <form class="row g-3" action="{{ url_for('eventInquiry') }}" method="post">
