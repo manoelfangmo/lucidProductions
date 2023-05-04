@@ -1,0 +1,30 @@
+.mainContent{
+    margin-top: 3rem;
+}
+form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+form .row {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+form .col{
+    margin: 1.5rem;
+
+}
+form input{
+    border-radius: .5rem;
+    height: 1.7rem;
+    width: 10rem;
+}
+#submit{
+    background-color: #0B53B2;
+    width: 10rem;
+    height: 2rem;
+    color: white;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+}

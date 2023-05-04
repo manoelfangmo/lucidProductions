@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <title>Flagged Events</title>
     <link rel="stylesheet" type="text/css" href="/static/css/gaccount.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/background.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
-    <link rel="stylesheet" href="/static/css/background.css">
+    <script> {% if user_is_guest is defined %}let userIsGuest = {{ user_is_guest|tojson }} {% endif %}</script>
     <script src="/static/scripts/guestAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="https://kit.fontawesome.com/fc88626b57.js" crossorigin="anonymous"></script>
+    <script src="/static/scripts/flagEvent.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
+
 </head>
 <body>
 
@@ -16,109 +21,19 @@
         <br>
         <br>
         <p1 id="reviewHead"> Flagged Events</p1>
-        </br>
-        <br>
     </h1>
-    <br>
-    <br>
-    <div class="grid-container2">
-
-
-    </div>
 </div>
-
-<div class="mainContainer right">
-
+<div class="mainContainer">
     <div class="events">
-        <div class="event" id="event1">
-            <a href="/events/pastEventDetails"> <img src="/static/images/valentinesParty.jpg"
-                                                     id="valentines" alt="Image 1">
+        {% for each_flyer,id in zip(flyers,event_ids) %}
+        <div class="event" data-eventId={{ id }}>
+            <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}">
             </a>
-            <div class="time"> WED <br> 24 <br> JUN</div>
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-
+            <div> </div>
+            <div> </div>
+        {% endfor %}
         </div>
-        <div class="event">
-            <a href="/events/pastEventDetails"> <img src="/static/images/halloweenParty.jpg" id="halloween"
-                                                     alt="Image 2">
-            </a>
-            <div class="time"> WED <br> 24 <br> JUL</div>
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-
-        </div>
-        <div class="event">
-            <a href="/events/pastEventDetails"> <img src="/static/images/backToSchoolParty.jpg" id=""
-                                                     alt="Image 3">
-            </a>
-            <div class="time"> WED <br> 24 <br> JAN</div>
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-        </div>
-        <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                      alt="Image 3">
-            </a>
-            <div class="time"> WED <br> 24 <br> MAY</div>
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-        </div>
-        <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                      alt="Image 3">
-            </a>
-            <div class="time"> WED <br> 24 <br> MAY</div>
-
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-        </div>
-        <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                      alt="Image 3">
-            </a>
-            <div class="time"> WED <br> 24 <br> MAY</div>
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-        </div>
-        <div class="event" id="event1">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                      alt="Image 3">
-            </a>
-            <div class="time"> WED <br> 24 <br> MAY</div>
-
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-        </div>
-        <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                      alt="Image 3">
-            </a>
-            <div class="time"> WED <br> 24 <br> MAY</div>
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-        </div>
-        <div class="event">
-            <a href="/events/futureEventDetails"><img src="/static/images/comingSoon.jpg" id=""
-                                                      alt="Image 3">
-            </a>
-            <div class="time"> WED <br> 24 <br> MAY</div>
-
-            <img src="/static/images/saveIcon.png" id="saveIcon" alt="Image 1" class="saveIcon">
-
-        </div>
-
-
     </div>
-
 </div>
-
 </body>
 </html>

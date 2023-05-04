@@ -3,43 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Client Account</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/caccount.css">
+    <title>My Account</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/account.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/modal.css">
     <link rel="stylesheet" type="text/css" href="/static/css/background.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <script src="/static/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
     <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
     <script src="/static/scripts/guestAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
 
 </head>
 <body>
-<script>
-    var myVariable = {{ user_role|tojson }}
-    console.log(myVariable)
 
-</script>
-{%  if user_role == 'GUEST' or user_role == 'guest' %}
-<guest-navigation-component></guest-navigation-component>
+{% if user_role == 'GUEST' %}
+    <guest-navigation-component></guest-navigation-component>
 
-{%  elif user_role == 'CLIENT' %}
-<client-navigation-component></client-navigation-component>
+{% elif user_role == 'CLIENT'  %}
+    <client-navigation-component></client-navigation-component>
 
-{% elif user_role == 'ADMIN' %}
-<management-navigation-component></management-navigation-component>
+{% elif user_role == 'ADMIN'  %}
+    <management-navigation-component></management-navigation-component>
 
 {% endif %}
 
 
 <div class="right">
-    <body> <p1 id="header"> Account </p1>
-        <br>
-        <br>
-        <p1 id="reviewHead">Personal Information</p1>
-        <br>
-        <br>
+    <h1 id="header"> Account </h1>
+    <br>
+    <br>
+    <h2 id="reviewHead">Personal Information</h2>
+    <br>
+    <br>
 
-    <br>
-    <br>
     <form action="{{ url_for('user_authentication.user') }}" method="post">
         <div class="row">
             <div class="col">
@@ -54,7 +50,7 @@
         <div class="row">
             <div class="col">
                 <label for="phone">Phone:</label>
-                <input type="text" class="form-control" name = 'phone' value={{ phone }}>
+                <input type="text" class="form-control" name='phone' value={{ phone }}>
             </div>
             <div class="col">
                 <label for="email">Email:</label>
@@ -64,21 +60,44 @@
         <div class="row">
             <div class="col">
                 <label for="dob">Date of Birth:</label>
-                <input type="text" class="form-control" name="dob" value={{ dob }}>
+                <input type="date" class="form-control" name="dob" value={{ dob }}>
             </div>
             <div class="col">
                 <label for="zipcode">Zip Code</label>
                 <input type="text" class="form-control" name='zipcode' value={{ zipcode }}>
             </div>
         </div>
-                    <div class=buttonDiv>
-                        <button class="button" type="submit"  name="save"> Save</button>
-                        <button class="button" id="deleteButton" type="submit" name="delete" >Delete</button>
+        <div class=buttonDiv>
+            <button class="button" type="submit" name="save"> Save</button>
+            <button class="button" id="myBtn" type="button"  name="delete">Delete Account</button>
 
-                    </div>
+        </div>
     </form>
 
 </div>
 
+  <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+
+
+
+                    <div class="innerModalContent">
+             <h1 id="modalTitle">Delete Account</h1>
+                <h3 id="modal">Are you sure you want to delete your account?</h3>
+
+
+                       <a href="{{ url_for('user_authentication.delete_user') }}"><button id="modalButton" type="submit">Delete</button> </a>
+
+                    </div>
+
+
+            </div>
+
+        </div>
+
+</body>
 </html>
 

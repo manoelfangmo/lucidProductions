@@ -1,0 +1,56 @@
+
+
+
+
+.button {
+    background-color: #0B53B2;
+    cursor: pointer;
+    color: white;
+    border-radius: 15px;
+    align-items: center;
+    width: 10rem;
+    height: 2rem;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+form .row {
+    display: flex;
+
+}
+
+form .col {
+    margin: 1.3rem;
+
+}
+
+form input {
+    border-radius: .5rem;
+    height: 1.7rem;
+    width: 10rem;
+}
+
+
+#header {
+    color: #0B53B2;
+}
+
+#reviewHead {
+    color: black;
+}
+
+.modal-content {
+
+  width: 20%!important; /* Full width */
+
+}
+.modal-content{
+    color: black;
+}
+
+

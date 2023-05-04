@@ -5,7 +5,7 @@ from flask_login import login_required
 from sqlalchemy.orm import defer
 
 from authorize import role_required
-from models import db, Event, EventInquiry, ContractWorker
+from models import db, Event, EventInquiry, ContractWorker, Review
 from datetime import date, time, datetime
 from base64 import b64encode, b64decode
 
@@ -61,7 +61,6 @@ def management_event():
 def managementInquiries():
     event_inquiry_ids = [event_inquiry.event_Inquiry_Id for event_inquiry in EventInquiry.query.all()]
     contract_inquiry_ids = [contract_worker.contract_inquiry_id for contract_worker in ContractWorker.query.all()]
-    print(contract_inquiry_ids)
     return render_template('management/managementinquiries.html', event_inquiries = event_inquiry_ids, contract_inquiries = contract_inquiry_ids);
 
 
@@ -79,7 +78,6 @@ def management_view_inquiry():
 @role_required(['ADMIN'])
 def management_view_contract_inquiry():
     curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
-    blob_data = curr_inquiry.sample
     return render_template('management/managementviewinquiry.html', curr_inquiry=curr_inquiry, isContractInquiry=True)
 
 @management_bp.route('/management/inquiries/viewContractInquiry/sample', methods=['GET', 'POST'])
@@ -105,3 +103,15 @@ def delete_inquiry():
     db.session.commit()
     flash('Inquiry deleted successfully', 'success')
     return redirect(url_for('management.managementInquiries'))
+
+
+@management_bp.route('/management/reviews', methods=['GET'])
+@login_required
+@role_required(['ADMIN'])
+def management_reviews():
+    reviews = db.session.query(Review, Event.event_name) \
+        .join(Event, Review.event_id == Event.event_id) \
+        .all()
+    print(reviews)
+
+    return render_template('management/managementreviews.html', reviews = reviews)

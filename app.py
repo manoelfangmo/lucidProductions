@@ -43,7 +43,6 @@ def login():
     return auth_login()
 
 
-
 @app.route('/logout')
 @login_required
 def logout():
@@ -55,6 +54,32 @@ def logout():
 @app.route('/')
 def home():
     return render_template('home.html');
+
+
+@app.route('/guest/guestFlag')
+@login_required
+@role_required(['GUEST'])
+def guestFlag():
+    user_id = current_user.user_id
+    flyers = []
+    event_ids = []
+    flags = Flag.query.filter_by(user_id=user_id).all()
+    flagged_events = {}
+    for flag in flags:
+        flagged_events[flag.event_id] = flag.event_id
+    for event_id in flagged_events.values():
+        event = Event.query.filter_by(event_id=event_id).first()
+        if event is not None:
+            flyers.append(b64encode(event.event_image).decode('utf-8'))
+            event_ids.append(event.event_id)
+        else:
+            # Removes the flag from events
+            Flag.query.filter_by(user_id=user_id, event_id=event_id).delete()
+            db.session.commit()
+            # Remove the event from the list of flagged events
+            flagged_events.pop(event_id)
+    return render_template('guest/guestflag.html', flyers=flyers, zip=zip, event_ids=event_ids)
+
 
 
 @app.route('/events')
@@ -80,7 +105,6 @@ def events():
         flash(f'Unable To Load Events', 'error')
         return redirect(url_for('home'))
 
-
 @app.route('/events/flagEvent', methods=['POST'])
 @login_required
 @role_required(['GUEST'])
@@ -91,7 +115,6 @@ def flag_event():
     db.session.add(flag)
     db.session.commit()
     return "Event Flagged Successfully"
-
 
 @app.route('/events/flagEvent/deleteFlag', methods=['POST'])
 @login_required
@@ -104,7 +127,6 @@ def delete_flag_event():
     db.session.commit()
     return "Flag Deleted Successfully"
 
-
 @app.route('/events/eventDetails/<event_id>', methods=['GET'])
 def event_details(event_id):
     curr_event = Event.query.filter_by(event_id=event_id).one()
@@ -112,10 +134,14 @@ def event_details(event_id):
     curr_event_date = curr_event.event_date.strftime("%x")
     curr_event_time = curr_event.event_time.strftime("%I:%M %p")
     user_is_guest = False
+    auth_but_not_guest = False
     if current_user.is_authenticated and current_user.role == "GUEST":
         user_is_guest = True
+    if current_user.is_authenticated and current_user.role != "GUEST":
+        auth_but_not_guest = True
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
-                           date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest=user_is_guest)
+                           date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest=user_is_guest,
+                           auth_but_not_guest=auth_but_not_guest)
 
 
 @app.route('/collaborations')
@@ -194,9 +220,6 @@ def guest_delete(user_id):
         return redirect(url_for('guest_view'))
 
 
-@app.route('/guest/flag/<user_id>')
-def guestFlag():
-    return render_template('guest/guestflag.html');
 
 
 @app.route('/client/contractWorker', methods=['GET', 'POST'])
@@ -236,6 +259,12 @@ def eventInquiry():
         return render_template('clientInquiry.html', form_submitted=True);
     else:
         return render_template('clientInquiry.html');
+
+
+@app.route('/accessDenied')
+@login_required
+def access_denied():
+    return render_template('access_denied.html');
 
 
 if __name__ == '__main__':
