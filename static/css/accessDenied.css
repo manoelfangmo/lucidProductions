@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 40%
+}
+#header{
+    color: red;
+    font-size: 4rem;
+}
+p{
+    font-size: 2rem;
+}

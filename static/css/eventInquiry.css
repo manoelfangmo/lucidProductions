@@ -1,3 +1,6 @@
+#header{
+    color: #0B53B2;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -8,26 +11,22 @@ form {
 }
 
 .formContent {
+    margin-top: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.mainContainer h1 {
-    font-style: italic;
-    color: #0B53B2;
-    text-align: center;
-    margin-bottom: 2rem;
-}
 
-.left {
+
+.leftForm {
     font-weight: bold;
     margin-left: 3rem;
     margin-right: 3rem;
 }
 
-.left input {
+.leftForm input {
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
@@ -36,7 +35,7 @@ form {
     border-radius: .5rem;
 }
 
-.right {
+.rightForm {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,9 +62,40 @@ form button {
     margin-bottom: 2rem;
 
 }
+.submitMessageDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:  column;
 
-body {
-    background-color: #FEEEB1;
 }
+
+.submitMessage{
+    margin: 1rem;
+}
+#completeAgain{
+    color: Blue;
+    text-underline-position: under;
+
+}
+
+.submitMessage {
+    text-align: center;
+    margin-top: 10px;
+    line-height: 2.5;
+}
+
+.submitMessage p a {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color:blue
+}
+
+
+
+
+
+
 
 

@@ -96,10 +96,13 @@ def events():
         event_ids.append(event.event_id)
     if events:
         user_is_guest = False
+        auth_but_not_guest = False
         if current_user.is_authenticated and current_user.role == "GUEST":
             user_is_guest = True
+        if current_user.is_authenticated and current_user.role != "GUEST":
+            auth_but_not_guest = True
         return render_template('events/events.html', flyers=flyers, dates=dates, zip=zip, event_ids=event_ids,
-                               user_is_guest=user_is_guest);
+                               user_is_guest=user_is_guest, auth_but_not_guest=auth_but_not_guest);
 
     else:
         flash(f'Unable To Load Events', 'error')
@@ -260,7 +263,8 @@ def eventInquiry():
 @app.route('/accessDenied')
 @login_required
 def access_denied():
-    return render_template('access_denied.html');
+    error = request.args.get('error', None)
+    return render_template('access_denied.html', error =error);
 
 
 if __name__ == '__main__':
