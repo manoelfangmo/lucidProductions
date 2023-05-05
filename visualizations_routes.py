@@ -16,7 +16,7 @@ visualizations_bp = Blueprint('visualizations', __name__)
 
 @visualizations_bp.route('/management/analytics')
 @login_required
-@role_required(['ADMIN','MANAGER'])
+@role_required(['ADMIN', 'MANAGER'])
 def management_analytics():
     # Average Review Rating
     avg_rating = db.session.query(func.avg(Review.review_rating).label('average rating')).scalar()
@@ -46,9 +46,12 @@ def management_analytics():
 
     average_age_guest = db.session.query(
         func.avg(current_year - extract('year', User.dob)).label('average_age_guest')
-    ).filter_by(role='guest').scalar()
+    ).filter(User.role == 'guest').scalar()
 
-    average_age_guest_int= int(average_age_guest)
+    if average_age_guest is None:
+        average_age_guest_int = 0
+    else:
+        average_age_guest_int = int(average_age_guest)
 
     qry_events_per_month = db.session.query(
         func.strftime('%Y-%m', Event.event_date).label('Month'),
@@ -57,8 +60,6 @@ def management_analytics():
         .group_by('Month') \
         .order_by('Month') \
         .all()
-
-    avg_age = db.session.query(func.avg(func.datediff(func.current_date(), User.date_of_birth) / 365.25)).scalar()
 
     df_events_per_month = pd.DataFrame(qry_events_per_month, columns=['Month', 'Events Scheduled'])
 
