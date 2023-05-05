@@ -277,11 +277,17 @@ def eventInquiry():
 
 
 # prior two routes display submission forms for clients and potential contract workers to apply for work or send inquiry to management
-@app.route('/accessDenied')
+@app.route('/client/events')
 @login_required
-def access_denied():
-    error = request.args.get('error', None)
-    return render_template('access_denied.html', error=error);
+@role_required(['CLIENT'])
+def client_events():
+    curr_client_events = Event.query.filter_by(user_id=current_user.user_id).all()
+    print(curr_client_events)
+    flyers = []
+    for event in curr_client_events:
+        flyers.append(b64encode(event.event_image).decode('utf-8'))
+    return render_template('clientEvents.html', flyers=flyers, events=curr_client_events,zip=zip);
+
 
 
 if __name__ == '__main__':
@@ -299,12 +305,12 @@ if __name__ == '__main__':
                                                                                       '$5, and get your tickets in our '
                                                                                       'bios before the price goes up!',
                             'event_image': image_as_binary[0], 'event_date': date(2022, 5, 15),
-                            'event_time': time(16, 30, 0)},
+                            'event_time': time(16, 30, 0), 'user_id': 1},
                            {'event_name': 'Halloween Party', 'event_description': 'Dance the night away for only '
                                                                                   '$5, and get your tickets in our '
                                                                                   'bios before the price goes up!',
                             'event_image': image_as_binary[1], 'event_date': date(2023, 2, 15),
-                            'event_time': time(18, 30, 0)},
+                            'event_time': time(18, 30, 0), 'user_id': 1},
                            {'event_name': 'Back To School  Party', 'event_description': 'Dance the night away for only '
                                                                                         '$5, and get your tickets in our '
                                                                                         'bios before the price goes up!',
@@ -319,7 +325,7 @@ if __name__ == '__main__':
                                                                               '$5, and get your tickets in our '
                                                                               'bios before the price goes up!',
                             'event_image': image_as_binary[3], 'event_date': date(2023, 5, 15),
-                            'event_time': time(14, 30, 0)},
+                            'event_time': time(14, 30, 0), 'user_id': 1},
                            ]
         for event in preloadedEvents:
             event = Event(**event)

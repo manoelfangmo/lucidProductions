@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create New Event</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
+    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
+    <link rel="stylesheet" href="/static/css/background.css">
+    <script src="/static/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
+
+</head>
+<body>
+
+
+<client-navigation-component></client-navigation-component>
+
+
+
+<div class="right">
+    <h1 id="header">My Events</h1>
+
+    <div class="mainContent">
+
+        {% for each_flyer, event in zip(flyers,events) %}
+            <div class="event">
+               <a href="{{ url_for('event_details',event_id=event.event_id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}" class="eventEditor" ></a>
+            </div>
+        {% endfor %}
+
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
