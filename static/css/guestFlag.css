@@ -1,0 +1,52 @@
+
+
+div.events{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-wrap: wrap;
+}
+.event{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin: 1rem;
+}
+.event:hover{
+    scale: 1.2;
+}
+
+
+#deleteIcon{
+    position: absolute;
+    top: -1.2rem;
+    right: -1.2rem;
+    color: #818488;
+    height: 3rem;
+    width: 3rem;
+
+}
+#deleteIcon:hover {
+    color: yellow;
+    cursor: pointer;
+}
+
+
+
+.event img{
+    margin: 20px;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 30px;
+}
+
+
+
+
+
+
+

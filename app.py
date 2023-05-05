@@ -142,7 +142,16 @@ def delete_flag_event():
     db.session.delete(flag)
     db.session.commit()
     return "Flag Deleted Successfully"
-
+@app.route('/guest/guestFlag/delete', methods=['GET','POST'])
+@login_required
+@role_required(['GUEST'])
+def guest_account_delete_flag():
+    user_id = current_user.user_id
+    event_id = request.args.get('event_id')
+    flag = Flag.query.filter_by(event_id=event_id, user_id=user_id).first()
+    db.session.delete(flag)
+    db.session.commit()
+    return redirect(url_for('guestFlag'))
 
 # route handling flag deletion
 @app.route('/events/eventDetails/<event_id>', methods=['GET'])
