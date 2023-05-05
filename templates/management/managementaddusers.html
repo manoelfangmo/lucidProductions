@@ -21,6 +21,9 @@
 
 <div class="right">
     <h1 id="header">Create Manager Account</h1>
+    <!-- Creates form to make an admin user account. Contains input fields
+    for first name, last name, phone number, email, date of birth, and zip code. ALso allows user to make
+     username and password. -->
     <div class="mainContent">
         <form action="{{ url_for('user_authentication.create_account', creating_admin_account=True) }}" method="post">
             <div class="row">
