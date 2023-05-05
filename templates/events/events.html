@@ -7,13 +7,10 @@
     <link rel="stylesheet" href="/static/css/background.css">
     <link rel="stylesheet" href="/static/css/events.css">
     <script> {% if user_is_guest is defined %}let userIsGuest = {{ user_is_guest|tojson }} {% endif %}</script>
-    <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/generalNavigation.js" defer></script>
     <script src="https://kit.fontawesome.com/fc88626b57.js" crossorigin="anonymous"></script>
-    <script src="/static/scripts/flagEvent.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/flagEvent.js" defer></script>
     <title>Events</title>
-
-
-
 </head>
 
 <body>
@@ -21,41 +18,38 @@
 <div class="mainContainer">
 <!-- Dropdown  menu to choose type of event-->
     <div class="dropDownMenu">
-        <label for="events" id="browse">Browse: </label>
+        <label for="events" name="browse">
+            Browse:
+        </label>
         <select name="event" id="occurance">
-            <option value="pastEvent" id="eventOccurrences">All Events</option>
-            <option value="upcomingEvents" id="eventOccurrences">Upcoming Events</option>
-            <option value="futureEvents" id="eventOccurrences">Past Events</option>
+            <option value="pastEvent" id="eventOccurrences1">All Events</option>
+            <option value="upcomingEvents" id="eventOccurrences2">Upcoming Events</option>
+            <option value="futureEvents" id="eventOccurrences3">Past Events</option>
         </select>
     </div>
 <!-- shows all available events and allows event to be flagged to be diaplyed in account page under flagged events -->
     <div class="events">
         {% for each_flyer, date,id in zip(flyers,dates,event_ids) %}
         <div class="event" data-eventId={{ id }}>
-            <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}">
+            <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}" alt="Event Details">
             </a>
             <div class="time"> {{ date.weekday }} <br> {{ date.monthday }} <br> {{ date.month }}</div>
             {% if user_is_guest %}
             <i class="fa-solid fa-bookmark fa-3x" id="flagIcon"></i>
             {% elif auth_but_not_guest %}
                 <a href="{{ url_for('access_denied',error="Only a guest can flag an event", next=request.path) }}"><i
-                    class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon"></i> </a>
+                    class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon1"></i> </a>
             {% else %}
             <a href="{{ url_for('user_authentication.auth_login',error="Please login as Guest to flag an event", next=request.path) }}"><i
-                    class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon"></i> </a>
+                    class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon2"></i> </a>
             {% endif %}
-
         </div>
         {% endfor %}
-
-
     </div>
 
 </div>
 
-
 <footer-component></footer-component>
 </body>
-
 
 </html>

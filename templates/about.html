@@ -8,20 +8,19 @@
     <link rel="stylesheet" href="/static/css/background.css">
     <link rel="stylesheet" href="/static/css/navbar.css">
     <script src="/static/scripts/generalNavigation.js" defer></script>
-
-
 </head>
 
 <body>
+    <navbar-component></navBar-component>
+    <div class = "mainContainer">
+    <!-- this div contains the header for the page, displays an image of Lucid Productions founders (and if it does not display "Lucid Founders"),
+    and a few paragraphs giving descriptions of Lucid's founders, formation, and future plans -->
+        <h1>
+            <strong>About Lucid Productions</strong>
+        </h1>
 
-<navbar-component></navBar-component>
-<div class = "mainContainer">
-    <h1>
-     <strong>About Lucid Productions</strong>
-    </h1>
 
-
-    <img src="/static/images/LucidFounders.jpg" id ="lucidFounders" alt="Lucid Founders">
+        <img src="/static/images/LucidFounders.jpg" id ="lucidFounders" alt="Lucid Founders">
 
         <p>Lucid Productions is a growing event planning and hosting business founded by University Of Maryland
             students Mervyn Akumbu, Jason Goldman, and Griffin Shirodkar. At our core, we pride ourselves in our
@@ -36,17 +35,14 @@
             parties, fraternity social events, and music performances, Lucid Productions is the premier organization for
             planning events in the University of Maryland community.
         </p>
-<br>
+        <br>
     <div class="connectWith">
+        <!--  This div contains the Instagram icon photo always as linked text that will open a new page for the Lucid Productions Instagram -->
         <a id="Instagram" href="https://instagram.com/lucideventprod" target="_blank"><p><strong>Connect With
             Us! </strong></p></a>
         <img src="/static/images/instagram.png" id="instagram" alt="Instagram Logo">
-
     </div>
-
-
 </div>
-
 
 <footer-component></footer-component>
 </body>
