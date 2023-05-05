@@ -199,14 +199,7 @@ def managementUsers():
 @login_required
 @role_required(['ADMIN'])
 def management_view_user():
-    print(request.args.get('user_id'))
     curr_user = User.query.filter_by(user_id=request.args.get('user_id')).one()
-    print(curr_user.first_name)
-    print(curr_user.last_name)
-    print(curr_user.email)
-    print(curr_user.phone)
-    print(curr_user.zipcode)
-
     return render_template('management/managementviewusers.html', curr_user=curr_user);
 #route that allows managers to view user details
 

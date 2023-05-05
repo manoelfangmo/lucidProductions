@@ -18,10 +18,20 @@
 
 <div class="right">
     <h1 id="header"> Inquiry Information</h1>
-<form action="{{ url_for('management.delete_inquiry') }}" method="POST">
+
+{%  if inquiry_command == '2' %}
+<form action="{{ url_for('management.delete_contract_inquiry') }}" method="POST">
+    <input type="hidden" name="contract_inquiry_id" value="{{ curr_inquiry.contract_inquiry_id }}">
+    <button type="submit">Delete Inquiry</button>
+</form>
+
+{%  elif inquiry_command == '1'  %}
+<form action="{{ url_for('management.delete_event_inquiry') }}" method="POST">
     <input type="hidden" name="event_Inquiry_Id" value="{{ curr_inquiry.event_Inquiry_Id }}">
     <button type="submit">Delete Inquiry</button>
 </form>
+
+{%  endif  %}
 
     <div class="formContent">
 

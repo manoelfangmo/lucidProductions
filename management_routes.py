@@ -86,23 +86,36 @@ def management_view_contract_inquiry():
 def management_download_sample():
     curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
     blob_data = curr_inquiry.sample
-    return send_file(BytesIO(blob_data),download_name="sample.pdf", as_attachment=True)
+    return send_file(BytesIO(blob_data), download_name="sample.pdf", as_attachment=True)
 
 @management_bp.route('/management/users/adduser')
 @login_required
 @role_required(['ADMIN'])
 def management_add_user():
     return render_template('management/managementaddusers.html')
-@management_bp.route('/management/inquiries/viewInquiry/delete', methods=['POST'])
+@management_bp.route('/management/inquiries/viewInquiry/deleteContract', methods=['POST'])
 @login_required
 @role_required(['ADMIN'])
-def delete_inquiry():
+def delete_contract_inquiry():
+    inquiry_id = request.form['contract_worker_id']
+    if inquiry_id == request.form['contract_worker_id']:
+        delete_inquiry = ContractWorker.query.filter_by(contract_worker_id=inquiry_id).first()
+        db.session.delete(delete_inquiry)
+        db.session.commit()
+        flash('Inquiry deleted successfully', 'success')
+    return redirect(url_for('management.managementInquiries'), inquiry_command=1)
+
+@management_bp.route('/management/inquiries/viewInquiry/deleteEvent', methods=['POST'])
+@login_required
+@role_required(['ADMIN'])
+def delete_event_inquiry():
     inquiry_id = request.form['event_Inquiry_Id']
-    delete_inquiry = EventInquiry.query.filter_by(event_Inquiry_Id=inquiry_id).first()
-    db.session.delete(delete_inquiry)
-    db.session.commit()
-    flash('Inquiry deleted successfully', 'success')
-    return redirect(url_for('management.managementInquiries'))
+    if inquiry_id == request.form['event_Inquiry_Id']:
+        delete_inquiry = EventInquiry.query.filter_by(event_Inquiry_Id=inquiry_id).first()
+        db.session.delete(delete_inquiry)
+        db.session.commit()
+        flash('Inquiry deleted successfully', 'success')
+    return redirect(url_for('management.managementInquiries'), inquiry_command=2)
 
 
 @management_bp.route('/management/reviews', methods=['GET'])
