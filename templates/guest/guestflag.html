@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Flagged Events</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/gaccount.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
     <link rel="stylesheet" type="text/css" href="/static/css/background.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <script> {% if user_is_guest is defined %}let userIsGuest = {{ user_is_guest|tojson }} {% endif %}</script>
     <script src="/static/scripts/guestAccountNavigation.js" type="application/javascript" defer></script>
     <script src="https://kit.fontawesome.com/fc88626b57.js" crossorigin="anonymous"></script>
-    <script src="/static/scripts/flagEvent.js" type="application/javascript" defer></script>
-    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
 
 </head>
 <body>
@@ -19,21 +17,19 @@
 <div class="right">
     <h1 id="header"> Account
         <br>
-        <br>
-        <p1 id="reviewHead"> Flagged Events</p1>
+        <h2 id="reviewHead"> Flagged Events</h2>
     </h1>
-</div>
-<div class="mainContainer">
-    <div class="events">
+    <div class="mainContent">
         {% for each_flyer,id in zip(flyers,event_ids) %}
         <div class="event" data-eventId={{ id }}>
-            <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}">
+            <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}" class="eventEditor">
             </a>
-            <div> </div>
-            <div> </div>
-        {% endfor %}
         </div>
+            {% endfor %}
+
     </div>
+</div>
+
 </div>
 </body>
 </html>

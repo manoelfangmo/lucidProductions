@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contract Worker Inquiries</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/eventInquiry.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/contractWorker.css">
     <link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
@@ -18,8 +18,9 @@
 <div class="mainContainer">
 
     {% if form_submitted %}
+        <div class = submitMessageDiv>
         <div class="submitMessage">
-            <h2>Thank You For Completing The Form </h2>
+            <h1 id="submitHeading">Thank You For Completing The Form </h1>
         </div>
         <div class="submitMessage">
             <p>Event Type: {{ request.form.get('event_type') }} </p>
@@ -34,14 +35,16 @@
             <p>Occupation: {{ request.form.get('occupation') }} </p>
         </div>
         <div class="submitMessage">
-            <p>Sample: {{ request.form.get('sample') }} </p>
+            <p>Sample: {{ request.files.get('sample') }} </p>
         </div>
-        <p><a href="{{ url_for('contractWorker') }}">Complete form again</a></p>
-
+            <div class="submitMessage">
+            <p>Services you are looking to provide: {{ request.form.get('event_needs') }} </p>
+        </div>
+        <a href="{{ url_for('contractWorker') }}" id="completeAgain"><h3><< Complete form again</h3></a>
+    </div>
     {% else %}
         <form class="row g-3" action="{{ url_for('contractWorker') }}" method="post" enctype="multipart/form-data">
             <h1><strong>Contract Worker Inquiry Form</strong></h1>
-            <form>
                 <div class="formContent">
 
                     <div class="left">
@@ -66,7 +69,6 @@
 
 
                 <button class="button" type="submit" value="upload"> Submit</button>
-            </form>
 
 
         </form>

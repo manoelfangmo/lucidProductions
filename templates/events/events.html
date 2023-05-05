@@ -36,6 +36,9 @@
             <div class="time"> {{ date.weekday }} <br> {{ date.monthday }} <br> {{ date.month }}</div>
             {% if user_is_guest %}
             <i class="fa-solid fa-bookmark fa-3x" id="flagIcon"></i>
+            {% elif auth_but_not_guest %}
+                <a href="{{ url_for('access_denied',error="Only a guest can flag an event", next=request.path) }}"><i
+                    class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon"></i> </a>
             {% else %}
             <a href="{{ url_for('user_authentication.auth_login',error="Please login as Guest to flag an event", next=request.path) }}"><i
                     class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon"></i> </a>
