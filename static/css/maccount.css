@@ -139,7 +139,7 @@ p {
 
 .inquiriesAnalytics {
     background: #ff781f;
-    width: 250px;
+    width: 230px;
     height: 110px;
     justify-content: center;
     border-radius: 30px;
@@ -148,7 +148,7 @@ p {
 
 .ratingsAnalytics {
     background: #b042ff;
-    width: 250px;
+    width: 230px;
     height: 110px;
     justify-content: center;
     border-radius: 30px;
@@ -157,7 +157,7 @@ p {
 
 .contractAnalytics {
     background: blue;
-    width: 250px;
+    width: 230px;
     height: 110px;
     justify-content: center;
     border-radius: 30px;
@@ -166,7 +166,7 @@ p {
 
 .numMgmtUsers {
     background: limegreen;
-    width: 250px;
+    width: 230px;
     height: 110px;
     margin-right: 5%;
     justify-content: center;
@@ -183,7 +183,27 @@ p {
     align-items: center;
 }
 
+.avgAge {
+    display: flex;
+    align-items: center;
+}
+
+.avgAgeGuest {
+   background: darkgoldenrod;
+    width: 230px;
+    height: 110px;
+    margin-right: 5%;
+    justify-content: center;
+    border-radius: 30px;
+}
+
 .numMgmtUsersHeader {
+    color: white;
+    font-weight: lighter;
+    font-family: gill sans;
+}
+
+.avgAgeGuestHeader {
     color: white;
     font-weight: lighter;
     font-family: gill sans;
@@ -230,5 +250,6 @@ p {
 
 .parent {
     height: 80%;
-    background-color: floralwhite
+    background-color: floralwhite;
+
 }
