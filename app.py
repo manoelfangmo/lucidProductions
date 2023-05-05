@@ -282,11 +282,17 @@ def eventInquiry():
 @role_required(['CLIENT'])
 def client_events():
     curr_client_events = Event.query.filter_by(user_id=current_user.user_id).all()
-    print(curr_client_events)
     flyers = []
     for event in curr_client_events:
         flyers.append(b64encode(event.event_image).decode('utf-8'))
     return render_template('clientEvents.html', flyers=flyers, events=curr_client_events,zip=zip);
+
+@app.route('/client/reviews')
+@login_required
+@role_required(['CLIENT'])
+def client_reviews():
+    curr_client_reviews = db.session.query(Review, Event.event_name).join(Event).filter(Event.user_id == current_user.user_id).all()
+    return render_template('management/managementreviews.html', reviews=curr_client_reviews, isClient=True)
 
 
 
