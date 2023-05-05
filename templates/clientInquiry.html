@@ -6,10 +6,10 @@
     <title>Create New Event</title>
     <link rel="stylesheet" type="text/css" href="/static/css/eventInquiry.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
-    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
-    <script src="/static/scripts/editEventModal.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/modal.js" defer></script>
+    <script src="/static/scripts/editEventModal.js" defer></script>
     <link rel="stylesheet" href="/static/css/background.css">
-    <script src="/static/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/clientAccountNavigation.js" defer></script>
 
 </head>
 <body>
@@ -46,7 +46,7 @@
                     <p>Event Needs: {{ request.form.get('event_needs') }} </p>
                 </div>
 
-                <a href="{{ url_for('eventInquiry') }}"><h3><< Complete form again</h3></a>
+                <a href="{{ url_for('eventInquiry') }}"><h3>&lt;&lt; Complete form</h3></a>
             </div>
         {% else %}
 
@@ -68,7 +68,7 @@
                 </div>
                 <div class="rightForm">
 
-                    <label for="event_needs"> What are your event needs? </label></strong>
+                    <label for="event_needs"> What are your event needs? </label>
                     <textarea id="event-needs" name="event_needs"></textarea>
                 </div>
             </div>
