@@ -79,6 +79,23 @@ form button {
 
 }
 
+.submitMessage {
+    text-align: center;
+    margin-top: 10px;
+    line-height: 2.5;
+}
+
+.submitMessage p a {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color:blue
+}
+
+
+
+
+
 
 
 
