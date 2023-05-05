@@ -15,7 +15,7 @@ visualizations_bp = Blueprint('visualizations', __name__)
 
 @visualizations_bp.route('/management/analytics')
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def management_analytics():
     # Average Review Rating
     avg_rating = db.session.query(func.avg(Review.review_rating).label('average rating')).scalar()

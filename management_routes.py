@@ -5,7 +5,7 @@ from flask_login import login_required
 from sqlalchemy.orm import defer
 
 from authorize import role_required
-from models import db, Event, EventInquiry, ContractWorker, Review
+from models import db, Event, EventInquiry, ContractWorker, Review, User
 from datetime import date, time, datetime
 from base64 import b64encode, b64decode
 
@@ -13,7 +13,7 @@ management_bp = Blueprint('management', __name__)
 
 @management_bp.route('/management/event', methods=['GET', 'POST'])
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def management_event():
     if request.method == 'POST':
         if"event_id" in request.form and request.form["event_id"]: ## if updating or deleting event
@@ -57,7 +57,7 @@ def management_event():
 
 @management_bp.route('/management/inquiries')
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def managementInquiries():
     event_inquiry_ids = [event_inquiry.event_Inquiry_Id for event_inquiry in EventInquiry.query.all()]
     contract_inquiry_ids = [contract_worker.contract_inquiry_id for contract_worker in ContractWorker.query.all()]
@@ -67,7 +67,7 @@ def managementInquiries():
 
 @management_bp.route('/management/inquiries/viewInquiry', methods=['GET', 'POST'])
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def management_view_inquiry():
     curr_inquiry = EventInquiry.query.filter_by(event_Inquiry_Id=request.args.get('inquiry_id')).one()
 
@@ -75,14 +75,14 @@ def management_view_inquiry():
 
 @management_bp.route('/management/inquiries/viewContractInquiry', methods=['GET', 'POST'])
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def management_view_contract_inquiry():
     curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
     return render_template('management/managementviewinquiry.html', curr_inquiry=curr_inquiry, isContractInquiry=True)
 
 @management_bp.route('/management/inquiries/viewContractInquiry/sample', methods=['GET', 'POST'])
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def management_download_sample():
     curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
     blob_data = curr_inquiry.sample
@@ -90,12 +90,12 @@ def management_download_sample():
 
 @management_bp.route('/management/users/adduser')
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def management_add_user():
     return render_template('management/managementaddusers.html')
 @management_bp.route('/management/inquiries/viewInquiry/deleteContract', methods=['POST','GET'])
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def delete_contract_inquiry():
     inquiry_id = request.args.get('contract_inquiry_id')
     inquiry = ContractWorker.query.filter_by(contract_inquiry_id=inquiry_id).first()
@@ -106,7 +106,7 @@ def delete_contract_inquiry():
 
 @management_bp.route('/management/inquiries/viewInquiry/deleteEvent', methods=['POST','GET'])
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def delete_event_inquiry():
     inquiry_id = request.args.get('event_Inquiry_Id')
     inquiry = EventInquiry.query.filter_by(event_Inquiry_Id=inquiry_id).first()
@@ -118,10 +118,19 @@ def delete_event_inquiry():
 
 @management_bp.route('/management/reviews', methods=['GET'])
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def management_reviews():
     reviews = db.session.query(Review, Event.event_name) \
         .join(Event, Review.event_id == Event.event_id) \
         .all()
 
     return render_template('management/managementreviews.html', reviews=reviews)
+@management_bp.route('/managementaccount/delete', methods=['GET','POST'])
+@login_required
+@role_required(['MANAGER'])
+def delete_management_user():
+    user_id = request.args.get('user_id') ##if deleting a specific user that is not the current user
+    management_user = User.query.filter_by(user_id=user_id).first()
+    db.session.delete(management_user)
+    db.session.commit()
+    return redirect(url_for('managementUsers'))

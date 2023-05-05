@@ -60,7 +60,7 @@
             <h3 id="modal">Are you sure you want to delete this account?</h3>
 
 
-            <a href="{{ url_for('user_authentication.delete_user', deleting_admin_account=True, user_id=curr_user.user_id) }}">
+            <a href="{{ url_for('management.delete_management_user', user_id=curr_user.user_id) }}">
                 <button>Delete User</button>
             </a>
 

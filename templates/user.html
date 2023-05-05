@@ -22,7 +22,7 @@
 {% elif user_role == 'CLIENT'  %}
     <client-navigation-component></client-navigation-component>
 
-{% elif user_role == 'ADMIN'  %}
+{% elif user_role == 'ADMIN' or user_role == 'MANAGER' %}
     <management-navigation-component></management-navigation-component>
 
 {% endif %}
@@ -35,7 +35,6 @@
     <h2 id="reviewHead">Personal Information</h2>
     <br>
     <br>
-
     <form action="{{ url_for('user_authentication.user') }}" method="post">
         <div class="row">
             <div class="col">

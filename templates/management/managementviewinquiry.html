@@ -57,7 +57,11 @@
               </div>
 
             {% endif %}
+            {% if isContractInquiry %}
+            <label for="event_needs"> Services Provided: </label>
+            {% else %}
             <label for="event_needs"> Event Needs: </label>
+            {% endif %}
             <textarea id="event-needs" name="event_needs" readonly="readonly">{{ curr_inquiry.event_needs }}</textarea>
         </div>
     </div>

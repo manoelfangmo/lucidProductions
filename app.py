@@ -1,4 +1,6 @@
 import os
+import random
+
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_login import LoginManager, login_required, current_user, logout_user
 from sqlalchemy import func
@@ -22,7 +24,7 @@ app = Flask(__name__)
 app.register_blueprint(management_bp)
 app.register_blueprint(user_authentication_bp)
 app.register_blueprint(visualizations_bp)
-#Above lines establish and link new py files. Separated python files by key differences in order to not have one massive py file
+# Above lines establish and link new py files. Separated python files by key differences in order to not have one massive py file
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'lucid.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'beyond_course_scope'
@@ -35,8 +37,10 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id)) #
-#loads user from user id in database and becomes able to access across system
+    return User.query.get(int(user_id))  #
+
+
+# loads user from user id in database and becomes able to access across system
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -50,7 +54,8 @@ def logout():
     flash(f'You have been logged out.', 'success')
     return redirect(url_for('home'))
 
-#routes that handle all login and logout info
+
+# routes that handle all login and logout info
 
 @app.route('/')
 def home():
@@ -80,7 +85,8 @@ def guestFlag():
             # Remove the event from the list of flagged events
             flagged_events.pop(event_id)
     return render_template('guest/guestflag.html', flyers=flyers, zip=zip, event_ids=event_ids)
-    #route that handles flag functionality. ALlows guest users to flag and unflag events they are interested in
+    # route that handles flag functionality. ALlows guest users to flag and unflag events they are interested in
+
 
 @app.route('/events')
 def events():
@@ -107,7 +113,9 @@ def events():
     else:
         flash(f'Unable To Load Events', 'error')
         return redirect(url_for('home'))
-#events page route, shows past events sorted by date and  all events that have yet to occur.
+
+
+# events page route, shows past events sorted by date and  all events that have yet to occur.
 
 
 @app.route('/events/flagEvent', methods=['POST'])
@@ -120,7 +128,9 @@ def flag_event():
     db.session.add(flag)
     db.session.commit()
     return "Event Flagged Successfully"
-#route handling flagging events
+
+
+# route handling flagging events
 
 @app.route('/events/flagEvent/deleteFlag', methods=['POST'])
 @login_required
@@ -132,7 +142,9 @@ def delete_flag_event():
     db.session.delete(flag)
     db.session.commit()
     return "Flag Deleted Successfully"
-#route handling flag deletion
+
+
+# route handling flag deletion
 @app.route('/events/eventDetails/<event_id>', methods=['GET'])
 def event_details(event_id):
     curr_event = Event.query.filter_by(event_id=event_id).one()
@@ -148,7 +160,9 @@ def event_details(event_id):
     return render_template('events/eventDetails.html', event=curr_event, currentDate=date.today(), flyer=flyer,
                            date=curr_event_date, time=curr_event_time, event_id=event_id, user_is_guest=user_is_guest,
                            auth_but_not_guest=auth_but_not_guest)
-#route for more specific event information, specified by event id primary key when clicked on from events page
+
+
+# route for more specific event information, specified by event id primary key when clicked on from events page
 
 @app.route('/collaborations')
 def collaborations():
@@ -175,7 +189,9 @@ def reviews():
     db.session.commit()
 
     return redirect(url_for('event_details', event_id=event_id))
-#primary code handling reviews, including storing and retrieving guest submitted data through POST request
+
+
+# primary code handling reviews, including storing and retrieving guest submitted data through POST request
 
 @app.route('/management')
 def management():
@@ -184,14 +200,14 @@ def management():
 
 @app.route('/management/analytics')
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def managementAnalytics():
     return render_template('management/managementanalytics.html');
 
 
 @app.route('/management/users')
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def managementUsers():
     admin_users = User.query.filter(User.role == 'ADMIN').all()
     admin_user_ids = [user.user_id for user in admin_users]
@@ -200,11 +216,13 @@ def managementUsers():
 
 @app.route('/management/users/viewUser')
 @login_required
-@role_required(['ADMIN'])
+@role_required(['ADMIN','MANAGER'])
 def management_view_user():
     curr_user = User.query.filter_by(user_id=request.args.get('user_id')).one()
     return render_template('management/managementviewusers.html', curr_user=curr_user);
-#route that allows managers to view user details
+
+
+# route that allows managers to view user details
 
 @app.route('/guest/delete/<int:user_id>')
 def guest_delete(user_id):
@@ -217,8 +235,6 @@ def guest_delete(user_id):
     else:
         flash(f'Delete failed! Guest could not be found.', 'error')
         return redirect(url_for('guest_view'))
-
-
 
 
 @app.route('/client/contractWorker', methods=['GET', 'POST'])
@@ -259,12 +275,13 @@ def eventInquiry():
     else:
         return render_template('clientInquiry.html');
 
-#prior two routes display submission forms for clients and potential contract workers to apply for work or send inquiry to management
+
+# prior two routes display submission forms for clients and potential contract workers to apply for work or send inquiry to management
 @app.route('/accessDenied')
 @login_required
 def access_denied():
     error = request.args.get('error', None)
-    return render_template('access_denied.html', error =error);
+    return render_template('access_denied.html', error=error);
 
 
 if __name__ == '__main__':
@@ -277,6 +294,7 @@ if __name__ == '__main__':
         for image in image_list:
             with open(image, 'rb') as file:
                 image_as_binary.append(file.read())
+
         preloadedEvents = [{'event_name': 'Valentine\'s  Party', 'event_description': 'Dance the night away for only '
                                                                                       '$5, and get your tickets in our '
                                                                                       'bios before the price goes up!',
@@ -316,6 +334,9 @@ if __name__ == '__main__':
              'dob': date(2000, 5, 15), 'zipcode': 20783},
             {'username': 'admin', 'email': 'admin@umd.edu', 'first_name': 'Lucid', 'last_name': 'ADMIN',
              'password': generate_password_hash('adminpw', method='sha256'), 'role': 'ADMIN', 'phone': 1234567890,
+             'dob': date(2000, 5, 15), 'zipcode': 20783},
+            {'username': 'manager', 'email': 'manager@umd.edu', 'first_name': 'Lucid', 'last_name': 'MANAGER',
+             'password': generate_password_hash('managerpw', method='sha256'), 'role': 'MANAGER', 'phone': 1234567890,
              'dob': date(2000, 5, 15), 'zipcode': 20783}
         ]
 
@@ -326,27 +347,45 @@ if __name__ == '__main__':
                           password=each_user['password'], role=each_user['role'])
             db.session.add(a_user)
 
-        reviews = [
-            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
-            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
-            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
-            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
-            {'review_rating': 4, 'review_text': 'ansfjs', 'event_id': 1, 'user_id': 2},
+        review_text = ["I really enjoyed this event!", "The experience was amazing.",
+                       "I had a great time at this event.", "The event was well-organized and fun.",
+                       "I would definitely attend this event again.", "This event was a huge disappointment.",
+                       "I didn't enjoy this event at all.", "The event was poorly organized and chaotic.", ]
 
-        ]
+        reviews = []
+
+        for i in range(5):
+            rating = random.randint(1, 5)
+            text = random.choice(review_text)
+            event_id = random.randint(1, 3)
+
+            review = {'review_rating': rating, 'review_text': text, 'event_id': event_id, 'user_id': 2}
+            reviews.append(review)
 
         for each_review in reviews:
             a_review = Review(review_rating=each_review['review_rating'], review_text=each_review['review_text'],
                               event_id=each_review['event_id'], user_id=each_review['user_id'])
             db.session.add(a_review)
 
+        event_types = ['concert', 'conference', 'fundraiser', 'team building', 'trade show', 'other']
+
+        client_needs_text = 'I am looking for a spacious venue to host my upcoming event, and I require the ' \
+                            'availability of high-quality audio and video equipment to ensure that my guests can ' \
+                            'enjoy a multimedia experience. The venue should be large enough to comfortably ' \
+                            'accommodate a sizeable audience, with ample seating and room for equipment setup. The ' \
+                            'audio system should be able to deliver clear, crisp sound that can be heard throughout ' \
+                            'the space, while the video equipment should be of sufficient quality to provide sharp, ' \
+                            'vivid images on a large screen.'
         eventInquiries = [
-            {'user_id': 1, 'event_type': 'bday party', 'name': 'sample inquirer',
-             'phone': '3011234567', 'company': 'SOAL Sound', 'email': 'inquirer@umd.edu',
-             'event_needs': 'whole lotta gang sh*t'},
-            {'user_id': 2, 'event_type': 'wedding party', 'name': 'sample inquirer 2',
-             'phone': '3011234568', 'company': 'OVO Sound', 'email': 'inquirer2@umd.edu',
-             'event_needs': 'whole lotta gang sh*t ma negg'}
+            {'user_id': 1, 'event_type': random.choice(event_types), 'name': 'John Doe',
+             'phone': '2025551234', 'company': 'ABC Inc', 'email': 'johndoe@example.com',
+             'event_needs': client_needs_text},
+            {'user_id': 1, 'event_type': random.choice(event_types), 'name': 'Jane Smith',
+             'phone': '2025555678', 'company': 'XYZ Corp', 'email': 'janesmith@example.com',
+             'event_needs': client_needs_text},
+            {'user_id': 1, 'event_type': random.choice(event_types), 'name': 'Bob Johnson',
+             'phone': '2025559012', 'company': '123 LLC', 'email': 'bobjohnson@example.com',
+             'event_needs': client_needs_text}
         ]
 
         for each_inquiry in eventInquiries:
@@ -356,7 +395,36 @@ if __name__ == '__main__':
                                            email=each_inquiry['email'], event_needs=each_inquiry['event_needs'])
             db.session.add(a_event_inquiry)
 
-        db.session.commit()
-    app.run()
+        document = None
+        with open('static/images/resume.pdf', 'rb') as file:
+            document = file.read()
+        event_needs_text = 'As a contract worker, I am able to provide a wide range of services to ensure the success ' \
+                           'of your event. This includes coordinating with vendors and suppliers to source necessary ' \
+                           'materials and equipment, setting up and breaking down event spaces, managing event ' \
+                           'logistics, and overseeing day-of operations. I am also able to provide event planning and ' \
+                           'coordination services, such as developing event themes, creating event timelines, ' \
+                           'and managing guest lists. In addition, I have experience in providing technical support ' \
+                           'and troubleshooting for event equipment, as well as managing event staff and volunteers.'
+        contractWorkerInquiries = [
+            {'event_type': random.choice(event_types), 'name': 'John Doe', 'email': 'johndoe@example.com',
+             'occupation': 'Event Planner', 'sample': document,
+             'event_needs': event_needs_text},
+            {'event_type': random.choice(event_types), 'name': 'John Doe', 'email': 'johndoe@example.com',
+             'occupation': 'Event Planner', 'sample': document,
+             'event_needs': event_needs_text},
+            {'event_type': random.choice(event_types), 'name': 'John Doe', 'email': 'johndoe@example.com',
+             'occupation': 'Event Planner', 'sample': document,
+             'event_needs': event_needs_text}
+        ]
+        for each_inquiry in contractWorkerInquiries:
+            inquiry = ContractWorker(event_type=each_inquiry['event_type'], name=each_inquiry['name'],
+                                     email=each_inquiry['email'],
+                                     occupation=each_inquiry['occupation'], sample=each_inquiry['sample'],
+                                     event_needs=each_inquiry['event_needs'])
 
-    #Code that allows preloaded data to be entered into lucid database, includes reviews, inquiries, users, and events
+            db.session.add(inquiry)
+
+        db.session.commit()
+        app.run()
+
+    # Code that allows preloaded data to be entered into lucid database, includes reviews, inquiries, users, and events
