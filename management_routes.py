@@ -134,7 +134,7 @@ def management_reviews():
     reviews = db.session.query(Review, Event.event_name) \
         .join(Event, Review.event_id == Event.event_id) \
         .all()
-
+    print(reviews)
     return render_template('management/managementreviews.html', reviews=reviews)
 
 
