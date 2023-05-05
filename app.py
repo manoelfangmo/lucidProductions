@@ -1,5 +1,6 @@
 import os
 import random
+from operator import and_
 
 from flask import Flask, render_template, redirect, url_for, flash, request
 from flask_login import LoginManager, login_required, current_user, logout_user
@@ -91,6 +92,17 @@ def guestFlag():
 @app.route('/events')
 def events():
     events = Event.query.options(defer(Event.event_image)).order_by(Event.event_date).all()
+    if 'value' in request.args:
+        today = date.today()
+        if request.args.get('value') == 'past':
+            events = Event.query.options(defer(Event.event_image)).filter(Event.event_date < today).order_by(
+                Event.event_date).all()
+        elif request.args.get('value') == 'upcoming':
+            events = Event.query.options(defer(Event.event_image)).filter(Event.event_date > today).order_by(
+                Event.event_date).all()
+        else:
+            events = Event.query.options(defer(Event.event_image)).order_by(Event.event_date).all()
+
     flyers = []
     dates = []
     event_ids = []

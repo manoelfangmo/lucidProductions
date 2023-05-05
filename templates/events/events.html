@@ -22,30 +22,30 @@
 <!-- Dropdown  menu to choose type of event-->
     <div class="dropDownMenu">
         <label for="events" id="browse">Browse: </label>
-        <select name="event" id="occurance">
-            <option value="pastEvent" id="eventOccurrences">All Events</option>
-            <option value="upcomingEvents" id="eventOccurrences">Upcoming Events</option>
-            <option value="futureEvents" id="eventOccurrences">Past Events</option>
+        <select name="event" id="occurance" onchange="redirect(this)">
+            <option value="all">All Events</option>
+            <option value="past">Past Events</option>
+            <option value="upcoming">Upcoming Events</option>
         </select>
     </div>
 <!-- shows all available events and allows event to be flagged to be diaplyed in account page under flagged events -->
     <div class="events">
         {% for each_flyer, date,id in zip(flyers,dates,event_ids) %}
-        <div class="event" data-eventId={{ id }}>
-            <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}">
-            </a>
-            <div class="time"> {{ date.weekday }} <br> {{ date.monthday }} <br> {{ date.month }}</div>
-            {% if user_is_guest %}
-            <i class="fa-solid fa-bookmark fa-3x" id="flagIcon"></i>
-            {% elif auth_but_not_guest %}
-                <a href="{{ url_for('access_denied',error="Only a guest can flag an event", next=request.path) }}"><i
-                    class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon"></i> </a>
-            {% else %}
-            <a href="{{ url_for('user_authentication.auth_login',error="Please login as Guest to flag an event", next=request.path) }}"><i
-                    class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon"></i> </a>
-            {% endif %}
+            <div class="event" data-eventId={{ id }}>
+                <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}">
+                </a>
+                <div class="time"> {{ date.weekday }} <br> {{ date.monthday }} <br> {{ date.month }}</div>
+                {% if user_is_guest %}
+                    <i class="fa-solid fa-bookmark fa-3x" id="flagIcon"></i>
+                {% elif auth_but_not_guest %}
+                    <a href="{{ url_for('access_denied',error="Only a guest can flag an event", next=request.path) }}"><i
+                            class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon"></i> </a>
+                {% else %}
+                    <a href="{{ url_for('user_authentication.auth_login',error="Please login as Guest to flag an event", next=request.path) }}"><i
+                            class="fa-solid fa-bookmark fa-3x" id="disabledFlagIcon"></i> </a>
+                {% endif %}
 
-        </div>
+            </div>
         {% endfor %}
 
 
