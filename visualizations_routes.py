@@ -7,6 +7,7 @@ from models import db, Event, User, Review, Flag, EventInquiry, ContractWorker
 from authorize import role_required
 import plotly.express as px
 import pandas as pd
+from datetime import date
 import datetime as dt
 from sqlalchemy import extract
 
@@ -15,7 +16,7 @@ visualizations_bp = Blueprint('visualizations', __name__)
 
 @visualizations_bp.route('/management/analytics')
 @login_required
-@role_required(['ADMIN','MANAGER'])
+@role_required(['ADMIN', 'MANAGER'])
 def management_analytics():
     # Average Review Rating
     avg_rating = db.session.query(func.avg(Review.review_rating).label('average rating')).scalar()
@@ -40,6 +41,17 @@ def management_analytics():
     num_client_users = db.session.query(
         func.count(User.user_id).filter(User.role == 'CLIENT').label('number of contract work inquiries')).scalar()
     num_client_users_int = int(num_client_users)
+
+    current_year = date.today().year
+
+    average_age_guest = db.session.query(
+        func.avg(current_year - extract('year', User.dob)).label('average_age_guest')
+    ).filter(User.role == 'guest').scalar()
+
+    if average_age_guest is None:
+        average_age_guest_int = 0
+    else:
+        average_age_guest_int = int(average_age_guest)
 
     qry_events_per_month = db.session.query(
         func.strftime('%Y-%m', Event.event_date).label('Month'),
@@ -67,5 +79,5 @@ def management_analytics():
                            num_event_inquiries=num_event_inquiries_int,
                            num_contract_inquiries=num_contract_inquiries_int,
                            num_management_users=num_management_users_int, num_guest_users=num_guest_users_int,
-                           num_client_users=num_client_users_int,
+                           num_client_users=num_client_users_int, average_age_guest=average_age_guest_int,
                            events_per_month_graph=events_per_month_figJSON)

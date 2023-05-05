@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Flagged Events</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/guestFlag.css">
     <link rel="stylesheet" type="text/css" href="/static/css/background.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <script> {% if user_is_guest is defined %}let userIsGuest = {{ user_is_guest|tojson }} {% endif %}</script>
@@ -20,12 +20,15 @@
         <h2 id="reviewHead"> Flagged Events</h2>
     </h1>
     <div class="mainContent">
+    <div class="events">
         {% for each_flyer,id in zip(flyers,event_ids) %}
         <div class="event" data-eventId={{ id }}>
             <a href="{{ url_for('event_details',event_id=id) }}"> <img src="data:image/jpg;base64,{{ each_flyer }}" class="eventEditor">
             </a>
+        <a href="{{ url_for('guest_account_delete_flag',event_id=id) }}"><img src="/static/images/delete.png" id="deleteIcon"></a>
         </div>
             {% endfor %}
+    </div>
 
     </div>
 </div>
