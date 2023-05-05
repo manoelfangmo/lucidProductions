@@ -18,7 +18,7 @@
 <div class="mainContainer">
 <!-- Dropdown  menu to choose type of event-->
     <div class="dropDownMenu">
-        <label for="events" name="browse">
+        <label for="events">
             Browse:
         </label>
         <select name="event" id="occurance">
@@ -27,7 +27,7 @@
             <option value="futureEvents" id="eventOccurrences3">Past Events</option>
         </select>
     </div>
-<!-- shows all available events and allows event to be flagged to be diaplyed in account page under flagged events -->
+<!-- shows all available events and allows event to be flagged to be displayed in account page under flagged events -->
     <div class="events">
         {% for each_flyer, date,id in zip(flyers,dates,event_ids) %}
         <div class="event" data-eventId={{ id }}>
