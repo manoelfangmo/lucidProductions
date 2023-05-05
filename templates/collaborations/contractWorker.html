@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contract Worker Inquiries</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/eventInquiry.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/contractWorker.css">
     <link rel="stylesheet" href="/static/css/navbar.css">
     <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
@@ -16,25 +16,35 @@
 
 <navbar-component></navBar-component>
 <div class="mainContainer">
-<!-- Form to gather information from users who are interested in becoming a contractor or vendor. -->
+
     {% if form_submitted %}
+        <div class = submitMessageDiv>
         <div class="submitMessage">
-            <h2>Thank You For Completing Our Inquiry Form! </h2>
+            <h1 id="submitHeading">Thank You For Completing The Form </h1>
         </div>
         <div class="submitMessage">
             <p>Event Type: {{ request.form.get('event_type') }} </p>
-            <p>Name: {{ request.form.get('name') }} </p>
-            <p>Email: {{ request.form.get('email') }} </p>
-            <p>Occupation: {{ request.form.get('occupation') }} </p>
-            <p>What Services Are You Looking To Provide?: {{ request.form.get('event_needs') }} </p>
-        <p><a href="{{ url_for('contractWorker') }}">Complete form again!</a></p>
         </div>
-<!--  If form is submitted,  code displays a thank you message and submitted information. If the
-form has not been submitted then form is shown for  user to fill out. -->
+        <div class="submitMessage">
+            <p>Name: {{ request.form.get('name') }} </p>
+        </div>
+        <div class="submitMessage">
+            <p>Email: {{ request.form.get('email') }} </p>
+        </div>
+        <div class="submitMessage">
+            <p>Occupation: {{ request.form.get('occupation') }} </p>
+        </div>
+        <div class="submitMessage">
+            <p>Sample: {{ request.files.get('sample') }} </p>
+        </div>
+            <div class="submitMessage">
+            <p>Services you are looking to provide: {{ request.form.get('event_needs') }} </p>
+        </div>
+        <a href="{{ url_for('contractWorker') }}" id="completeAgain"><h3><< Complete form again</h3></a>
+    </div>
     {% else %}
         <form class="row g-3" action="{{ url_for('contractWorker') }}" method="post" enctype="multipart/form-data">
             <h1><strong>Contract Worker Inquiry Form</strong></h1>
-            <form>
                 <div class="formContent">
 
                     <div class="left">
@@ -59,7 +69,6 @@ form has not been submitted then form is shown for  user to fill out. -->
 
 
                 <button class="button" type="submit" value="upload"> Submit</button>
-            </form>
 
 
         </form>

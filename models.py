@@ -14,13 +14,15 @@ class Event(db.Model):
     event_description = db.Column(db.Text, nullable=False)
     event_image = db.Column(LargeBinary, nullable=False)
     event_time = db.Column(db.Time, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=True)
 
-    def __init__(self, event_name, event_date, event_description, event_image, event_time):
+    def __init__(self, event_name, event_date, event_description, event_image, event_time, user_id=None):
         self.event_name = event_name
         self.event_date = event_date
         self.event_description = event_description
         self.event_image = event_image
         self.event_time = event_time
+        self.user_id = user_id
 
     def __repr__(self):
         return f"{self.event_name}"

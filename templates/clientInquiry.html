@@ -3,79 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contract Worker Inquiries</title>
+    <title>Create New Event</title>
     <link rel="stylesheet" type="text/css" href="/static/css/eventInquiry.css">
-    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
+    <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/editEventModal.js" type="application/javascript" defer></script>
     <link rel="stylesheet" href="/static/css/background.css">
-    <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
 
+</head>
 <body>
 
-</head>
 
-<head>
+<client-navigation-component></client-navigation-component>
 
-    <navbar-component></navBar-component>
 
-</head>
-<label id="ty" style="color: blue"> <br> <a href="/"> <- Back to Home</a> </label>
-</div>
-</div>
-</div>
+<div class="right">
+    <h1 id="header"> Submit Inquiries</h1>
+    <div class="mainContent">
+        {% if form_submitted %}
+            <div class=submitMessageDiv>
 
-<label id="ty" style="color: blue"> <br> <a href="/"> <- Back to Home</a> </label>
-</div>
-</div>
-</div>
-<!-- Form to gather information from users who are interested in hosting an event. -->
-{% if form_submitted %}
-    <div class="submitMessage">
-        <h2>Thank You For Completing Our Inquiry Form! </h2>
-        <p>Event Type: {{ request.form.get('event_type') }} </p>
-        <p>Name: {{ request.form.get('name') }} </p>
-        <p>Email: {{ request.form.get('email') }} </p>
-        <p>Occupation: {{ request.form.get('occupation') }} </p>
-        <p>Sample: {{ request.form.get('sample') }} </p>
-        <p><a href="{{ url_for('contractWorker') }}">Complete form again!</a></p>
-    </div>
-    <!--  If form is submitted,  code displays a thank you message and submitted information. If the
-    form has not been submitted then form is shown for user to fill out. -->
-{% else %}
-
-    <form class="row g-3" action="{{ url_for('eventInquiry') }}" method="post">
-        <div class="mainContainer">
-            <h1><strong>Event Services Inquiry Form</strong></h1>
-            <form>
-                <div class="formContent">
-
-                    <div class="left">
-
-                        <label for="eventType"> Event Type: </label>
-                        <input type="text" id="event-type" name="event_type"> <br>
-                        <label for="name"> Name: </label>
-                        <input type="text" id="name" name="name"> <br>
-                        <label for="phone"> Phone: </label>
-                        <input type="text" id="phone" name="phone"> <br>
-                        <label for="company"> Company: </label>
-                        <input type="text" id="company" name="company"> <br>
-                        <label for="email"> Email: </label>
-                        <input type="email" id="email" name="email"> <br>
-                    </div>
-                    <div class="right">
-
-                        <label for="event_needs"> What are your event needs? </label></strong>
-                        <textarea id="event-needs" name="event_needs"></textarea>
-                    </div>
+                <div class="submitMessage">
+                    <h2>Thank You For Completing The Form </h2>
+                </div>
+                <div class="submitMessage">
+                    <p>Event Type: {{ request.form.get('event_type') }} </p>
+                </div>
+                <div class="submitMessage">
+                    <p>Name: {{ request.form.get('name') }} </p>
+                </div>
+                <div class="submitMessage">
+                    <p>Phone: {{ request.form.get('phone') }} </p>
+                </div>
+                <div class="submitMessage">
+                    <p>Company: {{ request.form.get('company') }} </p>
+                </div>
+                <div class="submitMessage">
+                    <p>Email: {{ request.form.get('email') }} </p>
+                </div>
+                <div class="submitMessage">
+                    <p>Event Needs: {{ request.form.get('event_needs') }} </p>
                 </div>
 
+                <a href="{{ url_for('eventInquiry') }}"><h3><< Complete form again</h3></a>
+            </div>
+        {% else %}
 
-                <button> Submit</button>
-            </form>
+            <form class="row g-3" action="{{ url_for('eventInquiry') }}" method="post">
+            <div class="formContent">
+
+                <div class="leftForm">
+
+                    <label for="eventType"> Event Type: </label>
+                    <input type="text" id="event-type" name="event_type"> <br>
+                    <label for="name"> Name: </label>
+                    <input type="text" id="name" name="name"> <br>
+                    <label for="phone"> Phone: </label>
+                    <input type="text" id="phone" name="phone"> <br>
+                    <label for="company"> Company: </label>
+                    <input type="text" id="company" name="company"> <br>
+                    <label for="email"> Email: </label>
+                    <input type="email" id="email" name="email"> <br>
+                </div>
+                <div class="rightForm">
+
+                    <label for="event_needs"> What are your event needs? </label></strong>
+                    <textarea id="event-needs" name="event_needs"></textarea>
+                </div>
+            </div>
 
 
-        </div>
-    </form>
-{% endif %}
-<footer-component></footer-component>
+            <button> Submit</button>
+        {% endif %}
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
 </body>
 </html>

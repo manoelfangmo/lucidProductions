@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create New Event</title>
+    <title>Lucid Events</title>
     <link rel="stylesheet" type="text/css" href="/static/css/managementEvents.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <script src="/static/scripts/modal.js" type="application/javascript" defer></script>
@@ -17,7 +17,6 @@
 
 <management-navigation-component></management-navigation-component>
 
-<!-- shows events and event details along with being able to add new event -->
 
 <div class="right">
     <h1 id="header"> Events</h1>
@@ -36,7 +35,7 @@
             </div>
         {% endfor %}
 
-<!-- can edit or delete any event and also shows details of event, pulls up form -->
+
     </div>
     <div id="myModal" class="modal">
 
@@ -54,6 +53,13 @@
                     <input type="date" id="fName" name="event_date" required> <br>
                     <label for="fName"> Event Time: </label>
                     <input type="time" id="fName" name="event_time" required> <br>
+                    <label for="cars">Choose a Client:</label>
+                    <select name="user_id" id="cars">
+                        <option value="NONE">None</option>
+                        {% for client in clients %}
+                        <option value={{ client.user_id }}>{{client.first_name  }} {{ client.last_name }}</option>
+                        {% endfor %}
+                    </select>
                     <label for="fName"> Event Description: </label>
                     <textarea type="text" id="fName" name="event_description" required> </textarea> <br>
                     <label for="chooseFile" id="chooseImageLabel"> <span id="fileLblPrompt">Change Image:</span>
@@ -62,7 +68,7 @@
                     <br>
                     <div class=buttonDiv>
                         <button class="button" type="submit" value="upload" name="save"> Save</button>
-                        <button class="button" id="deleteButton" type="submit" name="delete" >Delete</button>
+                        <button class="button" id="deleteButton" type="submit" name="delete">Delete</button>
 
                     </div>
 

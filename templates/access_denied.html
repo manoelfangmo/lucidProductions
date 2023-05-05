@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Access Denied</title>
+        <link rel="stylesheet" href="/static/css/accessDenied.css">
     <link rel="stylesheet" href="/static/css/background.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
-    <script src="/static/scripts/createAccount.js" type="application/javascript" defer></script>
 </head>
 <body>
 
-<navigation-component></navigation-component>
 
+<h1 id="header"> Access Denied</h1>
+    <br>
+    <br>
+    <p id="reviewHead">You do not have access to this page.</p>
+    <br>
+    {% if variable is not none %}
+    <p >{{ error }}</p>
+    {% endif %}
+    <br>
 
-<div/>
-<h1 id="header"> Access Denied
-    <br>
-    <br>
-    <p1 id="reviewHead">You do not have access to this page.</p1>
-    <br>
-    <br>
-</h1>
-<a href="/"><p id="backToHome">Back to Home</p></a>
-</h1>
+<a href="/"><h2 id="backToHome">Back to Home</h2></a>
 
 </body>

@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Management Reviews</title>
+    <title>Reviews</title>
     <link rel="stylesheet" type="text/css" href="/static/css/managementReviews.css">
     <link rel="stylesheet" type="text/css" href="/static/css/accountNavigation.css">
     <link rel="stylesheet" href="/static/css/background.css">
     <script src="/static/scripts/managementAccountNavigation.js" type="application/javascript" defer></script>
+    <script src="/static/scripts/clientAccountNavigation.js" type="application/javascript" defer></script>
 
 </head>
 <body>
 
+{% if isClient is defined %}
+<client-navigation-component></client-navigation-component>
+{% else %}
+    <management-navigation-component></management-navigation-component>
+{% endif %}
 
-<management-navigation-component></management-navigation-component>
-
-<!-- Shows all reviews of events along with the details of the event -->
 
 <div class="right">
     <h1 id="header">Reviews </h1>

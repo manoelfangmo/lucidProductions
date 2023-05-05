@@ -221,6 +221,7 @@ p {
     width: 40%;
     border-radius: 15px;
     padding-top: 5%;
+    margin: auto;
 }
 
 .right {
@@ -229,5 +230,5 @@ p {
 
 .parent {
     height: 80%;
-  background-color: floralwhite;
+    background-color: floralwhite
 }

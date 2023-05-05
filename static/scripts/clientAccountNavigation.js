@@ -10,7 +10,9 @@ const clientAccountNavigation = '     <div class = "accountMenu">\n' +
     '            <img src="/static/images/user.png">\n' +
     '            <label style="color: blue"> <a href="/account"> Personal Information </a> </label> <br> <br>\n' +
     '            <img src="/static/images/event.png">\n' +
-    '            <label style="color: blue" > <a href="/management/event" id="c"> Events </a> </label> <br> <br>\n' +
+    '            <label style="color: blue" > <a href="/client/events" id="c"> Events </a> </label> <br> <br>\n' +
+    '            <img src="/static/images/review.png">\n' +
+    '            <label style="color: blue"> <a href="/client/reviews">Reviews</a> </label> <br> <br>\n' +
   '            <img src="/static/images/hello.webp">\n' +
     '            <label style="color: blue"> <a href="/client/interestForm">Inquiries</a> </label> <br> <br>\n' +
     '        </div>\n' +

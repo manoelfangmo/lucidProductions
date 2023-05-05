@@ -80,6 +80,23 @@ form button {
     border-radius: .5rem;
 }
 
+.submitMessageDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:  column;
+
+}
+
+.submitMessage{
+    margin: 1rem;
+}
+#completeAgain{
+    color: Blue;
+    text-underline-position: under;
+
+}
+
 
 
 
