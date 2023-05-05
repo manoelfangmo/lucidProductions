@@ -10,9 +10,8 @@
     <script src="/static/scripts/generalNavigation.js" type="application/javascript" defer></script>
     <script src="https://kit.fontawesome.com/fc88626b57.js" crossorigin="anonymous"></script>
     <script src="/static/scripts/flagEvent.js" type="application/javascript" defer></script>
-    <script src="/static/scripts/eventDate.js" type="application/javascript" defer></script>
-
     <title>Events</title>
+
 
 
 </head>
@@ -20,7 +19,7 @@
 <body>
 <navbar-component></navBar-component>
 <div class="mainContainer">
-    <!-- Dropdown  menu to choose type of event-->
+<!-- Dropdown  menu to choose type of event-->
     <div class="dropDownMenu">
         <label for="events" id="browse">Browse: </label>
         <select name="event" id="occurance" onchange="redirect(this)">
@@ -29,7 +28,7 @@
             <option value="upcoming">Upcoming Events</option>
         </select>
     </div>
-    <!-- shows all available events and allows event to be flagged to be diaplyed in account page under flagged events -->
+<!-- shows all available events and allows event to be flagged to be diaplyed in account page under flagged events -->
     <div class="events">
         {% for each_flyer, date,id in zip(flyers,dates,event_ids) %}
             <div class="event" data-eventId={{ id }}>
