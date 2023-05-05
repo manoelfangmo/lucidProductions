@@ -58,7 +58,7 @@ def management_event():
     client_users = User.query.filter(User.role == 'CLIENT').all()
     return render_template('management/managementevent.html', flyers=flyers, events=all_events, zip=zip,
                            clients=client_users)
-
+#The above code is for all event creation, which Manager and Admin roles can do. This allows these users to update and delete events that display on the event page. They will be greeted with a success message when complete.
 
 @management_bp.route('/management/inquiries')
 @login_required
@@ -68,7 +68,7 @@ def managementInquiries():
     contract_inquiry_ids = [contract_worker.contract_inquiry_id for contract_worker in ContractWorker.query.all()]
     return render_template('management/managementinquiries.html', event_inquiries=event_inquiry_ids,
                            contract_inquiries=contract_inquiry_ids);
-
+#This route allows admin and managers to view a list of all event and contract worker inquiries, sorted by inquiry type.
 
 @management_bp.route('/management/inquiries/viewInquiry', methods=['GET', 'POST'])
 @login_required
@@ -77,7 +77,7 @@ def management_view_inquiry():
     curr_inquiry = EventInquiry.query.filter_by(event_Inquiry_Id=request.args.get('inquiry_id')).one()
 
     return render_template('management/managementviewinquiry.html', curr_inquiry=curr_inquiry)
-
+#A route that gives more specific information on event inquiries and displays all submitted form information.
 
 @management_bp.route('/management/inquiries/viewContractInquiry', methods=['GET', 'POST'])
 @login_required
@@ -85,7 +85,7 @@ def management_view_inquiry():
 def management_view_contract_inquiry():
     curr_inquiry = ContractWorker.query.filter_by(contract_inquiry_id=request.args.get('inquiry_id')).one()
     return render_template('management/managementviewinquiry.html', curr_inquiry=curr_inquiry, isContractInquiry=True)
-
+#A route that gives more specific information on contract inquiries and displays all submitted form information.
 
 @management_bp.route('/management/inquiries/viewContractInquiry/sample', methods=['GET', 'POST'])
 @login_required

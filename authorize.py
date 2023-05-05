@@ -16,3 +16,5 @@ def role_required(roles):
             return func(*args, *kwargs)
         return wrapper
     return decorator
+
+#The primary function of this code is to verify if the correct user role is accessing a specific function or argument. If the wrong user type is attempting to access the page, they will be redirected to the access denied page.
