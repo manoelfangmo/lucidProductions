@@ -294,7 +294,11 @@ def client_reviews():
     curr_client_reviews = db.session.query(Review, Event.event_name).join(Event).filter(Event.user_id == current_user.user_id).all()
     return render_template('management/managementreviews.html', reviews=curr_client_reviews, isClient=True)
 
-
+@app.route('/accessDenied')
+@login_required
+def access_denied():
+    error = request.args.get('error', None)
+    return render_template('access_denied.html', error=error);
 
 if __name__ == '__main__':
     with app.app_context():
